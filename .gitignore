@@ -1,0 +1,6 @@
+/.lake/
+/.lean/
+*.olean
+*.ilean
+*.c
+*.o

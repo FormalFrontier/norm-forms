@@ -1,0 +1,86 @@
+{
+  "analyzed_source_revision": "54accffeba182bea1f6969c2f6d67a96a43dc6f7",
+  "analyzed_source_tree": "c7dbbf39c7acf315ada65f18f84f0ed276c73151",
+  "api_sha256": "49d69b0772e4961331558b63fc3b80996be3e86bfd402b6f38ee86f1ea787354",
+  "docgen_revision": "97d4ecdfc8e09e7f511724c25e303d448de6a3db",
+  "exposed_definitions": [
+    "NormForms.coordinateChange",
+    "NormForms.coordinateChangePolynomial",
+    "NormForms.coordinateNorm",
+    "NormForms.coordinateNormPolynomial"
+  ],
+  "format": 2,
+  "generator": "scripts/generate_api.py",
+  "inputs": {
+    "NormForms.lean": "15b92644efddc5f4251bd2966bb4943b9de43c73f1d53873c73a20cec7e600bc",
+    "NormForms/Coordinate.lean": "6a2f284a1a902654b7636f7918df2e420cbab8ff470804c82a3e355669b2231e",
+    "NormFormsTests.lean": "d530db0f5037db6ac722828349168b8e862309f5a094c52503b4dd78e2e39bea",
+    "NormFormsTests/Axioms.lean": "54d823ab799c0c380336875b4616c9e87489062818b387ec6adcb8b3fd894dad",
+    "NormFormsTests/Coordinate.lean": "4cdaf23a100e59f3c24fa40a5045b8acb61425535e4a47f3191a5b1eecde35ee",
+    "NormFormsTests/DirectAPI.lean": "bfb87349001aa5ead356cb2996df3a9a40f2810624b505fa45c597df429367cd",
+    "lake-manifest.json": "6642600cbe58cca9e288661987ecc3bb19cb4435f744412332c5b4b97f86a4e9",
+    "lakefile.toml": "52463d1c2aa8e2721397cdd0f3eecfe4d736850b8bd0408418c25830eee676ac",
+    "lean-toolchain": "8190e75a201741065fe508b28955dd64dd72d090babe5f70ce6848879d68ae88"
+  },
+  "instance_declarations": [],
+  "modules": [
+    "NormForms.Coordinate",
+    "NormForms",
+    "NormFormsTests.Coordinate",
+    "NormFormsTests.DirectAPI",
+    "NormFormsTests.Axioms",
+    "NormFormsTests"
+  ],
+  "native_record_sha256": {
+    "NormForms": "6fc959b783308660d3839b49677c122081d781374dbe7243ee01c01f767bfd89",
+    "NormForms.Coordinate": "4bfa8f808e81c53d2f599d2f087b28a22e49d65df792effaf0d5dda6ac023144",
+    "NormFormsTests": "d43f46e7d412b971bd607f8c08d9d5481a1665432756058f23cc7128dd5cc1a8",
+    "NormFormsTests.Axioms": "3458a47c15d4a28e2afa411e61124b9552c8a1f276493ce8334522a05a6cfaaf",
+    "NormFormsTests.Coordinate": "ed8bf81735dafd4f27f2491cc6d224ef448f7a9cec74ef18c30f902f36118722",
+    "NormFormsTests.DirectAPI": "233db4420e6d28c1cce327a1e2c6a303db7b550894524bf7f3f4932521e1f926"
+  },
+  "normalized_record_sha256": {
+    "NormForms": "6fc959b783308660d3839b49677c122081d781374dbe7243ee01c01f767bfd89",
+    "NormForms.Coordinate": "4bfa8f808e81c53d2f599d2f087b28a22e49d65df792effaf0d5dda6ac023144",
+    "NormFormsTests": "d43f46e7d412b971bd607f8c08d9d5481a1665432756058f23cc7128dd5cc1a8",
+    "NormFormsTests.Axioms": "3458a47c15d4a28e2afa411e61124b9552c8a1f276493ce8334522a05a6cfaaf",
+    "NormFormsTests.Coordinate": "ed8bf81735dafd4f27f2491cc6d224ef448f7a9cec74ef18c30f902f36118722",
+    "NormFormsTests.DirectAPI": "233db4420e6d28c1cce327a1e2c6a303db7b550894524bf7f3f4932521e1f926"
+  },
+  "production_declarations": [
+    "NormForms.coordinateNormPolynomial_changeBasis",
+    "NormForms.coordinateChangePolynomial_eval",
+    "NormForms.coordinateChangePolynomial",
+    "NormForms.coordinateNorm_reindex",
+    "NormForms.coordinateNormPolynomial_reindex",
+    "NormForms.coordinateNormPolynomial_eval_coordinateChange",
+    "NormForms.coordinateNormPolynomial_totalDegree",
+    "NormForms.coordinateNormPolynomial_ne_zero",
+    "NormForms.coordinateNormPolynomial_eval_eq_zero_iff",
+    "NormForms.coordinateNormPolynomial_eval",
+    "NormForms.coordinateNormPolynomial_isHomogeneous",
+    "NormForms.coordinateNormPolynomial",
+    "NormForms.coordinateNorm_coordinateChange",
+    "NormForms.coordinateChange_apply",
+    "NormForms.coordinateChange",
+    "NormForms.coordinateNorm_smul",
+    "NormForms.coordinateNorm_eq_zero_iff",
+    "NormForms.coordinateNorm"
+  ],
+  "proof_certification": false,
+  "public_client_declarations": [
+    "NormFormsTests.complex_changeBasis_polynomial",
+    "NormFormsTests.complex_changeBasis_eval",
+    "NormFormsTests.complex_reindex_polynomial",
+    "NormFormsTests.complex_swap_coordinates",
+    "NormFormsTests.complex_norm_polynomial",
+    "NormFormsTests.rational_singleton_polynomial",
+    "NormFormsTests.rational_singleton_norm",
+    "NormFormsTests.finite_unequal_indices_substitution",
+    "NormFormsTests.finite_unequal_indices_rename",
+    "NormFormsTests.finite_unequal_indices_eval",
+    "NormFormsTests.finite_identity_norm_one"
+  ],
+  "release_acceptance": false,
+  "undocumented_count": 0
+}

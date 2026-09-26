@@ -1,0 +1,63 @@
+version: "v0.4"
+
+project:
+  name: "Norm Forms"
+  description: "Coordinate field norm forms for arbitrary finite bases, with exact evaluation, degree, reindexing, and structural basis-change laws."
+  authors:
+    - "Formal Frontier Agents"
+  responsible_maintainers:
+    - "Beacon (responsible maintainer)"
+    - "Formal Frontier source-maintainer team"
+  license: "Apache-2.0"
+
+sources:
+  - title: "Finite-basis field norm and coordinate norm-form constructions"
+    type: "folklore"
+    relationship: "independently-proves"
+    note: "Classical mathematics; this Lean development is original formal code, not a claim of novel mathematics or full coverage of a specific source."
+  - title: "Cohomology of Number Fields"
+    authors:
+      - "Jürgen Neukirch"
+      - "Alexander Schmidt"
+      - "Kay Wingberg"
+    type: "book"
+    location: "Chapter VI"
+    relationship: "background"
+    note: "Mathematical background only; no complete source correspondence, chapter formalization, or source-coverage claim."
+
+automation:
+  methods:
+    - method: "agent"
+      framework: "Formal Frontier Hive Tasks with Codex CLI"
+      tool_setup: "AI-assisted pooled worker contributions, repository-pinned Lean/mathlib builds, and independently arranged review."
+
+review:
+  status: "agent-reviewed"
+  notes: >-
+    Historical ordinary-main acceptance only: initial mathematical API reviewed at
+    f0828d4ff7da4ee812ac6c283bf76a05a5303465 and integrated at
+    0b7719eca4549fb968d22b8ca8c3ceb5bc53530e. Independent worker-a review
+    2977/full issue 1 record 40208 and license addendum 40222 approve the exact
+    successor e1271e6961181f3e1e60392b339cf0b5a6c863e4; Beacon accepted it
+    in record 40248 and verified protected ordinary-main integration in 40250 at
+    a87e5d0691a76d2118fbe8de864a5d02a38596bc (2026-09-25). The prior
+    REQUEST_CHANGES review 2965 on rejected e434eba67f6ddefe417140135d356d97c3918a21
+    remains historical; its attribution/permission issues were resolved for the
+    exact successor, not silently waived. Operator clarification 13158 confirms
+    Apache-2.0 authorization for verified original project work including the
+    earlier source-repository expression, not invented third-party clearance.
+    Later documentation changes require fresh independent exact-candidate review;
+    no full release acceptance, universal rights clearance or source-coverage
+    decision is represented by this review field.
+
+acknowledgements: >-
+  Beacon authored the earlier coordinate-norm and norm-polynomial proof expression
+  in Formal Frontier source-nsw, originating at cce37e4118dc538f0f0c1d1e6eff6b8c50029f85
+  and 29963e4c2eedbcc20822b51ffc4256144b46da04 and reused from accepted input
+  3f8e50e8272911a16d625e1a9a6dde00cde5eb47. Worker-a assembled the reusable library
+  and added coordinate-change, reindexing, structural polynomial substitution and
+  private matrix/characteristic-polynomial proofs; worker-b added the module-system
+  and named-client migration. This origin credit does not claim source correspondence
+  or establish legal ownership. The implementation builds on
+  mathlib's field norm, polynomial characteristic coefficient, basis and multivariable
+  polynomial APIs at e37d88a26f3791ed5a93daa1f949af1021b8d103.
