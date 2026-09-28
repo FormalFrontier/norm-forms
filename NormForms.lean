@@ -5,7 +5,8 @@ Authors: Formal Frontier Agents
 module
 
 public import NormForms.Coordinate
+public import NormForms.CoordinateNormIteration
 
-/-! Reusable coordinate norm forms for finite field bases. -/
+/-! Coordinate norm forms and unbounded attained-degree anisotropic forms. -/
 
 set_option warningAsError true

@@ -5,7 +5,12 @@ defaultTargets = ["NormForms", "NormFormsTests"]
 [[require]]
 name = "mathlib"
 git = "https://github.com/leanprover-community/mathlib4.git"
-rev = "e37d88a26f3791ed5a93daa1f949af1021b8d103"
+rev = "83abb3e776bdefcbc447a1e44d0debe4010039e5"
+
+[[require]]
+name = "multivariate-polynomials"
+git = "https://github.com/FormalFrontier/multivariate-polynomials.git"
+rev = "ec4906268f2a65a54e320ce9f3f44562e9d78c1e"
 
 [[lean_lib]]
 name = "NormForms"

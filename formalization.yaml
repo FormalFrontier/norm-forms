@@ -2,7 +2,7 @@ version: "v0.4"
 
 project:
   name: "Norm Forms"
-  description: "Coordinate field norm forms for arbitrary finite bases, with exact evaluation, degree, reindexing, and structural basis-change laws."
+  description: "Coordinate field norm forms for arbitrary finite bases, with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees over any non-algebraically-closed field."
   authors:
     - "Formal Frontier Agents"
   responsible_maintainers:
@@ -34,7 +34,22 @@ automation:
 review:
   status: "agent-reviewed"
   notes: >-
-    Historical ordinary-main acceptance only: initial mathematical API reviewed at
+    On 2026-09-28, independent worker-a Task
+    hive-request-fcb0935dba04fc17d06ffa0ee41e9e620a7af414 (UID
+    df5947c5-96ed-4503-bb64-3081612cd20c) reviewed exact destination
+    313612a372a8c55a4e2af2bd0461d302998b6217 (review 4631); Beacon
+    accepted it in PR 13/58741 and verified protected main integration in
+    PR 13/58744. Native run 823 succeeded on its pinned mathlib83 and official
+    Multivariate graph: cache first, both roots built and complete actual
+    transitive standard-three audit including private/generated declarations.
+    Agent-reviewed is scoped to that accepted destination mathematics and code,
+    not this still-unreviewed documentary readiness/public artifact; separate
+    independent release review, stage acceptances and verified publication
+    remain required. The isolated incubator proof expression and ZMod client at
+    edc6961da2dfee53dcfa8de0d6d8c41cc9a560ed had independent worker-a
+    review 58570 and Beacon's isolated-only acceptance 58575, neither of which
+    substitutes for the completed destination review. Historical ordinary-main
+    acceptance only: initial mathematical API reviewed at
     f0828d4ff7da4ee812ac6c283bf76a05a5303465 and integrated at
     0b7719eca4549fb968d22b8ca8c3ceb5bc53530e. Independent worker-a review
     2977/full issue 1 record 40208 and license addendum 40222 approve the exact
@@ -51,7 +66,10 @@ review:
     decision is represented by this review field.
 
 acknowledgements: >-
-  Beacon authored the earlier coordinate-norm and norm-polynomial proof expression
+  Frozen-transfer historical attribution and lifecycle, recorded before
+  destination review, current-graph checks or protected integration:
+  Historical attribution for the earlier six-module coordinate input: Beacon
+  authored the earlier coordinate-norm and norm-polynomial proof expression
   in Formal Frontier source-nsw, originating at cce37e4118dc538f0f0c1d1e6eff6b8c50029f85
   and 29963e4c2eedbcc20822b51ffc4256144b46da04 and reused from accepted input
   3f8e50e8272911a16d625e1a9a6dde00cde5eb47. Worker-a assembled the reusable library
@@ -61,3 +79,35 @@ acknowledgements: >-
   or establish legal ownership. The implementation builds on
   mathlib's field norm, polynomial characteristic coefficient, basis and multivariable
   polynomial APIs at e37d88a26f3791ed5a93daa1f949af1021b8d103.
+  For this candidate, direct mathlib uses 83abb3e776bdefcbc447a1e44d0debe4010039e5
+  and finite iteration depends on the exact official multivariate-polynomials commit
+  ec4906268f2a65a54e320ce9f3f44562e9d78c1e. The assembled theorem, client and
+  guide reuse actual expression by worker-b Task
+  hive-request-f7fefa6fea31fecce0577537ebd9c88ff30c913f (UID
+  42fc0f36-5c45-4112-89c7-a007b636725a) from the isolated incubator input
+  edc6961da2dfee53dcfa8de0d6d8c41cc9a560ed, not its commit ancestry.
+  Generic block substitution was contributed by worker-b Task
+  hive-request-7b6e0f04fc7e294c99c77638da5d6abb97b4be03 (UID
+  0068e189-b29d-4cf7-9b0c-63cb34dab472), finite iteration by worker-a Task
+  hive-request-48b8f568eaec9f747a0528cb5fe8ae07ff507397 (UID
+  580b0679-5109-43e3-8af0-05470fe31187), and official library transfer by
+  worker-b Task hive-request-2deb4fea21bdf1e8bfd734175d5bf8c681d288c7
+  (UID f641b493-3b74-49f4-bc2d-bb46824a4fa5). Isolated review by worker-a
+  Task hive-request-a4ccd90e846e995a5a3279bd28c75f97b0b7ac27 (UID
+  28f9c532-c101-4340-8ae2-b8b5be19bfbc) and Beacon acceptance apply only
+  to the isolated input. Destination transfer by worker-b Task
+  hive-request-c088ae9d9a0d3444007ff4f1ee1775bb56d3650a (UID
+  2bffa995-8832-471d-860b-2c8fd6b4a328) requires fresh destination review,
+  current-graph build and transitive standard-axiom checks, Beacon integration
+  and separate reviewed official release/publication. These credits do not infer
+  third-party rights or any selected-source coverage.
+  On 2026-09-28 those frozen-transfer destination prerequisites were satisfied
+  for exact H 313612a372a8c55a4e2af2bd0461d302998b6217: native run 823,
+  independent worker-a review 4631 by Task
+  hive-request-fcb0935dba04fc17d06ffa0ee41e9e620a7af414 (UID
+  df5947c5-96ed-4503-bb64-3081612cd20c), and Beacon PR 13/58741
+  acceptance and 58744 protected integration. The separate release/publication
+  requirement remains. This documentary preparation is by worker-b Task
+  hive-request-f1a3c9d387b0214bb0518f8a08d4fb053d20085f (UID
+  e7750ec2-a10d-4c6c-b465-5fc6b292c285); it does not approve its own
+  release artifact or decide source coverage or third-party rights.

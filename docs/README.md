@@ -1,7 +1,14 @@
-# Native reference and reproducibility
+# Mathematical guide and historical native reference
+
+The [iterated coordinate-norm guide](CoordinateNormIteration.md) documents the
+new theorem, its precise hypotheses and attained-degree conclusion, its
+`NormForms.CoordinateNormIteration` import and its ordinary-import test client.
+This guide is part of the current eight-Lean-module library; it is **not** a
+native documentation regeneration or a proof-integrity receipt.
 
 The [public/native API](API.md) and [machine-readable manifest](api-manifest.json)
-document **all six shipped Lean modules** from analyzed repair input
+document **all six historical Lean modules**, not the two newly added modules,
+from analyzed repair input
 `54accffeba182bea1f6969c2f6d67a96a43dc6f7` (tree
 `c7dbbf39c7acf315ada65f18f84f0ed276c73151`), which was unaccepted when
 the native runs were recorded on 2026-09-26. Exact-artifact acceptance records,
@@ -19,8 +26,11 @@ private proof helpers, compiler-generated bodies, all proof fields or transitive
 axioms. It does not certify formal source coverage, source interpretation,
 kernel replay, third-party rights or any release. The historical 43 distinct
 ordinary `#print axioms` results (18 public, 11 clients, four private, ten
-generated/equations) are not a complete stored-body release audit; the
-responsible maintainer owns that separate task. No dependency docstrings,
+generated/equations) are not the current eight-module audit. The separate
+native run 823 on accepted main revision
+`313612a372a8c55a4e2af2bd0461d302998b6217` successfully audited all
+48 actual-origin transitive declarations, including eight private names and
+generated declarations, on the pinned current graph. No dependency docstrings,
 doc-gen4 website, HTML, JS, fonts or raw `.bmp` records are shipped.
 
 ## Frozen inputs and tool
@@ -35,7 +45,18 @@ separate core-only `leanprover/doc-gen4` tool at
 `ebf77f3e174c145c9ca2db0df1c18a78ae87c93b`); it is compatible with the
 project's Lean `v4.34.0-rc2` and is **not a library dependency**.
 
-Fetch the matching mathlib cache successfully before building this project:
+All reproduction commands below refer **only** to the six-module analyzed
+source/tree above, the exact old direct mathlib pin
+`e37d88a26f3791ed5a93daa1f949af1021b8d103` and its matching old Lake
+inputs. Use a separate checkout (or byte-identical source archive) of those
+frozen files. The current eight-module library changes aggregate imports and
+pins mathlib at `83abb3e776bdefcbc447a1e44d0debe4010039e5` plus the
+official Multivariate dependency; it cannot satisfy the unchanged native
+generator's old source/pin hashes. Do not treat these older commands or their
+historical output as checks of the new theorem or its destination graph.
+
+In that separate historical checkout, fetch the matching old mathlib cache
+successfully before building:
 
 ```sh
 elan toolchain install "$(cat lean-toolchain)"
@@ -47,7 +68,7 @@ In a **separate checkout**, build the pinned doc-gen4 tool with
 `lake build doc-gen4` (no mathlib dependency). If `cc` is absent, prepend
 `$(dirname "$(elan which lean)")` to that tool build's `PATH`. With `TOOL`
 pointing to that exact binary and `OUT` an empty external directory, run from
-this repository root:
+the **historical** project root:
 
 ```sh
 TOOL=/path/to/doc-gen4/.lake/build/bin/doc-gen4
@@ -118,4 +139,6 @@ re-binding are by worker-b Hive Task
 `e99a00fc-dbd5-4e6f-b6d6-cbfab82da92f`. The separate upstream tool
 and excluded website assets retain their own upstream notices; this project's
 license cannot clear another party's material. Independent exact-artifact
-rights and provenance assessment remains a release prerequisite.
+rights and provenance assessment remains a prerequisite for this new release
+candidate; earlier destination acceptance does not review these documentation
+corrections.

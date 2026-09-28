@@ -1,7 +1,10 @@
 # Norm Forms
 
 `NormForms` is a source-independent Lean library for coordinate norm forms of field
-extensions supplied with a finite basis. It depends only on mathlib. An earlier
+extensions supplied with a finite basis and for unbounded attained-degree
+anisotropic homogeneous forms over non-algebraically-closed fields. It depends
+directly on mathlib and the exact official `multivariate-polynomials` release.
+An earlier
 mathematical input was accepted for ordinary development on 2026-09-25 at
 `a87e5d0691a76d2118fbe8de864a5d02a38596bc` (tree
 `a9e3d910f11de2ba3412e20fc758e66d2249f510`). The lint repair analyzed by
@@ -11,7 +14,14 @@ the native runs were recorded on 2026-09-26. Neither the earlier acceptance
 nor the Lake package version `0.1.0` designates a release. Exact-artifact review
 and publication records identify any subsequently accepted release; the repair
 and documentation do not inherit the historical mathematical review.
-Beacon is responsible for this unit, with shared source-maintainer stewardship.
+The prior official public release `119fc4967e1ccd2415a3a5fffa3cd712f275635e`
+predates the existence-theorem transfer. On 2026-09-28, Beacon accepted the
+exact destination contribution `313612a372a8c55a4e2af2bd0461d302998b6217`
+(PR #13, acceptance 58741), and its protected `main` integration was verified
+(58744). That acceptance is not a release: this documentary readiness revision
+still needs independent release review, separate internal/public acceptance and
+verified publication. Beacon is responsible for this unit, with shared
+source-maintainer stewardship.
 
 ## Headline results
 
@@ -32,16 +42,27 @@ the library provides:
   [structural polynomial identity](NormForms/Coordinate.lean#L284), not merely
   equality of evaluations, so it also holds over finite fields.
   [Reindexing a basis](NormForms/Coordinate.lean#L209) simply renames its variables.
+- **Anisotropic forms in unbounded attained degrees.** For any field `K` with
+  `¬ IsAlgClosed K` and any `bound : ℕ`, the theorem
+  `MvPolynomial.exists_anisotropic_homogeneous_of_not_isAlgClosed` returns a
+  homogeneous `p : MvPolynomial (Fin d) K` with `bound < d`, actual total degree
+  `d` and `eval x p = 0 ↔ x = 0`. It works over finite fields and uses the
+  coordinate norm of one extension followed by official finite block iteration.
+  Import `NormForms.CoordinateNormIteration` or `NormForms`; see the
+  [theorem and mathematical guide](docs/CoordinateNormIteration.md).
 
 These interfaces let downstream developments express norm equations in
 coordinates and transport them between bases. No separability or Galois
 hypothesis is required; the definitions are noncomputable, not an executable
 norm-calculation algorithm. Mathlib supplies the underlying field norm, bases,
 characteristic polynomials and multivariable-polynomial machinery; this library
-packages the coordinate norm form and proves the displayed coordinate laws.
-It does not provide general normic-form existence theorems, reduced norms or
-`C_i` theory. See the [full signatures and API guide](docs/API.md) and the
-[checked-use examples](NormFormsTests/Coordinate.lean).
+packages the coordinate norm form and proves the displayed coordinate laws. The
+official `MultivariatePolynomials.IteratedBlockSubstitution` supplies finite
+iteration of the base form. The existence theorem proves *unbounded attained
+degrees*, not every prescribed degree or every sufficiently large degree; it
+does not provide reduced norms or `C_i` theory. See the [historical six-module
+native coordinate signatures](docs/API.md), [new theorem guide](docs/CoordinateNormIteration.md)
+and [checked-use clients](NormFormsTests/CoordinateNormIteration.lean).
 
 ## Mathematical API
 
@@ -58,6 +79,10 @@ and `b : Basis ι K L`, `import NormForms` exposes:
 - `coordinateChangePolynomial b b'` and the **structural** `MvPolynomial.bind₁`
   change-of-basis identity; and polynomial variable renaming along a basis
   reindexing equivalence in its stated direction.
+- `MvPolynomial.exists_anisotropic_homogeneous_of_not_isAlgClosed`, with the
+  exact conclusion
+  `∃ d p, bound < d ∧ p.IsHomogeneous d ∧ p.totalDegree = d ∧
+  ∀ x, eval x p = 0 ↔ x = 0` for any field `K` and `¬ IsAlgClosed K`.
 
 The four named objects above are exposed noncomputable definitions, not merely
 theorems. The library derives finite free-module instances from the basis without
@@ -65,8 +90,9 @@ extra separability, Galois, ambient finite-dimensional or nonempty-index
 assumptions. The structural polynomial law is valid over finite fields: equal
 evaluations there would not alone imply equal polynomials. The independent
 coefficient, extension-field and basis-index universes are visible in the
-[complete native signatures](docs/API.md). For a smaller import use
-`import NormForms.Coordinate`; the reexport root is `NormForms.lean`. Four private
+[historical coordinate-only native signatures](docs/API.md). For a smaller import use
+`import NormForms.Coordinate` or `import NormForms.CoordinateNormIteration`;
+the reexport root is `NormForms.lean`. Four private
 matrix/characteristic-polynomial proof helpers are not public API.
 
 `coordinateNorm_coordinateChange` is a pre-simplification rule (`@[simp↓]`):
@@ -80,19 +106,43 @@ coefficient ring; the subsingleton-ring case is discharged separately.
 The checked-use client modules demonstrate the rational singleton norm, complex
 sum of two squares and a nonidentity coordinate swap, as well as finite `ZMod 2`
 examples with distinct `Unit`/`ULift.{1} (Fin 1)` indices in different universes.
-They are tests, not extra production theorems. This library does **not** supply
-general forms, normic order, `C_i` theory, reduced norms or cohomology; no
-complete source-formalization claim is made here.
+The added ordinary-import private client uses `ZMod 2` and bound `100`. These
+are tests, not extra production theorems. This library does **not** supply
+every-degree existence, normic order, `C_i` theory, reduced norms or cohomology;
+no complete source-formalization claim is made here.
 
 ## Build and checks
 
-Use the pinned Lean `v4.34.0-rc2` toolchain and mathlib
-`e37d88a26f3791ed5a93daa1f949af1021b8d103`. For a fresh build, install the
-toolchain, successfully fetch the matching cache and build the listed targets
-from this repository root. The later per-file and `leanchecker` commands are
-retained for optional reproduction of historical checks, not additional release
-gates. Applicable successful build and complete transitive axiom evidence can
-be reused when its Lean, build, checker and dependency inputs are unchanged.
+This library pins Lean `v4.34.0-rc2`, mathlib
+`83abb3e776bdefcbc447a1e44d0debe4010039e5` and official
+`multivariate-polynomials` `ec4906268f2a65a54e320ce9f3f44562e9d78c1e`.
+For a fresh build, install the pinned toolchain, successfully fetch the matching
+mathlib cache, then build **both** current roots from this repository root:
+
+```sh
+elan toolchain install "$(cat lean-toolchain)"
+lake exe cache get
+LEAN_NUM_THREADS=2 lake --wfail build NormForms NormFormsTests
+```
+
+These commands are reproduction instructions, not a new run on this documentation
+revision. On 2026-09-28, ordinary native run 823 succeeded on accepted
+`313612a372a8c55a4e2af2bd0461d302998b6217` with these exact Lean,
+dependency and checker inputs: the matching mathlib cache was fetched and
+verified before both aggregate roots built (2,068 jobs). The actual transitive
+axiom audit covered 48 declarations across eight modules, including eight
+private names and generated declarations, and found only `propext`,
+`Classical.choice` and `Quot.sound` (owner intake 58689; PR #13 acceptance
+58741). This readiness correction changes documentation/metadata only; the
+checked Lean, build, dependency and audit inputs stay byte-identical, but the
+whole input-file digest does **not**. Applicable prior evidence can be reused
+only when the relevant exact inputs and coverage match.
+
+The following older e37 commands and observations are **historical** and apply
+only to a separate checkout of the old six-module source and its old mathlib
+`e37d88a26f3791ed5a93daa1f949af1021b8d103` Lake inputs; do not run them
+against this new graph. Per-file and `leanchecker` runs are optional historical
+reproduction, not additional release gates:
 
 ```sh
 elan toolchain install "$(cat lean-toolchain)"
@@ -110,15 +160,18 @@ LEAN_NUM_THREADS=2 lake env leanchecker -v NormForms.Coordinate NormForms \
 ```
 
 Fetch the matching mathlib cache **successfully before any build**; do not replace
-a failed fetch by a silent full mathlib rebuild. The built test root imports the
-two client leaves and `NormFormsTests.Axioms`, which prints axioms for 18 public
-production declarations and 11 named client theorems. Those prints and a separate
-kernel replay do not certify all private/generated/stored bodies: the full
-release-wide audit is a separate requirement. `-T0` changes heartbeat behavior,
-not kernel assurance. Consult [native documentation reproduction](docs/README.md)
-for the six-module doc-gen4 run, raw-record retention and source-only replay.
+a failed fetch by a silent full mathlib rebuild. Historically, the old test root
+imported two client leaves and `NormFormsTests.Axioms`, which printed axioms for
+18 public production declarations and 11 named client theorems. The current
+root also imports the new ordinary-import ZMod client. Old prints and a separate
+kernel replay do not certify all current private/generated/stored bodies: a
+complete actual transitive audit on the current graph is required. `-T0`
+changes heartbeat behavior, not kernel assurance. Consult [historical native
+documentation reproduction](docs/README.md) for the six-module doc-gen4 run,
+raw-record retention and source-only replay.
 
-**Observed cost, not a scheduler guarantee.** In one 2026-09-26 checkout,
+**Historical observed cost, not a current-graph check or scheduler guarantee.**
+In one 2026-09-26 checkout,
 toolchain installation and the mandatory 8,892-file mathlib fetch began at
 01:40:53 UTC, and successful cache completion was verified before the first
 project build at 01:43:05 UTC. The log does not separately time the cache fetch.
@@ -160,8 +213,37 @@ produced the accepted development-main revision above on 2026-09-25. These
 dated, exact-version acceptance records remain external to the library and are
 **not** inherited approval of a later generated-documentation candidate.
 
+The original assembled existence theorem and its ordinary-import ZMod client
+reuse the proof expression from isolated incubator revision
+`edc6961da2dfee53dcfa8de0d6d8c41cc9a560ed`, authored by worker-b Task
+`hive-request-f7fefa6fea31fecce0577537ebd9c88ff30c913f` (UID
+`42fc0f36-5c45-4112-89c7-a007b636725a`). It extends Beacon's coordinate
+norm using the official Multivariate finite iteration: generic block substitution
+by worker-b Task `hive-request-7b6e0f04fc7e294c99c77638da5d6abb97b4be03`
+(UID `0068e189-b29d-4cf7-9b0c-63cb34dab472`), finite iteration by worker-a
+Task `hive-request-48b8f568eaec9f747a0528cb5fe8ae07ff507397` (UID
+`580b0679-5109-43e3-8af0-05470fe31187`), transferred to the official
+Multivariate library by worker-b Task
+`hive-request-2deb4fea21bdf1e8bfd734175d5bf8c681d288c7` (UID
+`f641b493-3b74-49f4-bc2d-bb46824a4fa5`). Worker-a Task
+`hive-request-a4ccd90e846e995a5a3279bd28c75f97b0b7ac27` (UID
+`28f9c532-c101-4340-8ae2-b8b5be19bfbc`) independently reviewed, and Beacon
+accepted, **only** the isolated input. Worker-b Task
+`hive-request-c088ae9d9a0d3444007ff4f1ee1775bb56d3650a` (UID
+`2bffa995-8832-471d-860b-2c8fd6b4a328`) prepared this standalone
+destination transfer without donor commit ancestry. Independent worker-a Task
+`hive-request-fcb0935dba04fc17d06ffa0ee41e9e620a7af414` (UID
+`df5947c5-96ed-4503-bb64-3081612cd20c`) reviewed exact destination H
+(review 4631); native run 823 succeeded on H, and Beacon accepted and
+integrated H (PR #13, 58741/58744). Worker-b Task
+`hive-request-f1a3c9d387b0214bb0518f8a08d4fb053d20085f` (UID
+`e7750ec2-a10d-4c6c-b465-5fc6b292c285`) prepared this subsequent
+documentation-only release candidate, not its independent release review.
+
 The separately pinned mathlib supplies the field norm, characteristic-polynomial,
-basis and multivariable polynomial interfaces. Neukirch–Schmidt–Wingberg,
+basis and multivariable polynomial interfaces; the exact official
+`multivariate-polynomials` revision supplies finite block iteration.
+Neukirch–Schmidt–Wingberg,
 *Cohomology of Number Fields*, Chapter VI, is mathematical background, not
 reproduced book expression or a claim of complete source coverage. Project
 contributions use [Apache-2.0](LICENSE). Authors: Formal Frontier Agents.
