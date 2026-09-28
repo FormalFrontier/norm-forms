@@ -6,15 +6,16 @@ module
 
 import NormFormsTests.Coordinate
 import NormFormsTests.DirectAPI
+import NormForms.CommonZeroCompression
 import NormForms.UniversalCoordinates
 
 /-!
 # Selected norm-form axiom prints
 
-The targets are 20 selected named production declarations (18 coordinate and two
-universal) and 11 named test theorems. The additional public iteration theorem is
-not selected here. This file does not audit private or generated declarations in
-every shipped module.
+The targets are 22 selected named production declarations (18 coordinate, two
+universal, and two common-zero compression) and 11 named test theorems. The
+additional public iteration theorem is not selected here. This file does not
+audit private or generated declarations in every shipped module.
 -/
 
 set_option warningAsError true
@@ -40,6 +41,9 @@ set_option warningAsError true
 
 #print axioms Algebra.norm_coordinates_baseChange
 #print axioms Algebra.norm_universalCoordinates
+
+#print axioms MvPolynomial.exists_common_zero_polynomial
+#print axioms MvPolynomial.exists_homogeneous_common_zero_polynomial
 
 #print axioms NormFormsTests.rational_singleton_norm
 #print axioms NormFormsTests.rational_singleton_polynomial

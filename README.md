@@ -1,9 +1,9 @@
 # Norm Forms
 
 `NormForms` is a source-independent Lean library for universal coordinate norms
-under commutative base change, coordinate norm forms of field extensions, and
-unbounded attained-degree anisotropic homogeneous forms over
-non-algebraically-closed fields. It depends
+under commutative base change, coordinate norm forms of field extensions,
+unbounded attained-degree anisotropic homogeneous forms and finite polynomial
+zero-set compression over non-algebraically-closed fields. It depends
 directly on mathlib and the exact official `multivariate-polynomials` release.
 An earlier
 mathematical input was accepted for ordinary development on 2026-09-25 at
@@ -30,6 +30,15 @@ on 2026-09-28, and verified its protected `main` integration (incubator issue
 of a later release artifact; the previous release does not approve changed
 inputs. Beacon is responsible for this unit, with shared source-maintainer
 stewardship. Exact-artifact release records determine its later publication.
+The universal-coordinate library at destination parent
+`75a4f9d5f67bc65b5d319cec30c92d785e8debef` (tree
+`c099e4295f9944acb38166f6139d4d687224f520`) is already published at
+official commit `e1cb91e0f25b663ef6d2439c77946602c8eae8e7` with the same
+tree. That completed publication does not accept or release the new polynomial
+compression artifact. On 2026-09-28 Beacon accepted its separate code/API at
+`4a803474814f73e7011c045c5f613f360024b1a5` (PR #21/60312) and verified
+guarded protected `main` integration (incubator #175/60316). That code
+acceptance does not review or publish the later release artifact.
 
 ## Headline results
 
@@ -72,6 +81,18 @@ the library provides:
   coordinate norm of one extension followed by official finite block iteration.
   Import `NormForms.CoordinateNormIteration` or `NormForms`; see the
   [theorem and mathematical guide](docs/CoordinateNormIteration.md).
+
+For any field `K` with `¬ IsAlgClosed K`, the library also proposes:
+
+- **One equation for a finite polynomial system's K-point zeros.** Given
+  `[Fintype ι]` and `f : ι → MvPolynomial σ K`, one polynomial `g` has
+  `eval x g = 0 ↔ ∀ i, eval x (f i) = 0` at every `x : σ → K`.
+  If every `f i` is homogeneous of degree `d`, `g` is homogeneous of degree
+  `d * m` for some `m > Fintype.card ι`. No positive degree, nonempty family,
+  finite variable type or infinite-field hypothesis is needed. Import
+  `NormForms.CommonZeroCompression` or `NormForms`; see the
+  [standalone guide](docs/PolynomialCommonZeroCompression.md) and
+  [ordinary-import clients](NormFormsTests/CommonZeroCompression.lean).
 
 These interfaces let downstream developments express norm equations in
 coordinates and transport them between bases. No separability or Galois
@@ -127,10 +148,18 @@ assumptions. The structural polynomial law is valid over finite fields: equal
 evaluations there would not alone imply equal polynomials. The independent
 coefficient, extension-field and basis-index universes are visible in the
 [historical coordinate-only native signatures](docs/API.md). For a smaller import use
-`import NormForms.Coordinate`, `import NormForms.CoordinateNormIteration` or
-`import NormForms.UniversalCoordinates`; the reexport root is `NormForms.lean`.
+`import NormForms.Coordinate`, `import NormForms.CoordinateNormIteration`,
+`import NormForms.UniversalCoordinates` or `import NormForms.CommonZeroCompression`;
+the reexport root is `NormForms.lean`.
 The coordinate leaf's four private matrix/characteristic-polynomial helpers
-and the universal leaf's two private helpers are not public API.
+and the universal leaf's two private helpers are not public API. For arbitrary
+`σ`, `[Field K]`, `¬ IsAlgClosed K`, and `[Fintype ι]`, the two public
+`MvPolynomial.exists_common_zero_polynomial` and
+`MvPolynomial.exists_homogeneous_common_zero_polynomial` theorems describe
+coefficient-field-point zeros; the latter requires a common `IsHomogeneous d`
+input predicate and concludes `IsHomogeneous (d * m)`, **not** exact total
+degree. Their padding and evaluation helpers remain private. Neither theorem
+claims equality of ideals, radicals, schemes or all-extension-point zero sets.
 
 `coordinateNorm_coordinateChange` is a pre-simplification rule (`@[simp↓]`):
 ordinary `simp` contracts the coordinate norm before simplifying its change-of-basis
@@ -144,8 +173,9 @@ The checked-use client modules demonstrate the rational singleton norm, complex
 sum of two squares and a nonidentity coordinate swap, as well as finite `ZMod 2`
 examples with distinct `Unit`/`ULift.{1} (Fin 1)` indices in different universes.
 The iteration ordinary-import private client uses `ZMod 2` and bound `100`;
-the universal client also checks trivial `ZMod 1`. These
-are tests, not extra production theorems. This library does **not** supply
+the universal client also checks trivial `ZMod 1`. The compression client checks
+empty and all-zero families, degree zero, empty/arbitrary variable types and
+finite `ZMod 2`. These are tests, not extra production theorems. This library does **not** supply
 every-degree existence, normic order, `C_i` theory, reduced norms or cohomology;
 no complete source-formalization claim is made here.
 
@@ -184,9 +214,30 @@ including 15 private names; every set contains only the three allowed
 axioms. Beacon retained the full run in
 `a065951d8112e71aa6825fbebdb6c631fe8a26e6` (incubator issue #170,
 record 59605). These are runner-specific total run timestamps, not a
-project-only compilation benchmark or memory measurement. Documentation-only
-changes here leave Lean/build/dependency/checker inputs unchanged, although
-they change the complete input digest.
+project-only compilation benchmark or memory measurement. That earlier
+universal-coordinate documentary preparation changed the complete input
+digest but left its Lean/build/dependency/checker inputs unchanged.
+
+The subsequent polynomial-compression transfer changed the production and test
+roots and added two module leaves. Native run 864 applied only to the previous
+ten-module graph; the isolated donor's focused checks did not certify the
+destination graph. Its own native run 904 (UI 16, artifact 194981) succeeded
+on exact C `4a803474814f73e7011c045c5f613f360024b1a5` from 22:57:18 to
+23:00:18 UTC on 2026-09-28. Matching-cache fetch and verification preceded
+the successful both-root build (2,072 jobs); the complete actual-origin
+transitive audit covered all twelve Lean modules, 36 compiled parts and 62
+declarations including 18 private origins and five new producer/client origins.
+All axiom sets are subsets of `propext`, `Classical.choice` and `Quot.sound`
+(owner intake incubator #175/60292). Fresh independent worker-a Task
+`hive-request-23c96d626c3ec88ebbde46b9da9ade7cf64b5c9e` (UID
+`2b20c511-56b9-488f-b807-263fab37cf68`) approved exact C in native review
+4735; Beacon accepted C in PR #21/60312 and verified protected integration
+in incubator #175/60316. This documentary preparation changes the complete
+input digest but not those Lean/build/dependency/checker inputs. The selected
+axiom-print module requests 22 named production results and the same 11 named
+client results; the additional iteration theorem makes 23 named public
+production results overall. Those prints alone are not the complete
+private/generated audit. No new proof run or benchmark is claimed here.
 
 The following older e37 commands and observations are **historical** and apply
 only to a separate checkout of the old six-module source and its old mathlib
@@ -213,8 +264,8 @@ Fetch the matching mathlib cache **successfully before any build**; do not repla
 a failed fetch by a silent full mathlib rebuild. Historically, the old test root
 imported two client leaves and `NormFormsTests.Axioms`, which printed axioms for
 18 public production declarations and 11 named client theorems. The
-pre-transfer root also imported the iteration ZMod client; this new root adds
-the universal clients. The selected print module now has 20 production prints
+pre-transfer root also imported the iteration ZMod client; the ten-module root added
+the universal clients. At that stage the selected print module had 20 production prints
 (18 coordinate and two universal), plus 11 named client prints. The public
 iteration theorem is additional, for 21 named production declarations overall.
 Old prints and a separate
@@ -323,15 +374,17 @@ Mathematics, API claims, documentation, metadata, rights, provenance and public
 history receive lightweight exact-candidate independent non-author review, followed
 by maintainer acceptance and authorized protected internal/public promotion. Verify
 the exact published commit and destination, and keep source-coverage decisions
-separate. The completed previous Q release does not approve the separate
-universal-coordinate release artifact, even though its code contribution at C
-was accepted on 2026-09-28. This documentary readiness and its temporary
-public candidate still need their own independent artifact review and Beacon's
+separate. The previous coordinate Q publication at
+`db29d765e132d995bfed69f4424cf6a0261e95ac` and subsequent
+universal-coordinate P publication at
+`e1cb91e0f25b663ef6d2439c77946602c8eae8e7` are complete. The new
+polynomial-compression documentary readiness and temporary public candidate
+still need their own independent artifact review and Beacon's
 separate release-stage acceptances; exact-artifact records, not this
 preparation-time prose, determine eventual publication.
 Tags remain deferred, not a release-preparation requirement. `formalization.yaml`
 retains scope and historical review without upgrading source-level milestones.
-The present universal-coordinate transfer is by worker-b Hive Task
+The preceding universal-coordinate transfer is by worker-b Hive Task
 `hive-request-8d86211aac37fbfbacde1cff6292e2c8a00e2629` (UID
 `5daebbc8-1ee0-4dff-99c9-44d0a3e9bf9a`), reusing the proof expression,
 five private clients and guide from isolated H
@@ -351,3 +404,25 @@ preparation is by worker-b Task
 `hive-request-847f8a2c7a0441d60d269b58583877aebf2e5b66` (UID
 `50282a97-7767-4038-959e-f2b067f06160`), not a self-review or release
 acceptance.
+
+The present polynomial compression expression and private client were authored
+in isolated incubator H `272d5abe773245829435be9b3cc4318f6b7505eb`
+by worker-b Task `hive-request-8306ff75faa6638080e54d36d849222c7ac1948a`
+(UID `03f7d2d8-159f-4715-a179-413c704b5507`). Worker-a Task
+`hive-request-cee92f392eeacba31bce30072ea79308ee41a539` (UID
+`1af91b4f-4d05-4a1c-aaa3-a57ecb10a627`) independently approved exact
+isolated H and Beacon accepted that isolated scope. Worker-b Task
+`hive-request-7fa01782d4333fb52b06189a0cb7b7047745b74c` (UID
+`13a94950-58fd-4d63-83f8-56f57e0e4c8c`) transfers the mathematical
+expression and representative client to this destination without incubator
+ancestry. Native run 904 checked the exact destination graph, fresh worker-a
+Task `hive-request-23c96d626c3ec88ebbde46b9da9ade7cf64b5c9e` (UID
+`2b20c511-56b9-488f-b807-263fab37cf68`) reviewed exact C, and Beacon
+accepted/integrated it in PR #21/60312 and incubator #175/60316. The earlier
+official P publication is complete; this new contribution still requires its
+own reviewed release and verified official publication. The bounded static
+documentary preparation is by worker-b Task
+`hive-request-9d6cb244757d207017694ca539c971c47be480aa` (UID
+`e5f3b774-1939-4a87-a020-42e43ac815c1`), not its proof author, reviewer
+or release approver. Source correspondence and coverage remain separate
+decisions, and no other party's copyright is inferred.

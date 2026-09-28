@@ -2,7 +2,7 @@ version: "v0.4"
 
 project:
   name: "Norm Forms"
-  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees over any non-algebraically-closed field."
+  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees and finite polynomial-system K-point zero-set compression over any non-algebraically-closed field."
   authors:
     - "Formal Frontier Agents"
   responsible_maintainers:
@@ -19,6 +19,10 @@ sources:
     type: "folklore"
     relationship: "independently-proves"
     note: "Native left-multiplication norm in an arbitrary commutative base algebra, with universal polynomial equality; not a claim of selected-source coverage or third-party rights clearance."
+  - title: "Finite polynomial-system zero-set compression over non-algebraically-closed fields"
+    type: "folklore"
+    relationship: "independently-proves"
+    note: "Original Lean proofs of coefficient-field-point zero-set compression for finite families, including homogeneous inputs; no ideals, radicals, schemes, arbitrary-extension-point assertion or selected-source coverage claim."
   - title: "Cohomology of Number Fields"
     authors:
       - "Jürgen Neukirch"
@@ -89,6 +93,33 @@ review:
     exact-candidate review, release-stage acceptances and verified publication.
     No source-coverage decision or general third-party rights clearance is
     represented by this metadata.
+    The universal-coordinate destination parent
+    75a4f9d5f67bc65b5d319cec30c92d785e8debef has the same tree as the
+    completed official publication e1cb91e0f25b663ef6d2439c77946602c8eae8e7.
+    Its earlier review and native run 864 apply only to previous inputs. The
+    new finite-polynomial-system compression expression in isolated incubator
+    H 272d5abe773245829435be9b3cc4318f6b7505eb was independently
+    approved by worker-a Task hive-request-cee92f392eeacba31bce30072ea79308ee41a539
+    (UID 1af91b4f-4d05-4a1c-aaa3-a57ecb10a627) and accepted by Beacon only
+    in that isolated scope. At that frozen candidate handoff the present
+    destination transfer and changed aggregate roots were unchecked as a
+    whole: no applicable current-graph both-root CI or private/generated
+    transitive audit, independent destination review, Beacon's acceptance or
+    new release/publication had yet occurred. That historical unchecked
+    status did not rescind earlier accepted stages. Subsequently, native run
+    904 (UI 16, artifact 194981) succeeded on exact C
+    4a803474814f73e7011c045c5f613f360024b1a5 on 2026-09-28 from
+    22:57:18 to 23:00:18 UTC: matching-cache-first two-root build (2072 jobs),
+    all 12 modules/36 compiled parts/62 actual origins including 18 private,
+    with transitive axioms limited to propext, Classical.choice, Quot.sound
+    (incubator 175/60292). Fresh independent worker-a Task
+    hive-request-23c96d626c3ec88ebbde46b9da9ade7cf64b5c9e (UID
+    2b20c511-56b9-488f-b807-263fab37cf68) approved exact C in native
+    review 4735. Beacon accepted code/API in PR 21/60312 and verified guarded
+    protected main integration in incubator 175/60316 on 2026-09-28. This
+    agent-reviewed status covers that accepted mathematical/code candidate,
+    not independent review or acceptance of the later documentary readiness
+    and public release artifact, nor verified publication or source coverage.
 
 acknowledgements: >-
   Frozen-transfer historical attribution and lifecycle, recorded before
@@ -167,3 +198,27 @@ acknowledgements: >-
   50282a97-7767-4038-959e-f2b067f06160), not its independent reviewer.
   Separate release review, owner acceptance, publication, rights assessment
   and selected-source correspondence remain exact-artifact decisions.
+  The finite-equation zero-set compression expression and private ZMod 2 client
+  were contributed in isolated incubator H
+  272d5abe773245829435be9b3cc4318f6b7505eb by worker-b Task
+  hive-request-8306ff75faa6638080e54d36d849222c7ac1948a (UID
+  03f7d2d8-159f-4715-a179-413c704b5507), independently reviewed in that
+  isolated scope by worker-a Task
+  hive-request-cee92f392eeacba31bce30072ea79308ee41a539 (UID
+  1af91b4f-4d05-4a1c-aaa3-a57ecb10a627) and accepted there by Beacon.
+  The present destination transfer of this expression, private client, guide,
+  imports and metadata is by worker-b Task
+  hive-request-7fa01782d4333fb52b06189a0cb7b7047745b74c (UID
+  13a94950-58fd-4d63-83f8-56f57e0e4c8c), without incubator commit
+  ancestry. At that frozen handoff isolated checking/review did not accept
+  the changed destination roots; native run 904 subsequently checked them,
+  fresh worker-a Task hive-request-23c96d626c3ec88ebbde46b9da9ade7cf64b5c9e
+  (UID 2b20c511-56b9-488f-b807-263fab37cf68) approved exact C in native
+  review 4735, and Beacon accepted/integrated its code/API in PR 21/60312 and
+  incubator 175/60316 on 2026-09-28. The prior universal-coordinate official
+  publication at e1cb91e0f25b663ef6d2439c77946602c8eae8e7 is complete.
+  Static documentary release preparation here is by worker-b Task
+  hive-request-9d6cb244757d207017694ca539c971c47be480aa (UID
+  e5f3b774-1939-4a87-a020-42e43ac815c1), not an independent reviewer or
+  proof author. The new official release, selected-source correspondence,
+  complete source coverage and third-party rights remain distinct decisions.

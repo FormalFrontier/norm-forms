@@ -6,12 +6,26 @@ theorem, precise hypotheses and attained-degree conclusion, its
 The [universal-coordinate norm guide](UniversalCoordinateNorm.md) documents
 the arbitrary-commutative-base polynomial equality, direct
 `NormForms.UniversalCoordinates` import and private finite/trivial-algebra
-clients. Both guides are part of the current ten-Lean-module library;
-neither is a native documentation regeneration or a proof-integrity receipt.
+clients. The [finite polynomial-system zero-set compression guide](PolynomialCommonZeroCompression.md)
+describes its `NormForms.CommonZeroCompression` direct import (or the
+`NormForms` aggregate), homogeneous refinement, K-point-only limitations and
+ordinary-import `NormFormsTests.CommonZeroCompression` boundary clients. These
+three guides accompany the twelve-Lean-module library; none is a native
+documentation regeneration or a proof-integrity receipt. The third guide and
+changed roots were checked in native run 904 on exact C
+`4a803474814f73e7011c045c5f613f360024b1a5` (both roots, 2,072 jobs;
+62 actual origins including 18 private, standard-three transitive axioms),
+independently reviewed by worker-a Task
+`hive-request-23c96d626c3ec88ebbde46b9da9ade7cf64b5c9e` (UID
+`2b20c511-56b9-488f-b807-263fab37cf68`, native review 4735), and accepted
+by Beacon in PR #21/60312 with protected integration recorded in incubator
+#175/60316 on 2026-09-28. This documentary/public release artifact still
+requires separate review and owner acceptance; code acceptance is not
+official publication.
 
 The [public/native API](API.md) and [machine-readable manifest](api-manifest.json)
-document **all six historical Lean modules**, not the four later-added modules
-(the iteration producer/client and universal producer/client),
+document **all six historical Lean modules**, not the six later-added modules
+(the iteration, universal and compression producer/client pairs),
 from analyzed repair input
 `54accffeba182bea1f6969c2f6d67a96a43dc6f7` (tree
 `c7dbbf39c7acf315ada65f18f84f0ed276c73151`), which was unaccepted when
@@ -34,13 +48,20 @@ generated/equations) are not the earlier eight-module audit. The separate
 historical native run 823 on accepted main revision
 `313612a372a8c55a4e2af2bd0461d302998b6217` successfully audited all
 48 actual-origin transitive declarations, including eight private names and
-generated declarations, on the earlier pinned eight-module graph. The new
+generated declarations, on the earlier pinned eight-module graph. The subsequent
 ten-module contribution changed checking inputs. Native run 864 (UI 12,
 artifact 181363) on accepted C `7a0fe210795b6b1ba26a0bdf272e69c156b123c0`
 successfully built both roots and audited all 57 actual-origin transitive
 declarations across ten modules, including 15 private names, with only the
-three standard allowed axioms (incubator issue #170/59605). Neither historical
-native documentation nor these prose changes are a new proof check. No
+three standard allowed axioms (incubator issue #170/59605). The later
+twelve-module contribution changed both roots, so run 864 is historical for
+the old inputs. Native run 904 (UI 16, artifact 194981), successful 2026-09-28
+22:57:18–23:00:18 UTC, separately built both current roots (2,072 jobs) after
+matching-cache verification and audited all 62 actual-origin declarations,
+including 18 private, in twelve modules and 36 compiled parts. All transitive
+axiom sets use only the three standard axioms (incubator #175/60292). These
+prose changes alter the complete input digest but not Lean/build/dependency/
+checker inputs; they are not a new proof check. No
 dependency docstrings, doc-gen4 website, HTML, JS, fonts or raw `.bmp` records
 are shipped.
 
@@ -60,7 +81,7 @@ All reproduction commands below refer **only** to the six-module analyzed
 source/tree above, the exact old direct mathlib pin
 `e37d88a26f3791ed5a93daa1f949af1021b8d103` and its matching old Lake
 inputs. Use a separate checkout (or byte-identical source archive) of those
-frozen files. The current ten-module library changes aggregate imports and
+frozen files. The current twelve-module candidate changes aggregate imports and
 pins mathlib at `83abb3e776bdefcbc447a1e44d0debe4010039e5` plus the
 official Multivariate dependency; it cannot satisfy the unchanged native
 generator's old source/pin hashes. Do not treat these older commands or their
@@ -156,6 +177,13 @@ documentation corrections. The universal-coordinate guide and its exact-C
 destination contribution received independent provenance review from worker-a
 Task `hive-request-434d90f78f1d94c51d15a45962e8aea3da037e5b` (UID
 `61738d70-2bad-4bdd-a1c0-058d0339589d`) and Beacon's code acceptance
-(PR #17/59647). This later documentary artifact and its proposed public
-history still need independent release review and Beacon's stage acceptances;
-no source-coverage or general third-party rights decision follows.
+(PR #17/59647). The universal-coordinate release is complete at official
+`e1cb91e0f25b663ef6d2439c77946602c8eae8e7`, separately reviewed and
+published after its own documentary preparation. The new compression code/API
+was independently reviewed (native 4735) and accepted/integrated in PR
+#21/60312 and incubator #175/60316. Its later documentary artifact and
+proposed public history still need independent release review and Beacon's
+stage acceptances; no source-coverage or general third-party rights decision
+follows. The present static preparation is by worker-b Task
+`hive-request-9d6cb244757d207017694ca539c971c47be480aa` (UID
+`e5f3b774-1939-4a87-a020-42e43ac815c1`), not an independent review.

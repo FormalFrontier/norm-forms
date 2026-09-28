@@ -81,11 +81,17 @@ destination review by Task
 `hive-request-434d90f78f1d94c51d15a45962e8aea3da037e5b` (UID
 `61738d70-2bad-4bdd-a1c0-058d0339589d`). Beacon accepted that code/API
 in PR #17/59647 on 2026-09-28 and verified protected main integration in
-incubator issue #170/59660. Neither C's acceptance nor its proof evidence
-approves this later documentation-only readiness or a proposed public
-artifact; independent release review, stage acceptances and exact official
-GitHub publication are separate and must be recorded against their own
-revisions. Worker-b Task
+incubator issue #170/59660. The subsequent universal-coordinate readiness
+and public artifact received their own separate release review, stage
+acceptances and verified official publication at
+`e1cb91e0f25b663ef6d2439c77946602c8eae8e7`. That completed release
+does not accept the later polynomial-compression artifact: Beacon separately
+accepted/integrated its code/API in PR #21/60312 and incubator #175/60316 on
+2026-09-28, while its documentary/public release artifact still requires its
+own independent review, owner acceptances and verified publication. Worker-b Task
 `hive-request-847f8a2c7a0441d60d269b58583877aebf2e5b66` (UID
 `50282a97-7767-4038-959e-f2b067f06160`) prepared these documentary
-updates, not an independent review or source-coverage decision.
+updates, not an independent review or source-coverage decision. This later
+release-lifecycle reconciliation is by worker-b Task
+`hive-request-9d6cb244757d207017694ca539c971c47be480aa` (UID
+`e5f3b774-1939-4a87-a020-42e43ac815c1`), not a theorem author or reviewer.
