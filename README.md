@@ -13,6 +13,36 @@ and publication records identify any subsequently accepted release; the repair
 and documentation do not inherit the historical mathematical review.
 Beacon is responsible for this unit, with shared source-maintainer stewardship.
 
+## Headline results
+
+For a field extension `L / K` with a chosen finite `K`-basis `b` of `n` elements,
+the library provides:
+
+- **A homogeneous, anisotropic polynomial for the field norm.**
+  `coordinateNormPolynomial b` evaluates at a coordinate vector `x` to the
+  algebraic field norm of the element represented by `x`. It is homogeneous of
+  exact total degree `n`, and its value is zero exactly when every coordinate
+  is zero. See the [construction and evaluation law](NormForms/Coordinate.lean#L78),
+  [zero criterion](NormForms/Coordinate.lean#L112) and
+  [exact degree](NormForms/Coordinate.lean#L128).
+- **Change of basis as an equality of norm polynomials.** For another finite
+  basis `b'` of the same extension, substituting the linear forms that convert
+  new `b'`-coordinates to old `b`-coordinates into the norm polynomial for `b`
+  gives the norm polynomial for `b'`. This is a
+  [structural polynomial identity](NormForms/Coordinate.lean#L284), not merely
+  equality of evaluations, so it also holds over finite fields.
+  [Reindexing a basis](NormForms/Coordinate.lean#L209) simply renames its variables.
+
+These interfaces let downstream developments express norm equations in
+coordinates and transport them between bases. No separability or Galois
+hypothesis is required; the definitions are noncomputable, not an executable
+norm-calculation algorithm. Mathlib supplies the underlying field norm, bases,
+characteristic polynomials and multivariable-polynomial machinery; this library
+packages the coordinate norm form and proves the displayed coordinate laws.
+It does not provide general normic-form existence theorems, reduced norms or
+`C_i` theory. See the [full signatures and API guide](docs/API.md) and the
+[checked-use examples](NormFormsTests/Coordinate.lean).
+
 ## Mathematical API
 
 For fields `K`, `L`, an algebra structure `Algebra K L`, a finite index type `ι`
@@ -57,7 +87,12 @@ complete source-formalization claim is made here.
 ## Build and checks
 
 Use the pinned Lean `v4.34.0-rc2` toolchain and mathlib
-`e37d88a26f3791ed5a93daa1f949af1021b8d103`. From this repository root:
+`e37d88a26f3791ed5a93daa1f949af1021b8d103`. For a fresh build, install the
+toolchain, successfully fetch the matching cache and build the listed targets
+from this repository root. The later per-file and `leanchecker` commands are
+retained for optional reproduction of historical checks, not additional release
+gates. Applicable successful build and complete transitive axiom evidence can
+be reused when its Lean, build, checker and dependency inputs are unchanged.
 
 ```sh
 elan toolchain install "$(cat lean-toolchain)"
@@ -137,13 +172,20 @@ metadata are distinct from rights clearance for third-party material. Neither
 original-project licensing authority nor ordinary-main acceptance by itself
 clears generated artifacts, dependency notices or proposed public history.
 
-Release acceptance is recorded separately for an exact artifact and requires an
-all-shipped, private/generated and stored-body proof audit, lint disposition,
-actual documentation run and
-version-bound records, exact-candidate mathematical/API/rights review, maintainer
-acceptance, authorized internal preparation/promotion and separate public-root,
-consumer and mirror verification, with independent non-author review. The recorded
-native-documentation runs and historical reviews above are evidence within those
-gates, not a declaration that every gate is complete. Tags are deferred,
-**not required to prepare the first release**. `formalization.yaml` records scope and historical review
-without asserting that those gates or source-level milestone decisions are done.
+Release acceptance is recorded separately for an exact artifact. Its computational
+checks are an applicable successful pinned build and a complete actual transitive
+axiom audit, including private/generated declarations and their dependencies,
+allowing only `propext`, `Classical.choice` and `Quot.sound`. The ordinary build
+checks proofs; separate stored-proof replay, a fresh documentation-generation run
+and repeated consumer builds are not additional release gates. Reuse successful
+evidence for unchanged checking inputs; changed inputs require applicable renewed
+checks. The documentation commands and dated observations above remain historical
+reproduction information, not a requirement to rerun them for each release.
+
+Mathematics, API claims, documentation, metadata, rights, provenance and public
+history receive lightweight exact-candidate independent non-author review, followed
+by maintainer acceptance and authorized protected internal/public promotion. Verify
+the exact published commit and destination, and keep source-coverage decisions
+separate. Prior accepted releases do not automatically approve changed artifacts.
+Tags remain deferred, not a release-preparation requirement. `formalization.yaml`
+retains scope and historical review without upgrading source-level milestones.
