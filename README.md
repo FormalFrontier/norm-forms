@@ -1,8 +1,9 @@
 # Norm Forms
 
-`NormForms` is a source-independent Lean library for coordinate norm forms of field
-extensions supplied with a finite basis and for unbounded attained-degree
-anisotropic homogeneous forms over non-algebraically-closed fields. It depends
+`NormForms` is a source-independent Lean library for universal coordinate norms
+under commutative base change, coordinate norm forms of field extensions, and
+unbounded attained-degree anisotropic homogeneous forms over
+non-algebraically-closed fields. It depends
 directly on mathlib and the exact official `multivariate-polynomials` release.
 An earlier
 mathematical input was accepted for ordinary development on 2026-09-25 at
@@ -14,16 +15,37 @@ the native runs were recorded on 2026-09-26. Neither the earlier acceptance
 nor the Lake package version `0.1.0` designates a release. Exact-artifact review
 and publication records identify any subsequently accepted release; the repair
 and documentation do not inherit the historical mathematical review.
-The prior official public release `119fc4967e1ccd2415a3a5fffa3cd712f275635e`
+The earlier official public release `119fc4967e1ccd2415a3a5fffa3cd712f275635e`
 predates the existence-theorem transfer. On 2026-09-28, Beacon accepted the
 exact destination contribution `313612a372a8c55a4e2af2bd0461d302998b6217`
 (PR #13, acceptance 58741), and its protected `main` integration was verified
-(58744). That acceptance is not a release: this documentary readiness revision
-still needs independent release review, separate internal/public acceptance and
-verified publication. Beacon is responsible for this unit, with shared
-source-maintainer stewardship.
+(58744). The later official publication of the previous library at
+`db29d765e132d995bfed69f4424cf6a0261e95ac` and its separate no-target
+disposition are **complete**; that published commit has the same tree as frozen
+destination parent `d81d250bdef45315552d1c1027391296aa53f192`.
+Beacon accepted the universal-coordinate contribution at
+`7a0fe210795b6b1ba26a0bdf272e69c156b123c0` (PR #17, acceptance 59647)
+on 2026-09-28, and verified its protected `main` integration (incubator issue
+#170, record 59660). This is code/API acceptance, not approval or publication
+of a later release artifact; the previous release does not approve changed
+inputs. Beacon is responsible for this unit, with shared source-maintainer
+stewardship. Exact-artifact release records determine its later publication.
 
 ## Headline results
+
+For a commutative ring `R`, a finite-free `R`-algebra `B` (not necessarily
+commutative), and any commutative `R`-algebra `A`, the library adds:
+
+- **A universal-coordinate norm identity.**
+  `Algebra.norm_coordinates_baseChange b x` identifies evaluation of the
+  native signed constant characteristic coefficient with the norm of
+  `∑ i, x i ⊗ₜ[R] b i` in `A ⊗[R] B` for all `x : ι → A`.
+  `Algebra.norm_universalCoordinates b` proves the **actual polynomial
+  equality** with the norm of the universal tensor built from `X i`, not
+  just equality of evaluations. These results work over finite fields and
+  trivial coefficient algebras. Import `NormForms.UniversalCoordinates` or
+  `NormForms`; see the [guide](docs/UniversalCoordinateNorm.md) and
+  [ordinary-import clients](NormFormsTests/UniversalCoordinates.lean).
 
 For a field extension `L / K` with a chosen finite `K`-basis `b` of `n` elements,
 the library provides:
@@ -62,7 +84,9 @@ iteration of the base form. The existence theorem proves *unbounded attained
 degrees*, not every prescribed degree or every sufficiently large degree; it
 does not provide reduced norms or `C_i` theory. See the [historical six-module
 native coordinate signatures](docs/API.md), [new theorem guide](docs/CoordinateNormIteration.md)
-and [checked-use clients](NormFormsTests/CoordinateNormIteration.lean).
+and [checked-use clients](NormFormsTests/CoordinateNormIteration.lean). The
+universal tensor identity is separate from a rational-function field-extension
+norm equivalence or a literal NSW cohomological recipe.
 
 ## Mathematical API
 
@@ -84,6 +108,18 @@ and `b : Basis ι K L`, `import NormForms` exposes:
   `∃ d p, bound < d ∧ p.IsHomogeneous d ∧ p.totalDegree = d ∧
   ∀ x, eval x p = 0 ↔ x = 0` for any field `K` and `¬ IsAlgClosed K`.
 
+In namespace `Algebra`, `import NormForms.UniversalCoordinates` (or the
+aggregate `NormForms`) additionally exposes `norm_coordinates_baseChange b x`
+for `[CommRing R] [Ring B] [Algebra R B] [CommRing A] [Algebra R A]`, and
+`norm_universalCoordinates b` for the genuine universal polynomial equality.
+Both use a finite basis and `[Fintype ι]`, `[DecidableEq ι]`,
+`[Module.Free R B]`, `[Module.Finite R B]`; the basis supplies the latter
+two instances. At `R = K`, `B = L` for fields, the left side of the universal
+theorem is **exactly the signed-coefficient expression defining** the existing
+`NormForms.coordinateNormPolynomial b`, not a different polynomial. See the
+[universal-coordinate guide](docs/UniversalCoordinateNorm.md) for tensor
+orientation and finite/trivial cases; no wrapper definition is required.
+
 The four named objects above are exposed noncomputable definitions, not merely
 theorems. The library derives finite free-module instances from the basis without
 extra separability, Galois, ambient finite-dimensional or nonempty-index
@@ -91,9 +127,10 @@ assumptions. The structural polynomial law is valid over finite fields: equal
 evaluations there would not alone imply equal polynomials. The independent
 coefficient, extension-field and basis-index universes are visible in the
 [historical coordinate-only native signatures](docs/API.md). For a smaller import use
-`import NormForms.Coordinate` or `import NormForms.CoordinateNormIteration`;
-the reexport root is `NormForms.lean`. Four private
-matrix/characteristic-polynomial proof helpers are not public API.
+`import NormForms.Coordinate`, `import NormForms.CoordinateNormIteration` or
+`import NormForms.UniversalCoordinates`; the reexport root is `NormForms.lean`.
+The coordinate leaf's four private matrix/characteristic-polynomial helpers
+and the universal leaf's two private helpers are not public API.
 
 `coordinateNorm_coordinateChange` is a pre-simplification rule (`@[simp↓]`):
 ordinary `simp` contracts the coordinate norm before simplifying its change-of-basis
@@ -106,7 +143,8 @@ coefficient ring; the subsingleton-ring case is discharged separately.
 The checked-use client modules demonstrate the rational singleton norm, complex
 sum of two squares and a nonidentity coordinate swap, as well as finite `ZMod 2`
 examples with distinct `Unit`/`ULift.{1} (Fin 1)` indices in different universes.
-The added ordinary-import private client uses `ZMod 2` and bound `100`. These
+The iteration ordinary-import private client uses `ZMod 2` and bound `100`;
+the universal client also checks trivial `ZMod 1`. These
 are tests, not extra production theorems. This library does **not** supply
 every-degree existence, normic order, `C_i` theory, reduced norms or cohomology;
 no complete source-formalization claim is made here.
@@ -125,18 +163,30 @@ lake exe cache get
 LEAN_NUM_THREADS=2 lake --wfail build NormForms NormFormsTests
 ```
 
-These commands are reproduction instructions, not a new run on this documentation
-revision. On 2026-09-28, ordinary native run 823 succeeded on accepted
+These commands are reproduction instructions, not a new run by this
+documentation-only preparer. On 2026-09-28, ordinary native
+run 823 succeeded on the previously accepted
 `313612a372a8c55a4e2af2bd0461d302998b6217` with these exact Lean,
 dependency and checker inputs: the matching mathlib cache was fetched and
 verified before both aggregate roots built (2,068 jobs). The actual transitive
 axiom audit covered 48 declarations across eight modules, including eight
 private names and generated declarations, and found only `propext`,
 `Classical.choice` and `Quot.sound` (owner intake 58689; PR #13 acceptance
-58741). This readiness correction changes documentation/metadata only; the
-checked Lean, build, dependency and audit inputs stay byte-identical, but the
-whole input-file digest does **not**. Applicable prior evidence can be reused
-only when the relevant exact inputs and coverage match.
+58741). That eight-module evidence is historical: the accepted universal
+contribution changed Lean source and both aggregate roots to ten modules,
+requiring new current-graph evidence. The previous run 823 is **not** a
+current-input certificate. The applicable native run 864 (UI 12, artifact
+181363) on accepted `7a0fe210795b6b1ba26a0bdf272e69c156b123c0`
+succeeded from 20:32:22 to 20:34:53 UTC on 2026-09-28. After a successful
+matching-cache fetch it built both roots (2,070 jobs) and audited the actual
+transitive axiom dependencies of 57 declarations across all ten modules,
+including 15 private names; every set contains only the three allowed
+axioms. Beacon retained the full run in
+`a065951d8112e71aa6825fbebdb6c631fe8a26e6` (incubator issue #170,
+record 59605). These are runner-specific total run timestamps, not a
+project-only compilation benchmark or memory measurement. Documentation-only
+changes here leave Lean/build/dependency/checker inputs unchanged, although
+they change the complete input digest.
 
 The following older e37 commands and observations are **historical** and apply
 only to a separate checkout of the old six-module source and its old mathlib
@@ -162,10 +212,15 @@ LEAN_NUM_THREADS=2 lake env leanchecker -v NormForms.Coordinate NormForms \
 Fetch the matching mathlib cache **successfully before any build**; do not replace
 a failed fetch by a silent full mathlib rebuild. Historically, the old test root
 imported two client leaves and `NormFormsTests.Axioms`, which printed axioms for
-18 public production declarations and 11 named client theorems. The current
-root also imports the new ordinary-import ZMod client. Old prints and a separate
-kernel replay do not certify all current private/generated/stored bodies: a
-complete actual transitive audit on the current graph is required. `-T0`
+18 public production declarations and 11 named client theorems. The
+pre-transfer root also imported the iteration ZMod client; this new root adds
+the universal clients. The selected print module now has 20 production prints
+(18 coordinate and two universal), plus 11 named client prints. The public
+iteration theorem is additional, for 21 named production declarations overall.
+Old prints and a separate
+kernel replay do not certify all current private/generated/stored bodies: the
+complete actual transitive audit on the current graph comes from native run
+864, not these selected prints. `-T0`
 changes heartbeat behavior, not kernel assurance. Consult [historical native
 documentation reproduction](docs/README.md) for the six-module doc-gen4 run,
 raw-record retention and source-only replay.
@@ -268,6 +323,31 @@ Mathematics, API claims, documentation, metadata, rights, provenance and public
 history receive lightweight exact-candidate independent non-author review, followed
 by maintainer acceptance and authorized protected internal/public promotion. Verify
 the exact published commit and destination, and keep source-coverage decisions
-separate. Prior accepted releases do not automatically approve changed artifacts.
+separate. The completed previous Q release does not approve the separate
+universal-coordinate release artifact, even though its code contribution at C
+was accepted on 2026-09-28. This documentary readiness and its temporary
+public candidate still need their own independent artifact review and Beacon's
+separate release-stage acceptances; exact-artifact records, not this
+preparation-time prose, determine eventual publication.
 Tags remain deferred, not a release-preparation requirement. `formalization.yaml`
 retains scope and historical review without upgrading source-level milestones.
+The present universal-coordinate transfer is by worker-b Hive Task
+`hive-request-8d86211aac37fbfbacde1cff6292e2c8a00e2629` (UID
+`5daebbc8-1ee0-4dff-99c9-44d0a3e9bf9a`), reusing the proof expression,
+five private clients and guide from isolated H
+`b09f3c187eb6c9a17b1b08f2add69c081f04945f`, authored by worker-b Task
+`hive-request-d2dad13a497343a75e6182e409c383b3aa2a14d9` (UID
+`47d468b5-b70e-4340-8f05-bb4ea48acc79`). H was independently reviewed
+by worker-a Task `hive-request-ad3bc257117d6035b4fdd0e632d083c6cac12ccd`
+(UID `017291c6-f001-42b7-8151-de0c74eeade7`) and accepted by Beacon
+in incubator issue #170/59476 **as isolated code only**. That review and
+acceptance do not certify this destination graph, any source coverage, or
+third-party rights. Fresh worker-a Task
+`hive-request-434d90f78f1d94c51d15a45962e8aea3da037e5b` (UID
+`61738d70-2bad-4bdd-a1c0-058d0339589d`) independently reviewed exact
+destination C; Beacon accepted it in PR #17/59647 and verified protected
+integration in incubator issue #170/59660. This later documentary release
+preparation is by worker-b Task
+`hive-request-847f8a2c7a0441d60d269b58583877aebf2e5b66` (UID
+`50282a97-7767-4038-959e-f2b067f06160`), not a self-review or release
+acceptance.

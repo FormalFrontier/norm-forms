@@ -1,13 +1,17 @@
 # Mathematical guide and historical native reference
 
-The [iterated coordinate-norm guide](CoordinateNormIteration.md) documents the
-new theorem, its precise hypotheses and attained-degree conclusion, its
+The [iterated coordinate-norm guide](CoordinateNormIteration.md) documents its
+theorem, precise hypotheses and attained-degree conclusion, its
 `NormForms.CoordinateNormIteration` import and its ordinary-import test client.
-This guide is part of the current eight-Lean-module library; it is **not** a
-native documentation regeneration or a proof-integrity receipt.
+The [universal-coordinate norm guide](UniversalCoordinateNorm.md) documents
+the arbitrary-commutative-base polynomial equality, direct
+`NormForms.UniversalCoordinates` import and private finite/trivial-algebra
+clients. Both guides are part of the current ten-Lean-module library;
+neither is a native documentation regeneration or a proof-integrity receipt.
 
 The [public/native API](API.md) and [machine-readable manifest](api-manifest.json)
-document **all six historical Lean modules**, not the two newly added modules,
+document **all six historical Lean modules**, not the four later-added modules
+(the iteration producer/client and universal producer/client),
 from analyzed repair input
 `54accffeba182bea1f6969c2f6d67a96a43dc6f7` (tree
 `c7dbbf39c7acf315ada65f18f84f0ed276c73151`), which was unaccepted when
@@ -26,12 +30,19 @@ private proof helpers, compiler-generated bodies, all proof fields or transitive
 axioms. It does not certify formal source coverage, source interpretation,
 kernel replay, third-party rights or any release. The historical 43 distinct
 ordinary `#print axioms` results (18 public, 11 clients, four private, ten
-generated/equations) are not the current eight-module audit. The separate
-native run 823 on accepted main revision
+generated/equations) are not the earlier eight-module audit. The separate
+historical native run 823 on accepted main revision
 `313612a372a8c55a4e2af2bd0461d302998b6217` successfully audited all
 48 actual-origin transitive declarations, including eight private names and
-generated declarations, on the pinned current graph. No dependency docstrings,
-doc-gen4 website, HTML, JS, fonts or raw `.bmp` records are shipped.
+generated declarations, on the earlier pinned eight-module graph. The new
+ten-module contribution changed checking inputs. Native run 864 (UI 12,
+artifact 181363) on accepted C `7a0fe210795b6b1ba26a0bdf272e69c156b123c0`
+successfully built both roots and audited all 57 actual-origin transitive
+declarations across ten modules, including 15 private names, with only the
+three standard allowed axioms (incubator issue #170/59605). Neither historical
+native documentation nor these prose changes are a new proof check. No
+dependency docstrings, doc-gen4 website, HTML, JS, fonts or raw `.bmp` records
+are shipped.
 
 ## Frozen inputs and tool
 
@@ -49,7 +60,7 @@ All reproduction commands below refer **only** to the six-module analyzed
 source/tree above, the exact old direct mathlib pin
 `e37d88a26f3791ed5a93daa1f949af1021b8d103` and its matching old Lake
 inputs. Use a separate checkout (or byte-identical source archive) of those
-frozen files. The current eight-module library changes aggregate imports and
+frozen files. The current ten-module library changes aggregate imports and
 pins mathlib at `83abb3e776bdefcbc447a1e44d0debe4010039e5` plus the
 official Multivariate dependency; it cannot satisfy the unchanged native
 generator's old source/pin hashes. Do not treat these older commands or their
@@ -139,6 +150,12 @@ re-binding are by worker-b Hive Task
 `e99a00fc-dbd5-4e6f-b6d6-cbfab82da92f`. The separate upstream tool
 and excluded website assets retain their own upstream notices; this project's
 license cannot clear another party's material. Independent exact-artifact
-rights and provenance assessment remains a prerequisite for this new release
-candidate; earlier destination acceptance does not review these documentation
-corrections.
+rights and provenance assessment was part of the separately completed earlier
+P release; the historical destination acceptance alone did not review those
+documentation corrections. The universal-coordinate guide and its exact-C
+destination contribution received independent provenance review from worker-a
+Task `hive-request-434d90f78f1d94c51d15a45962e8aea3da037e5b` (UID
+`61738d70-2bad-4bdd-a1c0-058d0339589d`) and Beacon's code acceptance
+(PR #17/59647). This later documentary artifact and its proposed public
+history still need independent release review and Beacon's stage acceptances;
+no source-coverage or general third-party rights decision follows.

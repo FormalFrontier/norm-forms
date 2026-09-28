@@ -6,7 +6,8 @@ module
 
 public import NormForms.Coordinate
 public import NormForms.CoordinateNormIteration
+public import NormForms.UniversalCoordinates
 
-/-! Coordinate norm forms and unbounded attained-degree anisotropic forms. -/
+/-! Coordinate norm forms, universal base-change norms, and unbounded attained-degree anisotropic forms. -/
 
 set_option warningAsError true

@@ -2,7 +2,7 @@ version: "v0.4"
 
 project:
   name: "Norm Forms"
-  description: "Coordinate field norm forms for arbitrary finite bases, with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees over any non-algebraically-closed field."
+  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees over any non-algebraically-closed field."
   authors:
     - "Formal Frontier Agents"
   responsible_maintainers:
@@ -15,6 +15,10 @@ sources:
     type: "folklore"
     relationship: "independently-proves"
     note: "Classical mathematics; this Lean development is original formal code, not a claim of novel mathematics or full coverage of a specific source."
+  - title: "Finite-free universal coordinate norm under scalar extension"
+    type: "folklore"
+    relationship: "independently-proves"
+    note: "Native left-multiplication norm in an arbitrary commutative base algebra, with universal polynomial equality; not a claim of selected-source coverage or third-party rights clearance."
   - title: "Cohomology of Number Fields"
     authors:
       - "Jürgen Neukirch"
@@ -42,10 +46,11 @@ review:
     PR 13/58744. Native run 823 succeeded on its pinned mathlib83 and official
     Multivariate graph: cache first, both roots built and complete actual
     transitive standard-three audit including private/generated declarations.
-    Agent-reviewed is scoped to that accepted destination mathematics and code,
-    not this still-unreviewed documentary readiness/public artifact; separate
-    independent release review, stage acceptances and verified publication
-    remain required. The isolated incubator proof expression and ZMod client at
+    At that earlier documentary preparation, agent-reviewed was scoped to
+    accepted destination mathematics and code, not its then-unreviewed
+    documentary readiness/public artifact; its later independent release
+    review, stage acceptances and verified publication are recorded separately.
+    The isolated incubator proof expression and ZMod client at
     edc6961da2dfee53dcfa8de0d6d8c41cc9a560ed had independent worker-a
     review 58570 and Beacon's isolated-only acceptance 58575, neither of which
     substitutes for the completed destination review. Historical ordinary-main
@@ -63,7 +68,27 @@ review:
     earlier source-repository expression, not invented third-party clearance.
     Later documentation changes require fresh independent exact-candidate review;
     no full release acceptance, universal rights clearance or source-coverage
-    decision is represented by this review field.
+    decision is represented by this review field. The subsequent official Q
+    db29d765e132d995bfed69f4424cf6a0261e95ac release of the earlier
+    destination tree and its no-target disposition are complete. The new
+    universal-coordinate transfer from isolated incubator H
+    b09f3c187eb6c9a17b1b08f2add69c081f04945f was UNACCEPTED and UNRELEASED
+    at its earlier C candidate handoff; the earlier review and native run 823
+    did not cover its changed Lean modules or aggregate roots. Subsequently,
+    native run 864 (UI 12, artifact 181363; incubator issue 170/59605)
+    succeeded on exact C 7a0fe210795b6b1ba26a0bdf272e69c156b123c0:
+    matching cache first, both roots 2070 jobs, all ten modules and 57 actual
+    transitive declaration origins including 15 private, only propext,
+    Classical.choice and Quot.sound. Fresh worker-a Task
+    hive-request-434d90f78f1d94c51d15a45962e8aea3da037e5b (UID
+    61738d70-2bad-4bdd-a1c0-058d0339589d) independently approved exact C
+    in native review 4695; Beacon accepted its code/API in PR 17/59647 and
+    verified protected main integration in incubator issue 170/59660 on
+    2026-09-28. These facts do not review or publish this later documentary
+    readiness or proposed public release artifact: those require distinct
+    exact-candidate review, release-stage acceptances and verified publication.
+    No source-coverage decision or general third-party rights clearance is
+    represented by this metadata.
 
 acknowledgements: >-
   Frozen-transfer historical attribution and lifecycle, recorded before
@@ -106,8 +131,39 @@ acknowledgements: >-
   independent worker-a review 4631 by Task
   hive-request-fcb0935dba04fc17d06ffa0ee41e9e620a7af414 (UID
   df5947c5-96ed-4503-bb64-3081612cd20c), and Beacon PR 13/58741
-  acceptance and 58744 protected integration. The separate release/publication
-  requirement remains. This documentary preparation is by worker-b Task
+  acceptance and 58744 protected integration. At that preparation stage the
+  separate release/publication requirement remained. This documentary
+  preparation is by worker-b Task
   hive-request-f1a3c9d387b0214bb0518f8a08d4fb053d20085f (UID
   e7750ec2-a10d-4c6c-b465-5fc6b292c285); it does not approve its own
-  release artifact or decide source coverage or third-party rights.
+  release artifact or decide source coverage or third-party rights. That
+  earlier official P publication is now complete, without changing any of
+  the dated historical facts above. The new universal-coordinate theorems,
+  private clients and original guide were authored in isolated H
+  b09f3c187eb6c9a17b1b08f2add69c081f04945f by worker-b Task
+  hive-request-d2dad13a497343a75e6182e409c383b3aa2a14d9 (UID
+  47d468b5-b70e-4340-8f05-bb4ea48acc79). The route was assessed by Tasks
+  hive-request-816ac77559f5852ec2c93e8bfb83d7a50aa20190 (UID
+  f1dc54a3-fb88-4806-b9dc-885a09d845ad) and
+  hive-request-fa10fd03a100f15dcd58a8d228ba2f015f386785 (UID
+  6d0a526a-97ec-4947-85c5-a03d153ed6b5). Fresh worker-a Task
+  hive-request-ad3bc257117d6035b4fdd0e632d083c6cac12ccd (UID
+  017291c6-f001-42b7-8151-de0c74eeade7) independently reviewed H;
+  Beacon accepted only isolated H in incubator issue 170/59476. Worker-b
+  Task hive-request-8d86211aac37fbfbacde1cff6292e2c8a00e2629 (UID
+  5daebbc8-1ee0-4dff-99c9-44d0a3e9bf9a) transferred attributed code,
+  clients and guide into this deliverable with destination-only ancestry.
+  At the C candidate handoff this transfer had no current-graph CI pass,
+  independent destination review, maintainer acceptance, source-coverage
+  decision or new publication; neither the earlier Q release nor the H review
+  supplied those prerequisites. Native run 864 (incubator issue 170/59605)
+  subsequently checked exact C, fresh worker-a Task
+  hive-request-434d90f78f1d94c51d15a45962e8aea3da037e5b (UID
+  61738d70-2bad-4bdd-a1c0-058d0339589d) independently reviewed its
+  destination mathematics, API, documentation and provenance, and Beacon
+  accepted C in PR 17/59647 and verified protected integration in incubator
+  issue 170/59660. This documentary release preparation is by worker-b Task
+  hive-request-847f8a2c7a0441d60d269b58583877aebf2e5b66 (UID
+  50282a97-7767-4038-959e-f2b067f06160), not its independent reviewer.
+  Separate release review, owner acceptance, publication, rights assessment
+  and selected-source correspondence remain exact-artifact decisions.
