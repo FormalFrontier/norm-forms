@@ -10,7 +10,7 @@ rev = "83abb3e776bdefcbc447a1e44d0debe4010039e5"
 [[require]]
 name = "multivariate-polynomials"
 git = "https://github.com/FormalFrontier/multivariate-polynomials.git"
-rev = "ec4906268f2a65a54e320ce9f3f44562e9d78c1e"
+rev = "6a04276766ad82d60702b24deb9a559a30a80007"
 
 [[require]]
 name = "algebraic-groups"

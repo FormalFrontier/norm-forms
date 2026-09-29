@@ -5,14 +5,18 @@ under commutative base change, coordinate norm forms of field extensions,
 unbounded attained-degree anisotropic homogeneous forms, finite polynomial
 zero-set compression over non-algebraically-closed fields, and nontrivial
 common zeros of equal-degree homogeneous systems under a direct
-all-positive-degree single-form bound. It depends directly on mathlib and
+all-positive-degree single-form bound. The same bound also yields nontrivial
+zeros of homogeneous forms over arbitrary algebraic field extensions. It
+depends directly on mathlib and
 exact official `multivariate-polynomials`, `algebraic-groups` and
 `sequence-growth` releases.
-The preceding library is published at official
-`9317562dfa6187d9f594086aa32b04dd7e3fcbd7`; the historical paragraphs
-below describe earlier stage-specific handoffs, not this new contribution's
-acceptance or publication. At this transfer's construction on 2026-09-29,
-its changed destination graph still required its own checks and review.
+The preceding sixteen-module library is published at official
+`22413e8f4fa8409ba06b6242a67adbbc76733a02` (same tree as destination
+parent `eddc91b7e71fdb0e8fb26b4441b445b389d6db7b`); the historical
+paragraphs below describe earlier stage-specific handoffs, not this separate
+algebraic-extension contribution's acceptance or publication. At its
+construction on 2026-09-29, the changed eighteen-module destination graph
+still required its own checks and independent review.
 
 An earlier mathematical input was accepted for ordinary development on
 2026-09-25 at
@@ -55,7 +59,8 @@ padding-law extraction was separately accepted as code/API at
 `34366b58f3e8448fdfba4210963690694b2e0042` (PR #26/61186), following
 independent review 4782 and native run 939. Beacon verified its protected
 `main` integration on 2026-09-29 at 02:25:07 UTC (issue #25/61199).
-Neither code acceptance nor integration publishes its next official release.
+At that integration handoff, neither code acceptance nor integration published
+the next official release; its publication was subsequently completed.
 
 ## Headline results
 
@@ -138,6 +143,19 @@ uniform in **all positive degrees**, the library additionally provides:
   Unlike `NormForms.CommonZeroCompression`, this is a conditional
   existence theorem, not a coefficient-field zero-set compression theorem.
 
+For fields `k` and `K` with `[Algebra k K]` and `[Algebra.IsAlgebraic k K]`,
+the same direct **all-positive-degree base-field** premise gives:
+
+- **A nontrivial zero over any algebraic field extension.**
+  `MvPolynomial.exists_nonzero_zero_of_isAlgebraic_of_single_form_bound`
+  takes `r : ℕ`, `0 < d`, `d ^ r < n`, and a form over `K` with
+  `IsHomogeneous d`; it produces a nonzero zero over `K`, with no finite,
+  separable or perfect extension assumption and no requirement that the form
+  be nonzero. It covers `r = 0` and `d = 1`. Import
+  `NormForms.AlgebraicExtensionFormZeros` or `NormForms`; see the
+  [guide](docs/AlgebraicExtensionFormZeros.md) and
+  [ordinary-import examples](NormFormsTests/AlgebraicExtensionFormZeros.lean).
+
 These interfaces let downstream developments express norm equations in
 coordinates and transport them between bases. No separability or Galois
 hypothesis is required; the definitions are noncomputable, not an executable
@@ -194,7 +212,8 @@ coefficient, extension-field and basis-index universes are visible in the
 [historical coordinate-only native signatures](docs/API.md). For a smaller import use
 `import NormForms.Coordinate`, `import NormForms.CoordinateNormIteration`,
 `import NormForms.UniversalCoordinates`, `import NormForms.PaddedSubstitution`
-or `import NormForms.CommonZeroCompression`;
+`import NormForms.CommonZeroCompression` or
+`import NormForms.AlgebraicExtensionFormZeros`;
 the reexport root is `NormForms.lean`.
 The coordinate leaf's four private matrix/characteristic-polynomial helpers
 and the universal leaf's two private helpers are not public API. For arbitrary
@@ -221,7 +240,9 @@ examples with distinct `Unit`/`ULift.{1} (Fin 1)` indices in different universes
 The iteration ordinary-import private client uses `ZMod 2` and bound `100`;
 the universal client also checks trivial `ZMod 1`. The compression client checks
 empty and all-zero families, degree zero, empty/arbitrary variable types and
-finite `ZMod 2`. These are tests, not extra production theorems. This library does **not** supply
+finite `ZMod 2`. The algebraic-extension client checks general, finite and
+identity extensions, `r = 0`, `d = 1` and the zero form. These are tests, not
+extra production theorems. This library does **not** supply
 every-degree existence, normic order, `C_i` theory, reduced norms or cohomology;
 no complete source-formalization claim is made here.
 
@@ -229,7 +250,7 @@ no complete source-formalization claim is made here.
 
 This library pins Lean `v4.34.0-rc2`, mathlib
 `83abb3e776bdefcbc447a1e44d0debe4010039e5` and official
-`multivariate-polynomials` `ec4906268f2a65a54e320ce9f3f44562e9d78c1e`.
+`multivariate-polynomials` `6a04276766ad82d60702b24deb9a559a30a80007`.
 For a fresh build, install the pinned toolchain, successfully fetch the matching
 mathlib cache, then build **both** current roots from this repository root:
 
@@ -240,10 +261,12 @@ LEAN_NUM_THREADS=2 lake --wfail build NormForms NormFormsTests
 ```
 
 These commands are reproduction instructions, not a new run by this
-documentation-only preparer. On 2026-09-28, ordinary native
+static transfer author. On 2026-09-28, ordinary native
 run 823 succeeded on the previously accepted
-`313612a372a8c55a4e2af2bd0461d302998b6217` with these exact Lean,
-dependency and checker inputs: the matching mathlib cache was fetched and
+`313612a372a8c55a4e2af2bd0461d302998b6217` with its historical Lean,
+dependency and checker inputs, including `multivariate-polynomials`
+`ec4906268f2a65a54e320ce9f3f44562e9d78c1e` (not the current `6a042767…`
+pin): the matching mathlib cache was fetched and
 verified before both aggregate roots built (2,068 jobs). The actual transitive
 axiom audit covered 48 declarations across eight modules, including eight
 private names and generated declarations, and found only `propext`,
@@ -297,12 +320,22 @@ fourteen modules and 42 compiled parts. All 68 recorded commands exited zero;
 the only axioms were `propext`, `Classical.choice` and `Quot.sound` (owner
 issue #25/61176; retained artifact at
 `5c4af06efed8d7dc1ce69c5e25ba78432e97c7e9:evidence/padded-substitution-native939`).
-This documentary update changes the full file-input digest, **not** the
-Lean/build/dependency/checker inputs to which that evidence applies; no new
-proof check is claimed. The current selected print module requests 25 named
+That fourteen-module documentary update changed the full file-input digest,
+**not** the Lean/build/dependency/checker inputs to which that earlier
+evidence applied; it was not a new proof check. At that stage, the selected
+print module requested 25 named
 production results, including the three new laws, and 11 named client results;
 the public iteration theorem is additional to those 25. Selected prints are
 not a substitute for the full native audit, and no new benchmark is inferred.
+
+The predecessor homogeneous-system release added another producer/client
+pair (sixteen modules) and was separately published at official
+`22413e8f4fa8409ba06b6242a67adbbc76733a02`. Its native predecessor
+evidence does not certify this eighteen-module algebraic-extension transfer:
+the new `multivariate-polynomials` pin, producer and ordinary-import client
+change the checking inputs. An applicable both-root build and full actual
+transitive standard-axiom audit including private/generated origins must be
+obtained for the exact new graph; no such check is claimed by this author.
 
 The following older e37 commands and observations are **historical** and apply
 only to a separate checkout of the old six-module source and its old mathlib
@@ -449,10 +482,12 @@ padding-law code/API passed native run 939 and fresh independent worker-a
 review 4782 by Task `hive-request-3d69bea9eb1999955d5963026e068f620c77d09e`
 (UID `4b70d28c-ab1d-4812-bb82-dde3465979c5`); Beacon accepted exact S
 in PR #26/61186 and verified its protected integration in issue #25/61199.
-This documentary readiness and its proposed same-tree public artifact still
-require fresh independent release review, Beacon's separate stage acceptance
-and verified official GitHub publication; previous code approval does not
-transfer to them.
+At its earlier static documentary preparation, that same-tree public artifact
+still required independent release review, Beacon's separate stage acceptance
+and verified official GitHub publication; previous code approval did not
+transfer to those stages. Those predecessor stages later completed, with the
+sixteen-module homogeneous-system release officially published at
+`22413e8f4fa8409ba06b6242a67adbbc76733a02`.
 Tags remain deferred, not a release-preparation requirement. `formalization.yaml`
 retains scope and historical review without upgrading source-level milestones.
 The preceding universal-coordinate transfer is by worker-b Hive Task
@@ -476,7 +511,7 @@ preparation is by worker-b Task
 `50282a97-7767-4038-959e-f2b067f06160`), not a self-review or release
 acceptance.
 
-The present polynomial compression expression and private client were authored
+The earlier polynomial compression expression and private client were authored
 in isolated incubator H `272d5abe773245829435be9b3cc4318f6b7505eb`
 by worker-b Task `hive-request-8306ff75faa6638080e54d36d849222c7ac1948a`
 (UID `03f7d2d8-159f-4715-a179-413c704b5507`). Worker-a Task
@@ -489,9 +524,10 @@ expression and representative client to this destination without incubator
 ancestry. Native run 904 checked the exact destination graph, fresh worker-a
 Task `hive-request-23c96d626c3ec88ebbde46b9da9ade7cf64b5c9e` (UID
 `2b20c511-56b9-488f-b807-263fab37cf68`) reviewed exact C, and Beacon
-accepted/integrated it in PR #21/60312 and incubator #175/60316. The earlier
-official P publication is complete; this new contribution still requires its
-own reviewed release and verified official publication. The bounded static
+accepted/integrated it in PR #21/60312 and incubator #175/60316. At that
+earlier transfer's preparation, its own reviewed release and official
+publication were still pending; both were later completed at
+`5fe9ff797f65d19f174f903774e660130ccf682d`. The bounded static
 documentary preparation is by worker-b Task
 `hive-request-9d6cb244757d207017694ca539c971c47be480aa` (UID
 `e5f3b774-1939-4a87-a020-42e43ac815c1`), not its proof author, reviewer
@@ -503,8 +539,22 @@ The preceding compression contribution was subsequently published at official
 extraction, consumer refactor, ordinary-import tests and guide are by worker-b
 Hive Task `hive-request-87ff0e576db2df1f58dd28051b6af90d850a3eaa` (UID
 `7c3de02d-f84f-4e5a-9077-b7d90c89c9ad`), adapting the credited original
-proof. Exact S received independent code review 4782 and Beacon's acceptance,
-not a release or source-coverage decision. This static release documentation
+proof. At the S code-review stage, exact S received independent review 4782
+and Beacon's code acceptance, not a release or source-coverage decision; its
+reviewed publication later completed. That static release documentation
 is prepared by worker-b Task `hive-request-81ff4f8ed4e54e710826db01b99d3f8b6e66719e`
 (UID `57b7bdad-4de2-40e5-b222-fb4e1ab53c8f`), not a proof author,
 independent reviewer or release approver.
+
+The present eighteen-module candidate reuses the accepted incubator
+algebraic-extension producer and six ordinary-import examples from original
+worker-b Task `hive-request-96f1dca1b4a17c56caa8ca7f8b8d518f14944536`
+(UID `04300275-f025-45ca-8cab-6a198698424e`), with distinct original
+isolated worker-a review and subsequent assembly credited in
+`formalization.yaml`. Worker-b Task
+`hive-request-7b6e9279b48464263e0c3cf4204d661927b773af` (UID
+`ab6641b6-10f3-495f-93a6-8879acd6c835`) performs only this destination
+static transfer, not mathematical authorship, independent review, acceptance
+or release. This candidate changes the pinned MP graph and has no inherited
+new-graph build/axiom or destination review; selected-source coverage and
+third-party rights remain separate decisions.

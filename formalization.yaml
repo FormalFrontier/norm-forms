@@ -2,7 +2,7 @@ version: "v0.4"
 
 project:
   name: "Norm Forms"
-  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees, general zero-padded polynomial substitution laws over commutative semirings, finite polynomial-system K-point zero-set compression over any non-algebraically-closed field, and conditional nontrivial common zeros of equal-degree homogeneous systems over arbitrary fields."
+  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees, general zero-padded polynomial substitution laws over commutative semirings, finite polynomial-system K-point zero-set compression over any non-algebraically-closed field, conditional nontrivial common zeros of equal-degree homogeneous systems over arbitrary fields, and transfer of a direct all-positive-degree single-form zero bound to arbitrary algebraic field extensions."
   authors:
     - "Formal Frontier Agents"
   responsible_maintainers:
@@ -27,6 +27,10 @@ sources:
     type: "folklore"
     relationship: "independently-proves"
     note: "A direct all-positive-degree single-form premise and s * d ^ r < n yield a nonzero common zero over arbitrary fields, including empty, zero and repeated families; this is not a selected-source coverage or third-party rights claim."
+  - title: "Homogeneous-form nontrivial zeros over algebraic field extensions"
+    type: "folklore"
+    relationship: "independently-proves"
+    note: "A direct all-positive-degree single-form base-field premise, positive d and d ^ r < n yield a nonzero zero of each homogeneous-label-d form over any algebraic extension. Original project proof expression is reused without claiming selected-source coverage, arbitrary-zero descent, or third-party rights clearance."
   - title: "Cohomology of Number Fields"
     authors:
       - "Jürgen Neukirch"
@@ -46,6 +50,9 @@ automation:
 review:
   status: "agent-reviewed"
   notes: >-
+    This agent-reviewed field records only the earlier accepted destination
+    mathematical/code results listed below; it does not review the present
+    algebraic-extension transfer, its new dependency graph, guide or roots.
     On 2026-09-28, independent worker-a Task
     hive-request-fcb0935dba04fc17d06ffa0ee41e9e620a7af414 (UID
     df5947c5-96ed-4503-bb64-3081612cd20c) reviewed exact destination
@@ -150,10 +157,20 @@ review:
     the changed NormForms graph had no applicable destination build/complete
     private-inclusive standard-axiom audit or independent destination review;
     its acceptance and publication are subsequent exact-artifact decisions.
+    That predecessor subsequently passed its own checks and separate release
+    review, and was officially published at
+    22413e8f4fa8409ba06b6242a67adbbc76733a02 with the same tree as
+    development main eddc91b7e71fdb0e8fb26b4441b445b389d6db7b.
+    At construction of the present separate transfer on 2026-09-29, no
+    applicable build/private-inclusive standard-axiom audit or independent
+    destination review has been claimed for the new 18-module/MP6a graph.
+    Code acceptance, release review/publication, source correspondence and
+    third-party rights assessment remain separate exact-artifact decisions.
 
 acknowledgements: >-
-  Frozen-transfer historical attribution and lifecycle, recorded before
-  destination review, current-graph checks or protected integration:
+  Historical attribution and lifecycle for predecessor transfers, as recorded
+  at their earlier construction dates before those respective destination
+  reviews, current-graph checks or protected integrations:
   Historical attribution for the earlier six-module coordinate input: Beacon
   authored the earlier coordinate-norm and norm-polynomial proof expression
   in Formal Frontier source-nsw, originating at cce37e4118dc538f0f0c1d1e6eff6b8c50029f85
@@ -165,8 +182,9 @@ acknowledgements: >-
   or establish legal ownership. The implementation builds on
   mathlib's field norm, polynomial characteristic coefficient, basis and multivariable
   polynomial APIs at e37d88a26f3791ed5a93daa1f949af1021b8d103.
-  For this candidate, direct mathlib uses 83abb3e776bdefcbc447a1e44d0debe4010039e5
-  and finite iteration depends on the exact official multivariate-polynomials commit
+  For the earlier coordinate/iteration candidate, direct mathlib used
+  83abb3e776bdefcbc447a1e44d0debe4010039e5 and finite iteration depended
+  on official multivariate-polynomials commit
   ec4906268f2a65a54e320ce9f3f44562e9d78c1e. The assembled theorem, client and
   guide reuse actual expression by worker-b Task
   hive-request-f7fefa6fea31fecce0577537ebd9c88ff30c913f (UID
@@ -236,7 +254,7 @@ acknowledgements: >-
   isolated scope by worker-a Task
   hive-request-cee92f392eeacba31bce30072ea79308ee41a539 (UID
   1af91b4f-4d05-4a1c-aaa3-a57ecb10a627) and accepted there by Beacon.
-  The present destination transfer of this expression, private client, guide,
+  The preceding compression destination transfer of this expression, private client, guide,
   imports and metadata is by worker-b Task
   hive-request-7fa01782d4333fb52b06189a0cb7b7047745b74c (UID
   13a94950-58fd-4d63-83f8-56f57e0e4c8c), without incubator commit
@@ -254,7 +272,7 @@ acknowledgements: >-
   complete source coverage and third-party rights remain distinct decisions.
   The polynomial-compression publication was subsequently completed at official
   5fe9ff797f65d19f174f903774e660130ccf682d without changing the dated
-  handoff statements above. The present zero-padded-substitution extraction,
+  handoff statements above. The subsequent zero-padded-substitution extraction,
   direct-import clients, refactor and guide are by worker-b Hive Task
   hive-request-87ff0e576db2df1f58dd28051b6af90d850a3eaa (UID
   7c3de02d-f84f-4e5a-9077-b7d90c89c9ad), adapting the previously
@@ -266,9 +284,11 @@ acknowledgements: >-
   Static documentary release preparation is by worker-b Task
   hive-request-81ff4f8ed4e54e710826db01b99d3f8b6e66719e (UID
   57b7bdad-4de2-40e5-b222-fb4e1ab53c8f), not the proof author,
-  independent release reviewer or release approver. The new documentary
-  and public artifacts are unreviewed and unpublished at this preparation;
-  source coverage and general third-party rights remain separate decisions.
+  independent release reviewer or release approver. At its 2026-09-29 static
+  preparation, the new documentary and public artifacts were unreviewed and
+  unpublished; their release subsequently completed before the officially
+  published sixteen-module homogeneous-system predecessor. Source coverage
+  and general third-party rights remain separate decisions.
   The homogeneous-system producer and client were originally contributed by
   worker-b Task hive-request-2a607c030e4f9149d136a1437547647f21a54267
   (UID 6823bf27-2659-4a3d-b148-070659a6a3e9), assembled onto the accepted
@@ -282,3 +302,26 @@ acknowledgements: >-
   destination reviewer or release approver. Original project code is offered
   under Apache-2.0 without asserting third-party copyright or unrestricted
   rights to unrelated source material.
+  The algebraic-extension producer and six ordinary-import examples were
+  originally authored in the incubator by worker-b Task
+  hive-request-96f1dca1b4a17c56caa8ca7f8b8d518f14944536 (UID
+  04300275-f025-45ca-8cab-6a198698424e), with independent isolated static
+  review by worker-a Task hive-request-9785896b85e84a53d3025f16db827c4b78830ae6
+  (UID 48125327-285b-4282-aa54-25e418f6038f), and later assemblies by
+  worker-b Tasks hive-request-44c016cf96bede6cce4afceb017e92ae327f6f0b
+  (UID b0739fa6-08a4-46e7-bb0a-45c896b955e2),
+  hive-request-5a21425f481ca8c7a602f34dac3efcdf4d621756
+  (UID 6b33eb50-364e-4cb2-bac6-c370f3419b25) and
+  hive-request-8b64fe8033188093548ec553ca7d17a4e7380e05
+  (UID 6c13688d-27da-4c5a-b14a-648fe64ee171). These distinct original
+  author, reviewer and assembler roles retain their exact revisions and
+  review records with the donor provenance.
+  This destination-only static transfer, licensed headers and original guide
+  are by worker-b Task hive-request-7b6e9279b48464263e0c3cf4204d661927b773af
+  (UID ab6641b6-10f3-495f-93a6-8879acd6c835), not the original proof
+  author, destination reviewer, integrator or release approver. The present
+  dependency graph retains mathlib 83abb3e776bdefcbc447a1e44d0debe4010039e5
+  and upgrades its direct official multivariate-polynomials pin to
+  6a04276766ad82d60702b24deb9a559a30a80007 for additive linear
+  coefficient evaluation. No general
+  third-party rights clearance or selected-source coverage is inferred.

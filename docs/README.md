@@ -1,5 +1,17 @@
 # Mathematical guide and historical native reference
 
+The present algebraic-extension contribution adds the
+[homogeneous-form zero guide](AlgebraicExtensionFormZeros.md) and direct
+`NormForms.AlgebraicExtensionFormZeros`/ordinary-import
+`NormFormsTests.AlgebraicExtensionFormZeros` modules. Together with the
+preceding officially published sixteen-module library, this candidate has
+**eighteen Lean modules** and six standalone mathematical guides. Its proof
+uses the already published homogeneous-system theorem and the official
+`multivariate-polynomials` linear-coefficient-evaluation leaf. The six-module
+`API.md` and `api-manifest.json` reference below is intentionally a **historical**
+coordinate-only snapshot, not an eighteen-module API or proof audit. This
+new destination graph has not been certified by the older run receipts.
+
 The [homogeneous-system common-zero guide](HomogeneousSystemZeros.md) covers
 the direct all-positive-degree single-form premise, arbitrary fields, positive
 homogeneous label `d`, strict `s * d ^ r < n`, and zero, repeated and empty
@@ -8,7 +20,9 @@ families. Its `NormForms.HomogeneousSystemZeros` import and
 to the earlier fourteen-module graph. This is distinct from the coefficient-
 field-point [compression theorem](PolynomialCommonZeroCompression.md).
 The historical counts and dated stage evidence below describe their stated
-older revisions, not a build, review or release of this later transfer.
+older revisions, not a build, review or release of this algebraic-extension
+transfer. The preceding homogeneous-system contribution was separately
+reviewed and officially published before this candidate was constructed.
 
 The [iterated coordinate-norm guide](CoordinateNormIteration.md) documents its
 theorem, precise hypotheses and attained-degree conclusion, its
@@ -21,10 +35,10 @@ describes its `NormForms.CommonZeroCompression` direct import (or the
 `NormForms` aggregate), homogeneous refinement, K-point-only limitations and
 ordinary-import `NormFormsTests.CommonZeroCompression` boundary clients. These
 three guides accompanied the twelve-Lean-module library. The
-[zero-padded substitution guide](PaddedSubstitution.md) now documents three
+[zero-padded substitution guide](PaddedSubstitution.md) documents three
 general public laws with direct-import examples in
 `NormFormsTests.PaddedSubstitution`, bringing the accepted main graph to
-four current guides and fourteen Lean modules. None is a native
+four guides and fourteen Lean modules at that predecessor stage. None is a native
 documentation regeneration or a proof-integrity receipt. The third guide and
 changed roots were checked in native run 904 on exact C
 `4a803474814f73e7011c045c5f613f360024b1a5` (both roots, 2,072 jobs;
@@ -43,12 +57,14 @@ origins including 18 private across fourteen modules and 42 compiled parts.
 Fresh independent worker-a review 4782 approved exact S
 `34366b58f3e8448fdfba4210963690694b2e0042`; Beacon accepted its code/API
 in PR #26/61186 and verified protected `main` integration in issue #25/61199
-on 2026-09-29. Its documentary successor and same-tree public artifact
-still need independent release review, separate owner acceptance and publication.
+on 2026-09-29. At that earlier acceptance stage its documentary successor
+and same-tree public artifact still needed independent release review, owner
+acceptance and publication; those predecessor stages were later completed.
 
 The [public/native API](API.md) and [machine-readable manifest](api-manifest.json)
-document **all six historical Lean modules**, not the eight later-added modules
-(the iteration, universal, compression and padding producer/client pairs),
+document **all six historical Lean modules**, not the twelve later-added modules
+(the iteration, universal, compression, padding, homogeneous-system and
+algebraic-extension producer/client pairs),
 from analyzed repair input
 `54accffeba182bea1f6969c2f6d67a96a43dc6f7` (tree
 `c7dbbf39c7acf315ada65f18f84f0ed276c73151`), which was unaccepted when
@@ -84,9 +100,12 @@ matching-cache verification and audited all 62 actual-origin declarations,
 including 18 private, in twelve modules and 36 compiled parts. All transitive
 axiom sets use only the three standard axioms (incubator #175/60292). The later
 padding-law S changes the roots, so 904 is historical for the previous graph;
-the applicable run is 939 above. These documentary changes alter the complete
-input digest but not S's Lean/build/dependency/checker inputs; they are not
-a new proof check. No
+the applicable run for that fourteen-module S stage was 939. Its documentary
+changes altered the complete input digest but not S's Lean/build/dependency/
+checker inputs; they were not a new proof check. The later sixteen-module
+homogeneous-system release has its own evidence; this eighteen-module
+extension graph needs distinct evidence. No earlier audit certifies the
+new MP6a input. No
 dependency docstrings, doc-gen4 website, HTML, JS, fonts or raw `.bmp` records
 are shipped.
 
@@ -206,7 +225,7 @@ Task `hive-request-434d90f78f1d94c51d15a45962e8aea3da037e5b` (UID
 `61738d70-2bad-4bdd-a1c0-058d0339589d`) and Beacon's code acceptance
 (PR #17/59647). The universal-coordinate release is complete at official
 `e1cb91e0f25b663ef6d2439c77946602c8eae8e7`, separately reviewed and
-published after its own documentary preparation. The new compression code/API
+published after its own documentary preparation. The subsequent compression code/API
 was independently reviewed (native 4735) and accepted/integrated in PR
 #21/60312 and incubator #175/60316. Its later documentary artifact and
 public history were separately reviewed and published as official
@@ -225,3 +244,12 @@ worker-b Task `hive-request-81ff4f8ed4e54e710826db01b99d3f8b6e66719e`
 (UID `57b7bdad-4de2-40e5-b222-fb4e1ab53c8f`), not the proof author or an
 independent release reviewer. No selected-source coverage or blanket
 third-party rights clearance follows.
+
+The intervening homogeneous-system release is complete at official
+`22413e8f4fa8409ba06b6242a67adbbc76733a02`. This separate
+algebraic-extension guide and static transfer are by worker-b Task
+`hive-request-7b6e9279b48464263e0c3cf4204d661927b773af` (UID
+`ab6641b6-10f3-495f-93a6-8879acd6c835`); the accepted incubator donor's
+original proof author, reviewer and assemblers retain separate attribution in
+`formalization.yaml`. This candidate needs its own review and applicable
+new-graph checks. No source-coverage or blanket third-party rights claim follows.
