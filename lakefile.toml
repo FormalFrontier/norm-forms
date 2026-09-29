@@ -12,6 +12,16 @@ name = "multivariate-polynomials"
 git = "https://github.com/FormalFrontier/multivariate-polynomials.git"
 rev = "ec4906268f2a65a54e320ce9f3f44562e9d78c1e"
 
+[[require]]
+name = "algebraic-groups"
+git = "https://github.com/FormalFrontier/algebraic-groups.git"
+rev = "6c7f4a5a38881573fd2bb735fc3dab1de53b83bf"
+
+[[require]]
+name = "sequence-growth"
+git = "https://github.com/FormalFrontier/sequence-growth.git"
+rev = "c5c4dbfafc3a6b3fdc8c6ab9f3d336ae893d4f79"
+
 [[lean_lib]]
 name = "NormForms"
 

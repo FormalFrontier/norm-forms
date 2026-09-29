@@ -2,11 +2,20 @@
 
 `NormForms` is a source-independent Lean library for universal coordinate norms
 under commutative base change, coordinate norm forms of field extensions,
-unbounded attained-degree anisotropic homogeneous forms and finite polynomial
-zero-set compression over non-algebraically-closed fields. It depends
-directly on mathlib and the exact official `multivariate-polynomials` release.
-An earlier
-mathematical input was accepted for ordinary development on 2026-09-25 at
+unbounded attained-degree anisotropic homogeneous forms, finite polynomial
+zero-set compression over non-algebraically-closed fields, and nontrivial
+common zeros of equal-degree homogeneous systems under a direct
+all-positive-degree single-form bound. It depends directly on mathlib and
+exact official `multivariate-polynomials`, `algebraic-groups` and
+`sequence-growth` releases.
+The preceding library is published at official
+`9317562dfa6187d9f594086aa32b04dd7e3fcbd7`; the historical paragraphs
+below describe earlier stage-specific handoffs, not this new contribution's
+acceptance or publication. At this transfer's construction on 2026-09-29,
+its changed destination graph still required its own checks and review.
+
+An earlier mathematical input was accepted for ordinary development on
+2026-09-25 at
 `a87e5d0691a76d2118fbe8de864a5d02a38596bc` (tree
 `a9e3d910f11de2ba3412e20fc758e66d2249f510`). The lint repair analyzed by
 the native reference comes from subsequent code commit
@@ -114,6 +123,20 @@ For any field `K` with `¬ IsAlgClosed K`, the library also provides:
   `NormForms.CommonZeroCompression` or `NormForms`; see the
   [standalone guide](docs/PolynomialCommonZeroCompression.md) and
   [ordinary-import clients](NormFormsTests/CommonZeroCompression.lean).
+
+For an arbitrary field `K`, given a direct single-form nontrivial-zero premise
+uniform in **all positive degrees**, the library additionally provides:
+
+- **A nontrivial zero common to equally labelled homogeneous forms.**
+  `MvPolynomial.exists_nonzero_common_zero_of_single_form_bound` takes `r : ℕ`,
+  `0 < d`, `s * d ^ r < n`, and `s` forms with `IsHomogeneous d` labels in
+  `n` variables; it returns a nonzero common zero. Zero and repeated forms,
+  `s = 0`, `r = 0` and `d = 1` need no additional hypotheses. Import
+  `NormForms.HomogeneousSystemZeros` or `NormForms`; see the
+  [standalone guide](docs/HomogeneousSystemZeros.md) and
+  [ordinary-import clients](NormFormsTests/HomogeneousSystemZeros.lean).
+  Unlike `NormForms.CommonZeroCompression`, this is a conditional
+  existence theorem, not a coefficient-field zero-set compression theorem.
 
 These interfaces let downstream developments express norm equations in
 coordinates and transport them between bases. No separability or Galois

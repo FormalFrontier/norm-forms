@@ -2,7 +2,7 @@ version: "v0.4"
 
 project:
   name: "Norm Forms"
-  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees, general zero-padded polynomial substitution laws over commutative semirings, and finite polynomial-system K-point zero-set compression over any non-algebraically-closed field."
+  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees, general zero-padded polynomial substitution laws over commutative semirings, finite polynomial-system K-point zero-set compression over any non-algebraically-closed field, and conditional nontrivial common zeros of equal-degree homogeneous systems over arbitrary fields."
   authors:
     - "Formal Frontier Agents"
   responsible_maintainers:
@@ -23,6 +23,10 @@ sources:
     type: "folklore"
     relationship: "independently-proves"
     note: "Original Lean proofs of coefficient-field-point zero-set compression for finite families, including homogeneous inputs; no ideals, radicals, schemes, arbitrary-extension-point assertion or selected-source coverage claim."
+  - title: "Equal-degree homogeneous-system nontrivial zeros from a uniform single-form bound"
+    type: "folklore"
+    relationship: "independently-proves"
+    note: "A direct all-positive-degree single-form premise and s * d ^ r < n yield a nonzero common zero over arbitrary fields, including empty, zero and repeated families; this is not a selected-source coverage or third-party rights claim."
   - title: "Cohomology of Number Fields"
     authors:
       - "Jürgen Neukirch"
@@ -141,6 +145,11 @@ review:
     independent review of this documentary readiness, its public artifact,
     stage acceptance or verified publication. No selected-source coverage
     or general third-party rights clearance follows.
+    This field's agent-reviewed status applies to the earlier accepted results
+    only. At construction of the homogeneous-system transfer on 2026-09-29,
+    the changed NormForms graph had no applicable destination build/complete
+    private-inclusive standard-axiom audit or independent destination review;
+    its acceptance and publication are subsequent exact-artifact decisions.
 
 acknowledgements: >-
   Frozen-transfer historical attribution and lifecycle, recorded before
@@ -260,3 +269,16 @@ acknowledgements: >-
   independent release reviewer or release approver. The new documentary
   and public artifacts are unreviewed and unpublished at this preparation;
   source coverage and general third-party rights remain separate decisions.
+  The homogeneous-system producer and client were originally contributed by
+  worker-b Task hive-request-2a607c030e4f9149d136a1437547647f21a54267
+  (UID 6823bf27-2659-4a3d-b148-070659a6a3e9), assembled onto the accepted
+  shared parent by worker-b Task hive-request-c6c5382b9bb35f84dbff84c23d27f863fdb77457
+  (UID a3e3687f-c67e-498d-b393-5642c9822e88), and independently reviewed
+  for that donor by worker-a Task hive-request-52858cf1ac7008c14763295c2afecbe46f664b33
+  (UID 7d34093d-9ac7-4ac1-bbdf-4fbdef7bb247). This static destination
+  packaging and guide were prepared by worker-b Task
+  hive-request-fb1fe1fe6ecfc573a8e8655e5fdc7ce2d81818e5 (UID
+  1ae51c9a-694f-42d8-8c13-5bb6c2d102dc), not the original proof author,
+  destination reviewer or release approver. Original project code is offered
+  under Apache-2.0 without asserting third-party copyright or unrestricted
+  rights to unrelated source material.

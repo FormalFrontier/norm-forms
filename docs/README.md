@@ -1,5 +1,15 @@
 # Mathematical guide and historical native reference
 
+The [homogeneous-system common-zero guide](HomogeneousSystemZeros.md) covers
+the direct all-positive-degree single-form premise, arbitrary fields, positive
+homogeneous label `d`, strict `s * d ^ r < n`, and zero, repeated and empty
+families. Its `NormForms.HomogeneousSystemZeros` import and
+`NormFormsTests.HomogeneousSystemZeros` client add one producer/client pair
+to the earlier fourteen-module graph. This is distinct from the coefficient-
+field-point [compression theorem](PolynomialCommonZeroCompression.md).
+The historical counts and dated stage evidence below describe their stated
+older revisions, not a build, review or release of this later transfer.
+
 The [iterated coordinate-norm guide](CoordinateNormIteration.md) documents its
 theorem, precise hypotheses and attained-degree conclusion, its
 `NormForms.CoordinateNormIteration` import and its ordinary-import test client.
