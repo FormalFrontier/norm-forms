@@ -1,5 +1,35 @@
 # Mathematical guide and historical native reference
 
+The current rational-function candidate adds the seventh standalone
+[mathematical guide](RatFuncFormZeros.md), direct
+`NormForms.RatFuncFormZeros` and ordinary-import
+`NormFormsTests.RatFuncFormZeros`. Its theorem transfers a direct, uniform
+single-form nontrivial-zero premise over any field `k` to homogeneous forms
+over `RatFunc k` at the strict `d ^ (r + 1) < m` bound, including zero forms.
+The candidate has **twenty Lean modules** (eight producer leaves, ten test
+leaves and two aggregate roots). The preceding eighteen-module library was
+already accepted at main `ba4a2c3a7e71afe516ef4b91d6f373c1a0846e1c`
+and separately published at official
+`3e492c4684694e80bceacb43bf930fef5157048b` with the same tree.
+Neither that release nor its checks independently review or certify this
+new transfer.
+
+[`API.md`](API.md) and [`api-manifest.json`](api-manifest.json) intentionally
+describe only the historical **six-module** coordinate snapshot, not this
+current twenty-module API. The current mathematical guides and ordinary-import
+clients describe the subsequently added modules; the older API files and their
+generators remain preserved without regeneration.
+
+## Historical predecessor lifecycle (through 2026-09-29)
+
+Every preceding candidate, pending label, count, receipt and reproduction
+instruction below is retained for its original dated input, not asserted of
+the current rational-function candidate. In particular, run 823 belongs to
+its old multivariate-polynomials pin, whereas the published eighteen-module
+predecessor has its own run 1097 and separate review/release. None of these
+historical receipts substitutes for checks or review of the new twenty-module
+graph.
+
 The present algebraic-extension contribution adds the
 [homogeneous-form zero guide](AlgebraicExtensionFormZeros.md) and direct
 `NormForms.AlgebraicExtensionFormZeros`/ordinary-import

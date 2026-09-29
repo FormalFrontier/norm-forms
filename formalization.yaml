@@ -2,7 +2,7 @@ version: "v0.4"
 
 project:
   name: "Norm Forms"
-  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees, general zero-padded polynomial substitution laws over commutative semirings, finite polynomial-system K-point zero-set compression over any non-algebraically-closed field, conditional nontrivial common zeros of equal-degree homogeneous systems over arbitrary fields, and transfer of a direct all-positive-degree single-form zero bound to arbitrary algebraic field extensions."
+  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees, general zero-padded polynomial substitution laws over commutative semirings, finite polynomial-system K-point zero-set compression over any non-algebraically-closed field, conditional nontrivial common zeros of equal-degree homogeneous systems over arbitrary fields, and transfer of a direct all-positive-degree single-form zero bound to arbitrary algebraic field extensions and to rational-function fields at the strict one-higher-exponent bound."
   authors:
     - "Formal Frontier Agents"
   responsible_maintainers:
@@ -31,6 +31,10 @@ sources:
     type: "folklore"
     relationship: "independently-proves"
     note: "A direct all-positive-degree single-form base-field premise, positive d and d ^ r < n yield a nonzero zero of each homogeneous-label-d form over any algebraic extension. Original project proof expression is reused without claiming selected-source coverage, arbitrary-zero descent, or third-party rights clearance."
+  - title: "Homogeneous-form nontrivial zeros over rational-function fields"
+    type: "folklore"
+    relationship: "independently-proves"
+    note: "A direct uniform all-positive-degree single-form base-field premise, positive d and strict d ^ (r + 1) < m yield a nonzero zero of each homogeneous-label-d form over RatFunc k, including zero forms and finite base fields. This transfers the original project proof expression, without claiming simultaneous rational-function zeros, selected-source coverage or third-party rights clearance."
   - title: "Cohomology of Number Fields"
     authors:
       - "Jürgen Neukirch"
@@ -50,6 +54,19 @@ automation:
 review:
   status: "agent-reviewed"
   notes: >-
+    As of 2026-09-29, agent-reviewed applies only to earlier accepted
+    destination results, including the separately reviewed and officially
+    published eighteen-module predecessor at main
+    ba4a2c3a7e71afe516ef4b91d6f373c1a0846e1c (tree
+    df5c938c1543c2e2c93e115db88918c97560ad37), official
+    3e492c4684694e80bceacb43bf930fef5157048b. It excludes this
+    twenty-module rational-function transfer until fresh independent review,
+    applicable destination both-root build and complete private/generated-
+    inclusive standard-axiom evidence, and responsible-maintainer acceptance.
+    Original donor acceptance and native checks are not destination checks.
+    The following complete predecessor lifecycle preserves dated labels at
+    their original stages; old pending statements do not describe this new
+    transfer or override subsequently recorded predecessor decisions.
     This agent-reviewed field records only the earlier accepted destination
     mathematical/code results listed below; it does not review the present
     algebraic-extension transfer, its new dependency graph, guide or roots.
@@ -164,6 +181,10 @@ review:
     At construction of the present separate transfer on 2026-09-29, no
     applicable build/private-inclusive standard-axiom audit or independent
     destination review has been claimed for the new 18-module/MP6a graph.
+    The preceding sentence describes the then-unaccepted eighteen-module
+    predecessor. Its own original run 1097, independent destination review,
+    owner code acceptance and separate reviewed release/private publication
+    subsequently completed; they do not extend to this RatFunc candidate.
     Code acceptance, release review/publication, source correspondence and
     third-party rights assessment remain separate exact-artifact decisions.
 
@@ -325,3 +346,17 @@ acknowledgements: >-
   6a04276766ad82d60702b24deb9a559a30a80007 for additive linear
   coefficient evaluation. No general
   third-party rights clearance or selected-source coverage is inferred.
+  The new rational-function producer and four ordinary-import examples
+  preserve the original proof/client expression authored by worker-b Task
+  hive-request-2cef48b41c07b09925370673ed34c399f4e5cd3a (UID
+  21ba059a-7155-468f-a088-ed904d1d29fe), subsequently accepted and
+  published in incubator main at 1d4559379957b0ce3ebc213cd644269e1244146e.
+  This destination-only unchanged-proof transfer, licensed headers and
+  original guide are by worker-b Task
+  hive-request-93e49bdef50daa6fb22fb8cc27768ee64799ec47 (UID
+  c96ea3cc-7f67-4c87-b215-0c1e2f3c9311), not the original proof author,
+  its independent reviewer, accepting maintainer or release approver.
+  Its four existing direct requires and resolved dependency graph remain
+  unchanged. The prior donor review/acceptance and predecessor run 1097 do
+  not review or certify this twenty-module transfer; source correspondence,
+  release/publication and third-party rights remain separate decisions.

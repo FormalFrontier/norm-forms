@@ -6,10 +6,28 @@ unbounded attained-degree anisotropic homogeneous forms, finite polynomial
 zero-set compression over non-algebraically-closed fields, and nontrivial
 common zeros of equal-degree homogeneous systems under a direct
 all-positive-degree single-form bound. The same bound also yields nontrivial
-zeros of homogeneous forms over arbitrary algebraic field extensions. It
-depends directly on mathlib and
+zeros of homogeneous forms over arbitrary algebraic field extensions and,
+with one extra degree factor in the strict arity bound, over rational-function
+fields. It depends directly on mathlib and
 exact official `multivariate-polynomials`, `algebraic-groups` and
 `sequence-growth` releases.
+This twenty-module rational-function transfer is a candidate, not yet
+independently reviewed, accepted or published. The preceding eighteen-module
+library is already accepted at ordinary main
+`ba4a2c3a7e71afe516ef4b91d6f373c1a0846e1c` and separately published at
+official `3e492c4684694e80bceacb43bf930fef5157048b` with the same tree.
+See the [rational-function theorem guide](docs/RatFuncFormZeros.md) and its
+[ordinary-import examples](NormFormsTests/RatFuncFormZeros.lean).
+
+## Historical predecessor lifecycle (through 2026-09-29)
+
+The following complete predecessor account retains its original stage-scoped
+pending labels and receipts. They describe their dated inputs, not the present
+rational-function transfer or the eventual acceptance of this candidate. In
+particular, native run 823 used an earlier `multivariate-polynomials` pin; the
+accepted eighteen-module predecessor has its own run 1097, separate review and
+official publication.
+
 The preceding sixteen-module library is published at official
 `22413e8f4fa8409ba06b6242a67adbbc76733a02` (same tree as destination
 parent `eddc91b7e71fdb0e8fb26b4441b445b389d6db7b`); the historical
@@ -156,6 +174,18 @@ the same direct **all-positive-degree base-field** premise gives:
   [guide](docs/AlgebraicExtensionFormZeros.md) and
   [ordinary-import examples](NormFormsTests/AlgebraicExtensionFormZeros.lean).
 
+For an arbitrary field `k`, the same direct **all-positive-degree single-form
+premise over `k`** also gives:
+
+- **A nontrivial zero over `RatFunc k`.**
+  `MvPolynomial.exists_nonzero_zero_ratFunc_of_single_form_bound` takes
+  `r : ℕ`, `0 < d`, `d ^ (r + 1) < m`, and any degree-`d` homogeneous-labelled
+  form in `m` variables over `RatFunc k`; it returns a nonzero zero. The field
+  may be finite, and the zero form and `r = 0` are included. Import
+  `NormForms.RatFuncFormZeros` or `NormForms`; see the
+  [guide](docs/RatFuncFormZeros.md) and
+  [four ordinary-import examples](NormFormsTests/RatFuncFormZeros.lean).
+
 These interfaces let downstream developments express norm equations in
 coordinates and transport them between bases. No separability or Galois
 hypothesis is required; the definitions are noncomputable, not an executable
@@ -211,9 +241,10 @@ evaluations there would not alone imply equal polynomials. The independent
 coefficient, extension-field and basis-index universes are visible in the
 [historical coordinate-only native signatures](docs/API.md). For a smaller import use
 `import NormForms.Coordinate`, `import NormForms.CoordinateNormIteration`,
-`import NormForms.UniversalCoordinates`, `import NormForms.PaddedSubstitution`
-`import NormForms.CommonZeroCompression` or
-`import NormForms.AlgebraicExtensionFormZeros`;
+`import NormForms.UniversalCoordinates`, `import NormForms.PaddedSubstitution`,
+`import NormForms.CommonZeroCompression`,
+`import NormForms.AlgebraicExtensionFormZeros` or
+`import NormForms.RatFuncFormZeros`;
 the reexport root is `NormForms.lean`.
 The coordinate leaf's four private matrix/characteristic-polynomial helpers
 and the universal leaf's two private helpers are not public API. For arbitrary
@@ -242,7 +273,8 @@ the universal client also checks trivial `ZMod 1`. The compression client checks
 empty and all-zero families, degree zero, empty/arbitrary variable types and
 finite `ZMod 2`. The algebraic-extension client checks general, finite and
 identity extensions, `r = 0`, `d = 1` and the zero form. These are tests, not
-extra production theorems. This library does **not** supply
+extra production theorems. The rational-function client additionally checks
+minimal arity, zero forms and `r = 0`. This library does **not** supply
 every-degree existence, normic order, `C_i` theory, reduced norms or cohomology;
 no complete source-formalization claim is made here.
 
@@ -392,6 +424,13 @@ memory; neither `lake -Kjobs` nor `LAKE_JOBS` is a verified total scheduler cap.
 Serialize heavy checks and observe local memory pressure when resources differ.
 
 ## Attribution and lifecycle
+
+The predecessor history below preserves its dated stage-specific language
+through 2026-09-29; earlier uses of “present candidate” refer to the
+then-current predecessor, not this rational-function transfer. The accepted
+eighteen-module predecessor at main `ba4a2c3a7e71afe516ef4b91d6f373c1a0846e1c`
+was separately reviewed, released and verified at official
+`3e492c4684694e80bceacb43bf930fef5157048b` before the new transfer.
 
 Original Formal Frontier mathematical proof expression is preserved in this
 library. Beacon authored the coordinate-norm definition, zero/scalar laws and
@@ -558,3 +597,17 @@ static transfer, not mathematical authorship, independent review, acceptance
 or release. This candidate changes the pinned MP graph and has no inherited
 new-graph build/axiom or destination review; selected-source coverage and
 third-party rights remain separate decisions.
+
+The rational-function proof and four ordinary-import examples were originally
+authored by worker-b Task
+`hive-request-2cef48b41c07b09925370673ed34c399f4e5cd3a` (UID
+`21ba059a-7155-468f-a088-ed904d1d29fe`) and subsequently accepted into
+incubator main at `1d4559379957b0ce3ebc213cd644269e1244146e` after separate
+review and checks. Worker-b Task
+`hive-request-93e49bdef50daa6fb22fb8cc27768ee64799ec47` (UID
+`c96ea3cc-7f67-4c87-b215-0c1e2f3c9311`) transfers their unchanged proof/client
+content with project headers and an original guide, without importing incubator
+history. This Task is neither the original proof author nor an independent
+reviewer or release approver. The new destination transfer still needs its own
+checks, review, responsible-maintainer acceptance and reviewed publication;
+its Apache-2.0 project expression does not imply third-party rights clearance.

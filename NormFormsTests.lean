@@ -13,13 +13,14 @@ import NormFormsTests.PaddedSubstitution
 import NormFormsTests.UniversalCoordinates
 import NormFormsTests.HomogeneousSystemZeros
 import NormFormsTests.AlgebraicExtensionFormZeros
+import NormFormsTests.RatFuncFormZeros
 
 /-!
 # Norm-form test imports
 
 The test root builds the public-root, direct-coordinate, existence-theorem,
-finite-equation-compression, padded-substitution, universal-coordinate and
-homogeneous-system and algebraic-extension clients
+finite-equation-compression, padded-substitution, universal-coordinate,
+homogeneous-system, algebraic-extension and rational-function clients
 with selected axiom prints; it is not a private/generated-declaration audit.
 -/
 
