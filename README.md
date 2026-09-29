@@ -38,7 +38,15 @@ tree. That completed publication does not accept or release the new polynomial
 compression artifact. On 2026-09-28 Beacon accepted its separate code/API at
 `4a803474814f73e7011c045c5f613f360024b1a5` (PR #21/60312) and verified
 guarded protected `main` integration (incubator #175/60316). That code
-acceptance does not review or publish the later release artifact.
+acceptance did not itself review or publish the later release artifact. The
+separately reviewed official polynomial-compression publication is now complete
+at `5fe9ff797f65d19f174f903774e660130ccf682d`, with the same tree as
+ordinary main `f3f4e616920c163fa2a8bdd2b92ed42d419c4813`. The new public
+padding-law extraction was separately accepted as code/API at
+`34366b58f3e8448fdfba4210963690694b2e0042` (PR #26/61186), following
+independent review 4782 and native run 939. Beacon verified its protected
+`main` integration on 2026-09-29 at 02:25:07 UTC (issue #25/61199).
+Neither code acceptance nor integration publishes its next official release.
 
 ## Headline results
 
@@ -82,7 +90,20 @@ the library provides:
   Import `NormForms.CoordinateNormIteration` or `NormForms`; see the
   [theorem and mathematical guide](docs/CoordinateNormIteration.md).
 
-For any field `K` with `¬ IsAlgClosed K`, the library also proposes:
+For any commutative semiring `R`, the accepted maintenance API also provides:
+
+- **Fixed-form zero-padded substitution laws.** For an embedding `j : ι ↪ κ`,
+  a family `f : ι → MvPolynomial σ R` and a fixed
+  `p : MvPolynomial κ R`, the forward zero law transfers an outer polynomial's
+  `eval y p = 0 → y = 0` condition to the vanishing of each substituted `f i`.
+  With the outer equivalence it gives an inner equivalence, and homogeneous
+  inputs of degrees `d` and `e` yield a homogeneous substitution of degree
+  `d * e`. No finite-index or field assumption is needed. Import
+  `NormForms.PaddedSubstitution` or `NormForms`; see the
+  [padding guide](docs/PaddedSubstitution.md) and
+  [direct-import client](NormFormsTests/PaddedSubstitution.lean).
+
+For any field `K` with `¬ IsAlgClosed K`, the library also provides:
 
 - **One equation for a finite polynomial system's K-point zeros.** Given
   `[Fintype ι]` and `f : ι → MvPolynomial σ K`, one polynomial `g` has
@@ -149,7 +170,8 @@ evaluations there would not alone imply equal polynomials. The independent
 coefficient, extension-field and basis-index universes are visible in the
 [historical coordinate-only native signatures](docs/API.md). For a smaller import use
 `import NormForms.Coordinate`, `import NormForms.CoordinateNormIteration`,
-`import NormForms.UniversalCoordinates` or `import NormForms.CommonZeroCompression`;
+`import NormForms.UniversalCoordinates`, `import NormForms.PaddedSubstitution`
+or `import NormForms.CommonZeroCompression`;
 the reexport root is `NormForms.lean`.
 The coordinate leaf's four private matrix/characteristic-polynomial helpers
 and the universal leaf's two private helpers are not public API. For arbitrary
@@ -158,7 +180,8 @@ and the universal leaf's two private helpers are not public API. For arbitrary
 `MvPolynomial.exists_homogeneous_common_zero_polynomial` theorems describe
 coefficient-field-point zeros; the latter requires a common `IsHomogeneous d`
 input predicate and concludes `IsHomogeneous (d * m)`, **not** exact total
-degree. Their padding and evaluation helpers remain private. Neither theorem
+degree. The anisotropic-form choice remains private, but the general padding
+evaluation and homogeneous-substitution laws are public. Neither theorem
 claims equality of ideals, radicals, schemes or all-extension-point zero sets.
 
 `coordinateNorm_coordinateChange` is a pre-simplification rule (`@[simp↓]`):
@@ -232,12 +255,31 @@ All axiom sets are subsets of `propext`, `Classical.choice` and `Quot.sound`
 `hive-request-23c96d626c3ec88ebbde46b9da9ade7cf64b5c9e` (UID
 `2b20c511-56b9-488f-b807-263fab37cf68`) approved exact C in native review
 4735; Beacon accepted C in PR #21/60312 and verified protected integration
-in incubator #175/60316. This documentary preparation changes the complete
-input digest but not those Lean/build/dependency/checker inputs. The selected
+in incubator #175/60316. That earlier documentary preparation changed the complete
+input digest but not C's Lean/build/dependency/checker inputs. Its selected
 axiom-print module requests 22 named production results and the same 11 named
 client results; the additional iteration theorem makes 23 named public
 production results overall. Those prints alone are not the complete
 private/generated audit. No new proof run or benchmark is claimed here.
+
+The subsequently accepted public padding-law extraction changes the Lean graph
+to fourteen modules. Run 904 and its 22 selected production axiom prints apply
+only to the preceding twelve-module release. Configured native run 939 (UI 20,
+job 940, artifact 209763) succeeded on exact S
+`34366b58f3e8448fdfba4210963690694b2e0042` on 2026-09-29 from
+02:07:16 to 02:10:16 UTC: matching-cache fetch and verification preceded a
+successful build of both roots (2,074 jobs), then complete transitive
+standard-axiom audits of all 65 actual origins, including 18 private, across
+fourteen modules and 42 compiled parts. All 68 recorded commands exited zero;
+the only axioms were `propext`, `Classical.choice` and `Quot.sound` (owner
+issue #25/61176; retained artifact at
+`5c4af06efed8d7dc1ce69c5e25ba78432e97c7e9:evidence/padded-substitution-native939`).
+This documentary update changes the full file-input digest, **not** the
+Lean/build/dependency/checker inputs to which that evidence applies; no new
+proof check is claimed. The current selected print module requests 25 named
+production results, including the three new laws, and 11 named client results;
+the public iteration theorem is additional to those 25. Selected prints are
+not a substitute for the full native audit, and no new benchmark is inferred.
 
 The following older e37 commands and observations are **historical** and apply
 only to a separate checkout of the old six-module source and its old mathlib
@@ -270,8 +312,8 @@ the universal clients. At that stage the selected print module had 20 production
 iteration theorem is additional, for 21 named production declarations overall.
 Old prints and a separate
 kernel replay do not certify all current private/generated/stored bodies: the
-complete actual transitive audit on the current graph comes from native run
-864, not these selected prints. `-T0`
+complete actual transitive audit on the ten-module historical graph came from
+native run 864, not these selected prints. `-T0`
 changes heartbeat behavior, not kernel assurance. Consult [historical native
 documentation reproduction](docs/README.md) for the six-module doc-gen4 run,
 raw-record retention and source-only replay.
@@ -377,11 +419,17 @@ the exact published commit and destination, and keep source-coverage decisions
 separate. The previous coordinate Q publication at
 `db29d765e132d995bfed69f4424cf6a0261e95ac` and subsequent
 universal-coordinate P publication at
-`e1cb91e0f25b663ef6d2439c77946602c8eae8e7` are complete. The new
-polynomial-compression documentary readiness and temporary public candidate
-still need their own independent artifact review and Beacon's
-separate release-stage acceptances; exact-artifact records, not this
-preparation-time prose, determine eventual publication.
+`e1cb91e0f25b663ef6d2439c77946602c8eae8e7` are complete. The
+polynomial-compression official Q publication at
+`5fe9ff797f65d19f174f903774e660130ccf682d` is also complete. The new
+padding-law code/API passed native run 939 and fresh independent worker-a
+review 4782 by Task `hive-request-3d69bea9eb1999955d5963026e068f620c77d09e`
+(UID `4b70d28c-ab1d-4812-bb82-dde3465979c5`); Beacon accepted exact S
+in PR #26/61186 and verified its protected integration in issue #25/61199.
+This documentary readiness and its proposed same-tree public artifact still
+require fresh independent release review, Beacon's separate stage acceptance
+and verified official GitHub publication; previous code approval does not
+transfer to them.
 Tags remain deferred, not a release-preparation requirement. `formalization.yaml`
 retains scope and historical review without upgrading source-level milestones.
 The preceding universal-coordinate transfer is by worker-b Hive Task
@@ -426,3 +474,14 @@ documentary preparation is by worker-b Task
 `e5f3b774-1939-4a87-a020-42e43ac815c1`), not its proof author, reviewer
 or release approver. Source correspondence and coverage remain separate
 decisions, and no other party's copyright is inferred.
+
+The preceding compression contribution was subsequently published at official
+`5fe9ff797f65d19f174f903774e660130ccf682d`. This separate public-law
+extraction, consumer refactor, ordinary-import tests and guide are by worker-b
+Hive Task `hive-request-87ff0e576db2df1f58dd28051b6af90d850a3eaa` (UID
+`7c3de02d-f84f-4e5a-9077-b7d90c89c9ad`), adapting the credited original
+proof. Exact S received independent code review 4782 and Beacon's acceptance,
+not a release or source-coverage decision. This static release documentation
+is prepared by worker-b Task `hive-request-81ff4f8ed4e54e710826db01b99d3f8b6e66719e`
+(UID `57b7bdad-4de2-40e5-b222-fb4e1ab53c8f`), not a proof author,
+independent reviewer or release approver.

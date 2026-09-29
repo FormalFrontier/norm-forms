@@ -6,6 +6,7 @@ module
 
 public import NormForms.Coordinate
 public import NormForms.CoordinateNormIteration
+public import NormForms.PaddedSubstitution
 public import NormForms.CommonZeroCompression
 public import NormForms.UniversalCoordinates
 

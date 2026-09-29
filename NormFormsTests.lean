@@ -9,14 +9,15 @@ import NormFormsTests.DirectAPI
 import NormFormsTests.Axioms
 import NormFormsTests.CoordinateNormIteration
 import NormFormsTests.CommonZeroCompression
+import NormFormsTests.PaddedSubstitution
 import NormFormsTests.UniversalCoordinates
 
 /-!
 # Norm-form test imports
 
 The test root builds the public-root, direct-coordinate, existence-theorem,
-finite-equation-compression and universal-coordinate clients with selected axiom prints; it is not a
-private/generated-declaration audit.
+finite-equation-compression, padded-substitution and universal-coordinate clients
+with selected axiom prints; it is not a private/generated-declaration audit.
 -/
 
 set_option warningAsError true

@@ -10,7 +10,11 @@ clients. The [finite polynomial-system zero-set compression guide](PolynomialCom
 describes its `NormForms.CommonZeroCompression` direct import (or the
 `NormForms` aggregate), homogeneous refinement, K-point-only limitations and
 ordinary-import `NormFormsTests.CommonZeroCompression` boundary clients. These
-three guides accompany the twelve-Lean-module library; none is a native
+three guides accompanied the twelve-Lean-module library. The
+[zero-padded substitution guide](PaddedSubstitution.md) now documents three
+general public laws with direct-import examples in
+`NormFormsTests.PaddedSubstitution`, bringing the accepted main graph to
+four current guides and fourteen Lean modules. None is a native
 documentation regeneration or a proof-integrity receipt. The third guide and
 changed roots were checked in native run 904 on exact C
 `4a803474814f73e7011c045c5f613f360024b1a5` (both roots, 2,072 jobs;
@@ -19,13 +23,22 @@ independently reviewed by worker-a Task
 `hive-request-23c96d626c3ec88ebbde46b9da9ade7cf64b5c9e` (UID
 `2b20c511-56b9-488f-b807-263fab37cf68`, native review 4735), and accepted
 by Beacon in PR #21/60312 with protected integration recorded in incubator
-#175/60316 on 2026-09-28. This documentary/public release artifact still
-requires separate review and owner acceptance; code acceptance is not
-official publication.
+#175/60316 on 2026-09-28. That later documentary/public release artifact
+was separately reviewed and published at official
+`5fe9ff797f65d19f174f903774e660130ccf682d` (same tree as ordinary main
+`f3f4e616920c163fa2a8bdd2b92ed42d419c4813`). The new extraction was
+separately checked by native run 939 (UI 20, artifact 209763): matching-cache-
+first both-root build and actual transitive standard-three audit of all 65
+origins including 18 private across fourteen modules and 42 compiled parts.
+Fresh independent worker-a review 4782 approved exact S
+`34366b58f3e8448fdfba4210963690694b2e0042`; Beacon accepted its code/API
+in PR #26/61186 and verified protected `main` integration in issue #25/61199
+on 2026-09-29. Its documentary successor and same-tree public artifact
+still need independent release review, separate owner acceptance and publication.
 
 The [public/native API](API.md) and [machine-readable manifest](api-manifest.json)
-document **all six historical Lean modules**, not the six later-added modules
-(the iteration, universal and compression producer/client pairs),
+document **all six historical Lean modules**, not the eight later-added modules
+(the iteration, universal, compression and padding producer/client pairs),
 from analyzed repair input
 `54accffeba182bea1f6969c2f6d67a96a43dc6f7` (tree
 `c7dbbf39c7acf315ada65f18f84f0ed276c73151`), which was unaccepted when
@@ -56,12 +69,14 @@ declarations across ten modules, including 15 private names, with only the
 three standard allowed axioms (incubator issue #170/59605). The later
 twelve-module contribution changed both roots, so run 864 is historical for
 the old inputs. Native run 904 (UI 16, artifact 194981), successful 2026-09-28
-22:57:18–23:00:18 UTC, separately built both current roots (2,072 jobs) after
+22:57:18–23:00:18 UTC, separately built both then-current roots (2,072 jobs) after
 matching-cache verification and audited all 62 actual-origin declarations,
 including 18 private, in twelve modules and 36 compiled parts. All transitive
-axiom sets use only the three standard axioms (incubator #175/60292). These
-prose changes alter the complete input digest but not Lean/build/dependency/
-checker inputs; they are not a new proof check. No
+axiom sets use only the three standard axioms (incubator #175/60292). The later
+padding-law S changes the roots, so 904 is historical for the previous graph;
+the applicable run is 939 above. These documentary changes alter the complete
+input digest but not S's Lean/build/dependency/checker inputs; they are not
+a new proof check. No
 dependency docstrings, doc-gen4 website, HTML, JS, fonts or raw `.bmp` records
 are shipped.
 
@@ -81,11 +96,13 @@ All reproduction commands below refer **only** to the six-module analyzed
 source/tree above, the exact old direct mathlib pin
 `e37d88a26f3791ed5a93daa1f949af1021b8d103` and its matching old Lake
 inputs. Use a separate checkout (or byte-identical source archive) of those
-frozen files. The current twelve-module candidate changes aggregate imports and
+frozen files. The previous twelve-module release changes aggregate imports and
 pins mathlib at `83abb3e776bdefcbc447a1e44d0debe4010039e5` plus the
 official Multivariate dependency; it cannot satisfy the unchanged native
 generator's old source/pin hashes. Do not treat these older commands or their
-historical output as checks of the new theorem or its destination graph.
+historical output as checks of the new theorem or its destination graph. The
+subsequent fourteen-module graph changes Lean input again, so historical native
+run 904 cannot audit the padding-law extraction either; native run 939 does.
 
 In that separate historical checkout, fetch the matching old mathlib cache
 successfully before building:
@@ -182,8 +199,19 @@ Task `hive-request-434d90f78f1d94c51d15a45962e8aea3da037e5b` (UID
 published after its own documentary preparation. The new compression code/API
 was independently reviewed (native 4735) and accepted/integrated in PR
 #21/60312 and incubator #175/60316. Its later documentary artifact and
-proposed public history still need independent release review and Beacon's
-stage acceptances; no source-coverage or general third-party rights decision
-follows. The present static preparation is by worker-b Task
+public history were separately reviewed and published as official
+`5fe9ff797f65d19f174f903774e660130ccf682d`; no source-coverage or
+general third-party rights decision follows. The historical static preparation
+was by worker-b Task
 `hive-request-9d6cb244757d207017694ca539c971c47be480aa` (UID
 `e5f3b774-1939-4a87-a020-42e43ac815c1`), not an independent review.
+The subsequent padded-substitution guide and initial documentation edits are by
+worker-b Task `hive-request-87ff0e576db2df1f58dd28051b6af90d850a3eaa`
+(UID `7c3de02d-f84f-4e5a-9077-b7d90c89c9ad`); exact S was independently
+reviewed by worker-a Task `hive-request-3d69bea9eb1999955d5963026e068f620c77d09e`
+(UID `4b70d28c-ab1d-4812-bb82-dde3465979c5`) in review 4782 and accepted
+by Beacon in PR #26/61186. This later static documentary preparation is by
+worker-b Task `hive-request-81ff4f8ed4e54e710826db01b99d3f8b6e66719e`
+(UID `57b7bdad-4de2-40e5-b222-fb4e1ab53c8f`), not the proof author or an
+independent release reviewer. No selected-source coverage or blanket
+third-party rights clearance follows.

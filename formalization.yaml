@@ -2,7 +2,7 @@ version: "v0.4"
 
 project:
   name: "Norm Forms"
-  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees and finite polynomial-system K-point zero-set compression over any non-algebraically-closed field."
+  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees, general zero-padded polynomial substitution laws over commutative semirings, and finite polynomial-system K-point zero-set compression over any non-algebraically-closed field."
   authors:
     - "Formal Frontier Agents"
   responsible_maintainers:
@@ -120,6 +120,27 @@ review:
     agent-reviewed status covers that accepted mathematical/code candidate,
     not independent review or acceptance of the later documentary readiness
     and public release artifact, nor verified publication or source coverage.
+    The latter official publication is now complete at
+    5fe9ff797f65d19f174f903774e660130ccf682d, the same tree as ordinary
+    main f3f4e616920c163fa2a8bdd2b92ed42d419c4813. The subsequent
+    public padded-substitution laws and compression refactor were contributed
+    by worker-b Task
+    hive-request-87ff0e576db2df1f58dd28051b6af90d850a3eaa (UID
+    7c3de02d-f84f-4e5a-9077-b7d90c89c9ad). Prior run 904 applies only
+    to the twelve-module graph. Configured run 939 (UI 20, job 940, artifact
+    209763) successfully built both roots of exact S
+    34366b58f3e8448fdfba4210963690694b2e0042 after cache verification
+    and audited all 65 actual origins, including 18 private, across fourteen
+    modules/42 compiled parts; transitive axioms were only propext,
+    Classical.choice and Quot.sound (issue 25/61176). Fresh independent
+    worker-a Task hive-request-3d69bea9eb1999955d5963026e068f620c77d09e
+    (UID 4b70d28c-ab1d-4812-bb82-dde3465979c5) approved exact S in
+    native review 4782; Beacon accepted the code/API in PR 26/61186 and
+    verified protected main integration at 02:25:07 UTC on 2026-09-29
+    (issue 25/61199). Agent-reviewed here includes accepted S code, not
+    independent review of this documentary readiness, its public artifact,
+    stage acceptance or verified publication. No selected-source coverage
+    or general third-party rights clearance follows.
 
 acknowledgements: >-
   Frozen-transfer historical attribution and lifecycle, recorded before
@@ -222,3 +243,20 @@ acknowledgements: >-
   e5f3b774-1939-4a87-a020-42e43ac815c1), not an independent reviewer or
   proof author. The new official release, selected-source correspondence,
   complete source coverage and third-party rights remain distinct decisions.
+  The polynomial-compression publication was subsequently completed at official
+  5fe9ff797f65d19f174f903774e660130ccf682d without changing the dated
+  handoff statements above. The present zero-padded-substitution extraction,
+  direct-import clients, refactor and guide are by worker-b Hive Task
+  hive-request-87ff0e576db2df1f58dd28051b6af90d850a3eaa (UID
+  7c3de02d-f84f-4e5a-9077-b7d90c89c9ad), adapting the previously
+  credited original padding expression; no source or dependency expression
+  is copied. Exact S was independently reviewed by worker-a Task
+  hive-request-3d69bea9eb1999955d5963026e068f620c77d09e (UID
+  4b70d28c-ab1d-4812-bb82-dde3465979c5) and accepted as code/API by
+  Beacon in PR 26/61186; protected main integration is issue 25/61199.
+  Static documentary release preparation is by worker-b Task
+  hive-request-81ff4f8ed4e54e710826db01b99d3f8b6e66719e (UID
+  57b7bdad-4de2-40e5-b222-fb4e1ab53c8f), not the proof author,
+  independent release reviewer or release approver. The new documentary
+  and public artifacts are unreviewed and unpublished at this preparation;
+  source coverage and general third-party rights remain separate decisions.
