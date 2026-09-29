@@ -1,18 +1,19 @@
 # Mathematical guide and historical native reference
 
-The current rational-function candidate adds the seventh standalone
+As prepared on 2026-09-29 before destination review and acceptance, the
+rational-function transfer adds the seventh standalone
 [mathematical guide](RatFuncFormZeros.md), direct
 `NormForms.RatFuncFormZeros` and ordinary-import
 `NormFormsTests.RatFuncFormZeros`. Its theorem transfers a direct, uniform
 single-form nontrivial-zero premise over any field `k` to homogeneous forms
 over `RatFunc k` at the strict `d ^ (r + 1) < m` bound, including zero forms.
-The candidate has **twenty Lean modules** (eight producer leaves, ten test
+The prepared transfer has **twenty Lean modules** (eight producer leaves, ten test
 leaves and two aggregate roots). The preceding eighteen-module library was
 already accepted at main `ba4a2c3a7e71afe516ef4b91d6f373c1a0846e1c`
 and separately published at official
 `3e492c4684694e80bceacb43bf930fef5157048b` with the same tree.
-Neither that release nor its checks independently review or certify this
-new transfer.
+That predecessor release and its checks did not themselves review or certify
+the newly prepared transfer.
 
 [`API.md`](API.md) and [`api-manifest.json`](api-manifest.json) intentionally
 describe only the historical **six-module** coordinate snapshot, not this

@@ -11,7 +11,8 @@ with one extra degree factor in the strict arity bound, over rational-function
 fields. It depends directly on mathlib and
 exact official `multivariate-polynomials`, `algebraic-groups` and
 `sequence-growth` releases.
-This twenty-module rational-function transfer is a candidate, not yet
+At its preparation on 2026-09-29, before destination review and acceptance,
+this twenty-module rational-function transfer was a candidate, not yet
 independently reviewed, accepted or published. The preceding eighteen-module
 library is already accepted at ordinary main
 `ba4a2c3a7e71afe516ef4b91d6f373c1a0846e1c` and separately published at
@@ -608,6 +609,7 @@ review and checks. Worker-b Task
 `c96ea3cc-7f67-4c87-b215-0c1e2f3c9311`) transfers their unchanged proof/client
 content with project headers and an original guide, without importing incubator
 history. This Task is neither the original proof author nor an independent
-reviewer or release approver. The new destination transfer still needs its own
-checks, review, responsible-maintainer acceptance and reviewed publication;
+reviewer or release approver. At preparation on 2026-09-29, before destination
+review and acceptance, this transfer still needed its own checks, review,
+responsible-maintainer acceptance and reviewed publication;
 its Apache-2.0 project expression does not imply third-party rights clearance.

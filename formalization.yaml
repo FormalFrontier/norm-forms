@@ -54,15 +54,17 @@ automation:
 review:
   status: "agent-reviewed"
   notes: >-
-    As of 2026-09-29, agent-reviewed applies only to earlier accepted
+    At preparation of this transfer on 2026-09-29, before destination review
+    and acceptance, agent-reviewed applied only to earlier accepted
     destination results, including the separately reviewed and officially
     published eighteen-module predecessor at main
     ba4a2c3a7e71afe516ef4b91d6f373c1a0846e1c (tree
     df5c938c1543c2e2c93e115db88918c97560ad37), official
-    3e492c4684694e80bceacb43bf930fef5157048b. It excludes this
-    twenty-module rational-function transfer until fresh independent review,
-    applicable destination both-root build and complete private/generated-
-    inclusive standard-axiom evidence, and responsible-maintainer acceptance.
+    3e492c4684694e80bceacb43bf930fef5157048b. At that preparation it
+    excluded this twenty-module rational-function transfer pending fresh
+    independent review, applicable destination both-root build and complete
+    private/generated-inclusive standard-axiom evidence, and responsible-
+    maintainer acceptance.
     Original donor acceptance and native checks are not destination checks.
     The following complete predecessor lifecycle preserves dated labels at
     their original stages; old pending statements do not describe this new
