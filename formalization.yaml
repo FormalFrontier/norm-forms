@@ -2,7 +2,7 @@ version: "v0.4"
 
 project:
   name: "Norm Forms"
-  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees, general zero-padded polynomial substitution laws over commutative semirings, finite polynomial-system K-point zero-set compression over any non-algebraically-closed field, conditional nontrivial common zeros of equal-degree homogeneous systems over arbitrary fields, and transfer of a direct all-positive-degree single-form zero bound to arbitrary algebraic field extensions and to rational-function fields at the strict one-higher-exponent bound."
+  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees, general zero-padded polynomial substitution laws over commutative semirings, finite polynomial-system K-point zero-set compression over any non-algebraically-closed field, conditional nontrivial common zeros of equal-degree homogeneous systems over arbitrary fields, and transfer of a direct all-positive-degree single-form zero bound to arbitrary algebraic field extensions, to rational-function fields at the strict one-higher-exponent bound, and to finite-transcendence-degree extensions at the strict degree-shifted bound."
   authors:
     - "Formal Frontier Agents"
   responsible_maintainers:
@@ -35,6 +35,10 @@ sources:
     type: "folklore"
     relationship: "independently-proves"
     note: "A direct uniform all-positive-degree single-form base-field premise, positive d and strict d ^ (r + 1) < m yield a nonzero zero of each homogeneous-label-d form over RatFunc k, including zero forms and finite base fields. This transfers the original project proof expression, without claiming simultaneous rational-function zeros, selected-source coverage or third-party rights clearance."
+  - title: "Homogeneous-form nontrivial zeros over finite-transcendence-degree extensions"
+    type: "folklore"
+    relationship: "independently-proves"
+    note: "For arbitrary fields k and K with Algebra k K and trdeg k K = n, a uniform all-positive-degree single-form bound a ^ r < t over k, positive d and strict d ^ (r + n) < m yield a nonzero K-point zero of each homogeneous-label-d form, including zero forms and an infinite algebraic remainder. Original project proof expression is transferred without asserting finite generation, simultaneous zeros, selected-source coverage or blanket third-party rights clearance."
   - title: "Cohomology of Number Fields"
     authors:
       - "Jürgen Neukirch"
@@ -54,6 +58,20 @@ automation:
 review:
   status: "agent-reviewed"
   notes: >-
+    Preparation boundary, 2026-09-29: agent-reviewed applies to earlier
+    independently accepted destination code and API only. The accepted
+    twenty-module NormForms main 67a2402fd60456f510bea901a59a724865a93538
+    (tree 206b9f52f4bd77d77511b486f31b9609d20a861f) has its separate
+    reviewed, privately published same-tree official release
+    62260e19ae5f3e4bc1742bb8156b3023f59161fe. It does not extend to this
+    new twenty-two-module finite-transcendence transfer: destination
+    independent review, applicable both-root build, complete actual
+    private/generated-inclusive transitive standard-axiom audit, responsible-
+    maintainer acceptance and separate official release remain pending.
+    All following predecessor lifecycle and old pending labels describe dated
+    historical preparations, not this transfer or the current status of the
+    previously accepted twenty-module library. Donor evidence is not a
+    destination certificate.
     At preparation of this transfer on 2026-09-29, before destination review
     and acceptance, agent-reviewed applied only to earlier accepted
     destination results, including the separately reviewed and officially
@@ -191,6 +209,18 @@ review:
     third-party rights assessment remain separate exact-artifact decisions.
 
 acknowledgements: >-
+  The finite-transcendence proof and five ordinary-import examples were
+  originally authored by worker-b Task
+  hive-request-259e15acf7bd76333d5ed230bb87ea1b8bbe88f5 (UID
+  696a1143-3ef5-4334-ab86-6eb334f9c748). This destination-only static
+  transfer, licensed headers and standalone guide are by worker-b Task
+  hive-request-645b909230728e0909cf353cdcd1950d22f8dbc3 (UID
+  adeaa824-6d20-496a-b3d9-4634bd9f8595), not the original proof author,
+  independent destination reviewer, accepting maintainer or release approver.
+  The incubator donor had separate source-side review and acceptance; those
+  do not certify this new graph. The original project expression is Apache-2.0;
+  neither selected-source coverage nor blanket third-party rights clearance
+  follows from this transfer.
   Historical attribution and lifecycle for predecessor transfers, as recorded
   at their earlier construction dates before those respective destination
   reviews, current-graph checks or protected integrations:

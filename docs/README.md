@@ -1,5 +1,29 @@
 # Mathematical guide and historical native reference
 
+At preparation on 2026-09-29, the
+[finite-transcendence-form guide](FiniteTranscendenceFormZeros.md) becomes
+the **eighth standalone mathematical guide**, with direct
+`NormForms.FiniteTranscendenceFormZeros` and ordinary-import
+`NormFormsTests.FiniteTranscendenceFormZeros` modules. Together with the
+preceding accepted and privately published twenty-module main
+`67a2402fd60456f510bea901a59a724865a93538` (official same-tree release
+`62260e19ae5f3e4bc1742bb8156b3023f59161fe`), this new candidate has
+**twenty-two Lean modules** (nine producer leaves, eleven test leaves and two
+aggregate roots). It passes a uniform positive-degree single-form bound
+from `k` to any field extension `K/k` of transcendence degree `n` at the strict
+`d ^ (r + n) < m` bound; the algebraic remainder may be infinite. This
+transfer is not yet independently reviewed, accepted, integrated or released.
+The older [`API.md`](API.md) and [`api-manifest.json`](api-manifest.json)
+remain the byte-identical historical **six-module** coordinate snapshot, not
+the present twenty-two-module API or a proof-integrity audit.
+
+## Historical preparation boundary — 2026-09-29
+
+All following rational-function/predecessor accounts, old counts, historical
+receipts and then-pending labels retain their original dated scope. Their
+twenty-module candidate was subsequently accepted and privately published;
+none describes acceptance or verification of this new transfer.
+
 As prepared on 2026-09-29 before destination review and acceptance, the
 rational-function transfer adds the seventh standalone
 [mathematical guide](RatFuncFormZeros.md), direct

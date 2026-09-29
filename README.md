@@ -8,9 +8,28 @@ common zeros of equal-degree homogeneous systems under a direct
 all-positive-degree single-form bound. The same bound also yields nontrivial
 zeros of homogeneous forms over arbitrary algebraic field extensions and,
 with one extra degree factor in the strict arity bound, over rational-function
-fields. It depends directly on mathlib and
+fields; a finite-transcendence-degree extension receives the corresponding
+degree-shifted bound. It depends directly on mathlib and
 exact official `multivariate-polynomials`, `algebraic-groups` and
 `sequence-growth` releases.
+
+At preparation on 2026-09-29, the finite-transcendence contribution adds
+`NormForms.FiniteTranscendenceFormZeros`, its ordinary client and the
+[eighth mathematical guide](docs/FiniteTranscendenceFormZeros.md), bringing
+the library to **twenty-two Lean modules**. The preceding twenty-module
+`NormForms` main `67a2402fd60456f510bea901a59a724865a93538` is accepted,
+and its same-tree official release `62260e19ae5f3e4bc1742bb8156b3023f59161fe`
+is reviewed and privately published. This new transfer is **unreviewed,
+unaccepted and unreleased**; the preceding checks and review do not certify
+the changed destination graph.
+
+## Historical preparation boundary — 2026-09-29
+
+All following predecessor preparation and lifecycle text retains its dated
+meaning, including then-pending labels for the rational-function candidate.
+Those labels predate the accepted and published twenty-module predecessor;
+they do not describe this new twenty-two-module candidate.
+
 At its preparation on 2026-09-29, before destination review and acceptance,
 this twenty-module rational-function transfer was a candidate, not yet
 independently reviewed, accepted or published. The preceding eighteen-module
@@ -186,6 +205,16 @@ premise over `k`** also gives:
   `NormForms.RatFuncFormZeros` or `NormForms`; see the
   [guide](docs/RatFuncFormZeros.md) and
   [four ordinary-import examples](NormFormsTests/RatFuncFormZeros.lean).
+- **A nontrivial zero over a finite-transcendence-degree extension.**
+  `MvPolynomial.exists_nonzero_zero_of_trdeg_eq_of_single_form_bound` takes
+  arbitrary fields `k → K` with transcendence degree `n`, a uniform
+  all-positive-degree single-form bound `a ^ r < t` over `k`, and a
+  homogeneous-label-`d` form over `K` with `0 < d` and strict
+  `d ^ (r + n) < m`. It produces a nonzero `K`-point zero, including for
+  zero forms and infinite algebraic remainders. Import
+  `NormForms.FiniteTranscendenceFormZeros` or `NormForms`; see the
+  [guide](docs/FiniteTranscendenceFormZeros.md) and
+  [five ordinary-import examples](NormFormsTests/FiniteTranscendenceFormZeros.lean).
 
 These interfaces let downstream developments express norm equations in
 coordinates and transport them between bases. No separability or Galois
@@ -245,8 +274,13 @@ coefficient, extension-field and basis-index universes are visible in the
 `import NormForms.UniversalCoordinates`, `import NormForms.PaddedSubstitution`,
 `import NormForms.CommonZeroCompression`,
 `import NormForms.AlgebraicExtensionFormZeros` or
-`import NormForms.RatFuncFormZeros`;
+`import NormForms.RatFuncFormZeros` or
+`import NormForms.FiniteTranscendenceFormZeros`;
 the reexport root is `NormForms.lean`.
+The finite-transcendence theorem has no additional public tower helpers:
+the field tower and equivalence transports are private. It combines the
+existing algebraic-extension and rational-function single-form APIs without
+adding a finite-generation or separability hypothesis.
 The coordinate leaf's four private matrix/characteristic-polynomial helpers
 and the universal leaf's two private helpers are not public API. For arbitrary
 `σ`, `[Field K]`, `¬ IsAlgClosed K`, and `[Fintype ι]`, the two public
@@ -275,7 +309,9 @@ empty and all-zero families, degree zero, empty/arbitrary variable types and
 finite `ZMod 2`. The algebraic-extension client checks general, finite and
 identity extensions, `r = 0`, `d = 1` and the zero form. These are tests, not
 extra production theorems. The rational-function client additionally checks
-minimal arity, zero forms and `r = 0`. This library does **not** supply
+minimal arity, zero forms and `r = 0`. The finite-transcendence client checks
+the general theorem, minimal arity, zero forms, `n = 0`, and `r = 0` at
+`d = 1`. This library does **not** supply
 every-degree existence, normic order, `C_i` theory, reduced norms or cohomology;
 no complete source-formalization claim is made here.
 
