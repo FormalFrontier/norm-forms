@@ -61,14 +61,6 @@ the all-positive-degree single-form premise and strict numerical bound
 produce a **nonzero common zero** over any field. Neither theorem asserts
 the other's conclusion or a claim about all extension-field points.
 
-The dependency graph uses Lean `v4.34.0-rc2`, mathlib at
-`83abb3e776bdefcbc447a1e44d0debe4010039e5`, and the official
-`MultivariatePolynomials` `ec4906268f2a65a54e320ce9f3f44562e9d78c1e`,
-`AlgebraicGroups` `6c7f4a5a38881573fd2bb735fc3dab1de53b83bf`, and
-`SequenceGrowth` `c5c4dbfafc3a6b3fdc8c6ab9f3d336ae893d4f79`
-releases. These published inputs and the pre-existing accepted mathematical
-implementation do not themselves certify this destination's changed graph:
-at construction on 2026-09-29, exact-destination build/axiom evidence,
-independent review, maintainer acceptance and this contribution's release
-were separate subsequent steps. This date-specific note does not assert
-their later outcomes or any selected-source coverage.
+The exact toolchain and official dependency revisions, including
+`MultivariatePolynomials`, `AlgebraicGroups` and `SequenceGrowth`, are pinned
+in the root Lake files. The result makes no selected-source coverage claim.

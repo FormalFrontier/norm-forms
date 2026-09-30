@@ -73,5 +73,4 @@ lake exe cache get
 LEAN_NUM_THREADS=2 lake --wfail build NormForms NormFormsTests
 ```
 
-These are reproduction commands, not a claim that this contribution has
-already passed the destination build, axiom audit or independent review.
+These are reproduction commands, not evidence for a changed candidate.

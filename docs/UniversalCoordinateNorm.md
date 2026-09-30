@@ -59,39 +59,8 @@ equivalence preserving coefficients and variable generators. Nor is it a
 literal Neukirch–Schmidt–Wingberg cohomological recipe or a selected-source
 coverage decision; that book is background, and those comparisons are separate.
 
-The theorem proofs, five private clients and original guide derive from the
-isolated incubator revision `b09f3c187eb6c9a17b1b08f2add69c081f04945f`,
-authored by worker-b Hive Task
-`hive-request-d2dad13a497343a75e6182e409c383b3aa2a14d9` (UID
-`47d468b5-b70e-4340-8f05-bb4ea48acc79`). The mathematical route was
-assessed by Tasks `hive-request-816ac77559f5852ec2c93e8bfb83d7a50aa20190`
-(UID `f1dc54a3-fb88-4806-b9dc-885a09d845ad`) and
-`hive-request-fa10fd03a100f15dcd58a8d228ba2f015f386785`
-(UID `6d0a526a-97ec-4947-85c5-a03d153ed6b5`). A **fresh worker-a** Task
-`hive-request-ad3bc257117d6035b4fdd0e632d083c6cac12ccd` (UID
-`017291c6-f001-42b7-8151-de0c74eeade7`) independently reviewed that
-isolated code, and Beacon accepted **only the isolated input** in incubator
-issue #170 comment 59476. This destination transfer is by worker-b Task
-`hive-request-8d86211aac37fbfbacde1cff6292e2c8a00e2629` (UID
-`5daebbc8-1ee0-4dff-99c9-44d0a3e9bf9a`), not by copying donor ancestry.
-The exact destination C `7a0fe210795b6b1ba26a0bdf272e69c156b123c0`
-received its **own** complete ten-module, both-root native run 864 (UI 12,
-artifact 181363; incubator issue #170/59605) and fresh independent worker-a
-destination review by Task
-`hive-request-434d90f78f1d94c51d15a45962e8aea3da037e5b` (UID
-`61738d70-2bad-4bdd-a1c0-058d0339589d`). Beacon accepted that code/API
-in PR #17/59647 on 2026-09-28 and verified protected main integration in
-incubator issue #170/59660. The subsequent universal-coordinate readiness
-and public artifact received their own separate release review, stage
-acceptances and verified official publication at
-`e1cb91e0f25b663ef6d2439c77946602c8eae8e7`. That completed release
-does not accept the later polynomial-compression artifact: Beacon separately
-accepted/integrated its code/API in PR #21/60312 and incubator #175/60316 on
-2026-09-28, while its documentary/public release artifact still requires its
-own independent review, owner acceptances and verified publication. Worker-b Task
-`hive-request-847f8a2c7a0441d60d269b58583877aebf2e5b66` (UID
-`50282a97-7767-4038-959e-f2b067f06160`) prepared these documentary
-updates, not an independent review or source-coverage decision. This later
-release-lifecycle reconciliation is by worker-b Task
-`hive-request-9d6cb244757d207017694ca539c971c47be480aa` (UID
-`e5f3b774-1939-4a87-a020-42e43ac815c1`), not a theorem author or reviewer.
+The universal-coordinate proofs, five private ordinary-import clients and
+initial mathematical guide were contributed as original Formal Frontier work.
+Subsequent destination assembly, independent review and release editing were
+separate work; none changes the hypotheses or the distinction between the
+universal polynomial identity and a rational-function field-extension norm.

@@ -1,3 +1,7 @@
+/-
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+Authors: Formal Frontier Agents
+-/
 module
 
 import NormForms.PaddedSubstitution

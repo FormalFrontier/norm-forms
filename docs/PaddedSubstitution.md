@@ -49,21 +49,7 @@ degree zero, and `ZMod 1`. The field/finitely indexed compression
 application uses these laws in `NormForms.CommonZeroCompression`; see the
 [compression guide](PolynomialCommonZeroCompression.md).
 
-The padding proof expression originated with worker-b Hive Task
-`hive-request-8306ff75faa6638080e54d36d849222c7ac1948a` (UID
-`03f7d2d8-159f-4715-a179-413c704b5507`), isolated revision
-`272d5abe773245829435be9b3cc4318f6b7505eb`; the delivered transfer
-was by worker-b Task `hive-request-7fa01782d4333fb52b06189a0cb7b7047745b74c`
-(UID `13a94950-58fd-4d63-83f8-56f57e0e4c8c`). This maintenance extraction
-is by worker-b Hive Task `hive-request-87ff0e576db2df1f58dd28051b6af90d850a3eaa`
-(UID `7c3de02d-f84f-4e5a-9077-b7d90c89c9ad`). Native run 939 checked
-exact S `34366b58f3e8448fdfba4210963690694b2e0042` across both roots,
-including its private proof. Fresh worker-a Task
-`hive-request-3d69bea9eb1999955d5963026e068f620c77d09e` (UID
-`4b70d28c-ab1d-4812-bb82-dde3465979c5`) independently approved S in
-review 4782. Beacon accepted its code/API in PR #26/61186 and verified
-protected integration on 2026-09-29 (issue #25/61199). This documentary
-update is by worker-b Task `hive-request-81ff4f8ed4e54e710826db01b99d3f8b6e66719e`
-(UID `57b7bdad-4de2-40e5-b222-fb4e1ab53c8f`); it and the public release
-artifact still need fresh independent review, owner acceptance and publication.
-No selected-source coverage or third-party rights clearance is claimed.
+The original padding expression was contributed with the common-zero
+compression work; later Formal Frontier contributors extracted these
+independent public laws and adapted the client. The original contribution,
+subsequent extraction and independent review remain distinct.

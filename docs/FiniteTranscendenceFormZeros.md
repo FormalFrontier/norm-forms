@@ -62,23 +62,15 @@ check the general theorem, minimal arity, zero form, `n = 0`, and the
 
 ## Reproduce with pinned dependencies
 
-Use this repository's pinned Lean `v4.34.0-rc2`, mathlib
-`83abb3e776bdefcbc447a1e44d0debe4010039e5`, and official pinned
-dependencies. From the project root, successfully fetch the matching
-precompiled mathlib cache **before** either build:
+The original single-form proof and client are Formal Frontier project work;
+subsequent adaptation into this library and independent review are separate
+roles. Use the toolchain and official dependencies pinned by the root Lake
+files. Fetch the matching mathlib cache successfully before building:
 
 ```sh
 lake exe cache get
 lake build NormForms NormFormsTests
-lake build NormFormsTests.FiniteTranscendenceFormZeros
 ```
 
-These are reproduction commands, not a claim of a destination build, audit,
-review, release, or selected-source correspondence for this prepared transfer.
-The original Lean proof and ordinary client were authored by worker-b Task
-`hive-request-259e15acf7bd76333d5ed230bb87ea1b8bbe88f5`
-(UID `696a1143-3ef5-4334-ab86-6eb334f9c748`). This destination-only
-static transfer, licensed headers and standalone guide were prepared by
-worker-b Task `hive-request-645b909230728e0909cf353cdcd1950d22f8dbc3`
-(UID `adeaa824-6d20-496a-b3d9-4634bd9f8595`). Original project expression
-is Apache-2.0; no blanket third-party rights clearance is implied.
+The commands are reproduction instructions, not evidence for a changed
+candidate or a source-coverage decision.

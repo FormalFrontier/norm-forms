@@ -2,7 +2,13 @@ version: "v0.4"
 
 project:
   name: "Norm Forms"
-  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees, general zero-padded polynomial substitution laws over commutative semirings, finite polynomial-system K-point zero-set compression over any non-algebraically-closed field, conditional nontrivial common zeros of equal-degree homogeneous systems over arbitrary fields, and transfer of a direct all-positive-degree single-form zero bound to arbitrary algebraic field extensions, to rational-function fields at the strict one-higher-exponent bound, and to finite-transcendence-degree extensions at the strict degree-shifted bound; finite-field common zeros of polynomial systems from strict actual-total-degree sums at a known point, with positive varying-label homogeneous and single-form consequences. Finite-field positive tensor-power scalar sums annihilating arbitrary finite tensor families under a strict finite-target rank bound."
+  description: >-
+    Coordinate norms over finite field extensions and universal finite-free
+    norms under commutative base change; unbounded attained-degree anisotropic
+    forms; polynomial padding and finite-system K-point zero-set compression;
+    conditional homogeneous-system zeros and single-form zeros over algebraic,
+    rational-function and finite-transcendence-degree extensions; finite-field
+    common-zero theorems; and scalar sums annihilating positive tensor powers.
   authors:
     - "Formal Frontier Agents"
   responsible_maintainers:
@@ -14,39 +20,39 @@ sources:
   - title: "Finite-basis field norm and coordinate norm-form constructions"
     type: "folklore"
     relationship: "independently-proves"
-    note: "Classical mathematics; this Lean development is original formal code, not a claim of novel mathematics or full coverage of a specific source."
+    note: "Classical mathematics; the formal code does not claim novel mathematics or full coverage of a selected source."
   - title: "Finite-free universal coordinate norm under scalar extension"
     type: "folklore"
     relationship: "independently-proves"
-    note: "Native left-multiplication norm in an arbitrary commutative base algebra, with universal polynomial equality; not a claim of selected-source coverage or third-party rights clearance."
+    note: "Native norm under commutative base change and an actual universal polynomial identity, also for finite coefficient fields."
   - title: "Finite polynomial-system zero-set compression over non-algebraically-closed fields"
     type: "folklore"
     relationship: "independently-proves"
-    note: "Original Lean proofs of coefficient-field-point zero-set compression for finite families, including homogeneous inputs; no ideals, radicals, schemes, arbitrary-extension-point assertion or selected-source coverage claim."
+    note: "K-point zeros of finite families, including homogeneous inputs; no ideal, radical, scheme or all-extension-point equality. Homogeneous labels do not assert actual total degree."
   - title: "Equal-degree homogeneous-system nontrivial zeros from a uniform single-form bound"
     type: "folklore"
     relationship: "independently-proves"
-    note: "A direct all-positive-degree single-form premise and s * d ^ r < n yield a nonzero common zero over arbitrary fields, including empty, zero and repeated families; this is not a selected-source coverage or third-party rights claim."
+    note: "A direct all-positive-degree single-form premise and strict s * d ^ r < n give a nonzero common zero for positive label d; empty, zero and repeated families are included."
   - title: "Homogeneous-form nontrivial zeros over algebraic field extensions"
     type: "folklore"
     relationship: "independently-proves"
-    note: "A direct all-positive-degree single-form base-field premise, positive d and d ^ r < n yield a nonzero zero of each homogeneous-label-d form over any algebraic extension. Original project proof expression is reused without claiming selected-source coverage, arbitrary-zero descent, or third-party rights clearance."
+    note: "The direct all-positive-degree base-field single-form premise, positive d and strict d ^ r < n yield a nonzero zero over an arbitrary algebraic extension, without finite, separable or perfect-extension hypotheses. Original project proof expression is reused."
   - title: "Homogeneous-form nontrivial zeros over rational-function fields"
     type: "folklore"
     relationship: "independently-proves"
-    note: "A direct uniform all-positive-degree single-form base-field premise, positive d and strict d ^ (r + 1) < m yield a nonzero zero of each homogeneous-label-d form over RatFunc k, including zero forms and finite base fields. This transfers the original project proof expression, without claiming simultaneous rational-function zeros, selected-source coverage or third-party rights clearance."
+    note: "The direct all-positive-degree base-field single-form premise and strict d ^ (r + 1) < m yield a nonzero zero of a positive-label-d form over RatFunc k, including zero forms and finite k; not simultaneous zeros. Original project proof expression is reused."
   - title: "Homogeneous-form nontrivial zeros over finite-transcendence-degree extensions"
     type: "folklore"
     relationship: "independently-proves"
-    note: "For arbitrary fields k and K with Algebra k K and trdeg k K = n, a uniform all-positive-degree single-form bound a ^ r < t over k, positive d and strict d ^ (r + n) < m yield a nonzero K-point zero of each homogeneous-label-d form, including zero forms and an infinite algebraic remainder. Original project proof expression is transferred without asserting finite generation, simultaneous zeros, selected-source coverage or blanket third-party rights clearance."
+    note: "For fields k → K of transcendence degree n, a uniform all-positive-degree base-field bound a ^ r < t, positive d and strict d ^ (r + n) < m give a nonzero K-point zero, including zero forms and infinite algebraic remainders; no finite-generation or separability premise. Original project proof expression is reused."
   - title: "Finite-field polynomial-system common zeros from Chevalley–Warning"
     type: "folklore"
     relationship: "independently-proves"
-    note: "Over a finite field, native Chevalley–Warning divisibility yields a second common zero from a known point when the strict sum of actual total degrees is below the variable count, without homogeneity. Positive possibly varying homogeneous labels bound actual degrees and give the origin as known zero, yielding nonzero common and single-form zeros, including zero or repeated forms and the empty family. A private client reuses the published finite-transcendence theorem at exponent 1, not a new public extension theorem. No selected-source coverage or blanket third-party rights clearance is asserted."
+    note: "A second zero from a given common point follows when the sum of actual total degrees is strictly below the variable count, with no homogeneity requirement. Positive possibly varying homogeneous labels give nonzero common and single-form zeros, including zero and repeated forms and an empty family. A private finite-base-field extension client is not a new public theorem."
   - title: "Finite-field scalar sums annihilating positive tensor powers"
     type: "folklore"
     relationship: "independently-proves"
-    note: "Current code/release status at 2026-09-30 03:36 UTC: The NormForms H2 tensor destination code was independently reviewed, accepted by Beacon and integrated into protected main at 03:08:17 UTC. The C2 documentary release successor and separate public-lineage U2 remain unreviewed and unaccepted as releases and unpublished at this preparation; no selected-source coverage or blanket third-party rights decision follows. Historical H2-preparation note from 2026-09-30 before H2 code acceptance and integration, retained verbatim: For finite field K, finite parameter and selected-tensor indices, positive s and finite-dimensional tensor target W, a strict s * card(selected tensors) * finrank K W < card(parameters) bound yields one nonzero scalar-sum coefficient vector: the ordinary scalar sum is surjective, and its actual induced tensor map annihilates every prescribed tensor, not merely pure tensors. Source tensor dimensions are unrestricted. Coordinate polynomial evaluations have homogeneous label s, not necessarily actual total degree s. Five public ordinary-import clients cover the native map, finite factors, empty families, abstract zero-rank targets and a zero second factor. No s = 0, tensor-map surjectivity, equivariance, direct-sum/eventual-rank or selected-source coverage claim follows. The incubator donor has completed independent review, original registered native checks and Beacon acceptance/protected integration. This destination transfer remains unreviewed, unaccepted and unreleased, requiring its own exact review and computation."
+    note: "For positive s and arbitrary finite prescribed tensor families over finite K, strict s * card(selected tensors) * finrank K W < card(parameters) with finite-dimensional target W yields a nonzero coefficient vector: its scalar sum is surjective and its actual tensor map annihilates all prescribed tensors. No finite-dimensional source or tensor-map surjectivity is asserted; homogeneous label s need not equal actual total degree. Five ordinary-import clients are public."
   - title: "Cohomology of Number Fields"
     authors:
       - "Jürgen Neukirch"
@@ -55,450 +61,39 @@ sources:
     type: "book"
     location: "Chapter VI"
     relationship: "background"
-    note: "Mathematical background only; no complete source correspondence, chapter formalization, or source-coverage claim."
+    note: "Background mathematics only; not reproduced expression, chapter formalization or a source-coverage claim."
 
 automation:
   methods:
     - method: "agent"
-      framework: "Formal Frontier Hive Tasks with Codex CLI"
-      tool_setup: "AI-assisted pooled worker contributions, repository-pinned Lean/mathlib builds, and independently arranged review."
+      framework: "Codex CLI and Formal Frontier Hive Tasks"
+      tool_setup: "AI-assisted formalization with repository-pinned Lean/mathlib and separate independent review."
 
 review:
   status: "agent-reviewed"
   notes: >-
-    Metadata repair at 2026-09-30 03:36 UTC by formalization-worker-b Hive
-    Task hive-request-c31bc11e62f21e22d9480832555c316491a9336e (UID
-    346c7e1e-5188-4c08-bc9e-9773ab7064c9): the H2 tensor destination code
-    was independently reviewed, accepted by Beacon and integrated on protected
-    main at 03:08:17 UTC. The earlier C ef5d29e3646bf65779c71df383ec9238e5d51723
-    and public U 94b8cdfdf2d8da9a360326b8ec3d746ba254e67c received three
-    independent REQUEST_CHANGES verdicts on release metadata (PR49/50/51), not
-    release approval. Their C2/U2 successors remain unreviewed and unaccepted
-    as releases and unpublished at this preparation; no selected-source
-    formalization or blanket third-party rights clearance is asserted. All
-    following prior C preparation notes are preserved verbatim as historical
-    text, not current H2 code or successor release status.
-
-    Integrated-code boundary, 2026-09-30: agent-reviewed now includes
-    the exact twenty-six-module destination main
-    822416081cd75ebec2ba6f678f2afa61efb67b6a (tree
-    7123fc0c5db711e05ee4c463445876e314e4336d), independently reviewed
-    for mathematical meaning, API and provenance at exact report
-    2ad9d2c5db258277e7e0eeed0fc6323cba46a991, followed by Beacon's
-    code acceptance and protected integration at 03:08:17 UTC. Original
-    destination native run 1257 successfully checked both roots, 26 modules,
-    78 compiled parts and all 160 declaration origins including 94 private
-    origins under only propext, Classical.choice and Quot.sound. Its
-    computation remains applicable to unchanged Lean, root, dependency and
-    checker inputs, not to revised documentary or metadata meaning. At
-    this preparation the new documentary release candidate and its separate
-    public-lineage snapshot have not been independently release-reviewed,
-    accepted as releases or published. The source row's prospective and
-    pending-transfer words, and all following prior candidate boundaries,
-    retain their earlier dated meanings; they are not current code status.
-    The preceding twenty-four-module official release
-    e41278ba08ea5c8b41cea90595f0f07db441e9a5 remains independently
-    reviewed and privately published. Release decisions, source coverage
-    and blanket third-party rights clearance are not inferred here.
-    Historical preparation record follows:
-    Destination candidate boundary, 2026-09-30: agent-reviewed applies only
-    to accepted twenty-four-module main
-    81a7e04b6304c6598b3f75288c98945b77cbceb6 and the earlier reviewed
-    results, with same-tree official release
-    e41278ba08ea5c8b41cea90595f0f07db441e9a5 separately reviewed
-    and privately published. This twenty-six-module scalar-sum branch is
-    unreviewed, unaccepted and unreleased. Its exact incubator donor completed
-    independent review, full original native registered checks, Beacon's
-    acceptance and protected integration. Destination
-    both-root build, complete private/generated-inclusive transitive
-    standard-three axiom audit, independent destination review,
-    responsible-maintainer acceptance and separate official release are
-    still required. Changed inputs require renewed applicability; donor review and
-    predecessor checks do not certify this destination graph. Earlier
-    then-pending labels retain their historical scope and are not current
-    blockers to the accepted twenty-four-module predecessor. This metadata
-    makes no source-coverage or blanket third-party rights claim.
-    Preparation boundary, 2026-09-30: agent-reviewed applies only to the
-    preceding twenty-two-module accepted NormForms main
-    24f0a1aec483b8231b243a91b2a9467756a20d0f, whose same-tree official
-    private release 786cb6b14aee3e78fce5cdcf0d1a85d1621fcaad was
-    separately reviewed and published. This twenty-four-module finite-field
-    destination transfer is unreviewed, unaccepted and unreleased; it needs
-    applicable both-root build and complete actual private/generated-inclusive
-    transitive standard-three axiom audit, independent destination review,
-    responsible-maintainer acceptance and a separate official release.
-    Accepted isolated donor checks and review do not certify these destination
-    roots or registered dependency union. All following older preparation
-    boundaries, pending labels and counts retain their dated historical scope,
-    not a present blocker for the accepted twenty-two-module predecessor.
-    Preparation boundary, 2026-09-29: agent-reviewed applies to earlier
-    independently accepted destination code and API only. The accepted
-    twenty-module NormForms main 67a2402fd60456f510bea901a59a724865a93538
-    (tree 206b9f52f4bd77d77511b486f31b9609d20a861f) has its separate
-    reviewed, privately published same-tree official release
-    62260e19ae5f3e4bc1742bb8156b3023f59161fe. It does not extend to this
-    new twenty-two-module finite-transcendence transfer: destination
-    independent review, applicable both-root build, complete actual
-    private/generated-inclusive transitive standard-axiom audit, responsible-
-    maintainer acceptance and separate official release remain pending.
-    All following predecessor lifecycle and old pending labels describe dated
-    historical preparations, not this transfer or the current status of the
-    previously accepted twenty-module library. Donor evidence is not a
-    destination certificate.
-    At preparation of this transfer on 2026-09-29, before destination review
-    and acceptance, agent-reviewed applied only to earlier accepted
-    destination results, including the separately reviewed and officially
-    published eighteen-module predecessor at main
-    ba4a2c3a7e71afe516ef4b91d6f373c1a0846e1c (tree
-    df5c938c1543c2e2c93e115db88918c97560ad37), official
-    3e492c4684694e80bceacb43bf930fef5157048b. At that preparation it
-    excluded this twenty-module rational-function transfer pending fresh
-    independent review, applicable destination both-root build and complete
-    private/generated-inclusive standard-axiom evidence, and responsible-
-    maintainer acceptance.
-    Original donor acceptance and native checks are not destination checks.
-    The following complete predecessor lifecycle preserves dated labels at
-    their original stages; old pending statements do not describe this new
-    transfer or override subsequently recorded predecessor decisions.
-    This agent-reviewed field records only the earlier accepted destination
-    mathematical/code results listed below; it does not review the present
-    algebraic-extension transfer, its new dependency graph, guide or roots.
-    On 2026-09-28, independent worker-a Task
-    hive-request-fcb0935dba04fc17d06ffa0ee41e9e620a7af414 (UID
-    df5947c5-96ed-4503-bb64-3081612cd20c) reviewed exact destination
-    313612a372a8c55a4e2af2bd0461d302998b6217 (review 4631); Beacon
-    accepted it in PR 13/58741 and verified protected main integration in
-    PR 13/58744. Native run 823 succeeded on its pinned mathlib83 and official
-    Multivariate graph: cache first, both roots built and complete actual
-    transitive standard-three audit including private/generated declarations.
-    At that earlier documentary preparation, agent-reviewed was scoped to
-    accepted destination mathematics and code, not its then-unreviewed
-    documentary readiness/public artifact; its later independent release
-    review, stage acceptances and verified publication are recorded separately.
-    The isolated incubator proof expression and ZMod client at
-    edc6961da2dfee53dcfa8de0d6d8c41cc9a560ed had independent worker-a
-    review 58570 and Beacon's isolated-only acceptance 58575, neither of which
-    substitutes for the completed destination review. Historical ordinary-main
-    acceptance only: initial mathematical API reviewed at
-    f0828d4ff7da4ee812ac6c283bf76a05a5303465 and integrated at
-    0b7719eca4549fb968d22b8ca8c3ceb5bc53530e. Independent worker-a review
-    2977/full issue 1 record 40208 and license addendum 40222 approve the exact
-    successor e1271e6961181f3e1e60392b339cf0b5a6c863e4; Beacon accepted it
-    in record 40248 and verified protected ordinary-main integration in 40250 at
-    a87e5d0691a76d2118fbe8de864a5d02a38596bc (2026-09-25). The prior
-    REQUEST_CHANGES review 2965 on rejected e434eba67f6ddefe417140135d356d97c3918a21
-    remains historical; its attribution/permission issues were resolved for the
-    exact successor, not silently waived. Operator clarification 13158 confirms
-    Apache-2.0 authorization for verified original project work including the
-    earlier source-repository expression, not invented third-party clearance.
-    Later documentation changes require fresh independent exact-candidate review;
-    no full release acceptance, universal rights clearance or source-coverage
-    decision is represented by this review field. The subsequent official Q
-    db29d765e132d995bfed69f4424cf6a0261e95ac release of the earlier
-    destination tree and its no-target disposition are complete. The new
-    universal-coordinate transfer from isolated incubator H
-    b09f3c187eb6c9a17b1b08f2add69c081f04945f was UNACCEPTED and UNRELEASED
-    at its earlier C candidate handoff; the earlier review and native run 823
-    did not cover its changed Lean modules or aggregate roots. Subsequently,
-    native run 864 (UI 12, artifact 181363; incubator issue 170/59605)
-    succeeded on exact C 7a0fe210795b6b1ba26a0bdf272e69c156b123c0:
-    matching cache first, both roots 2070 jobs, all ten modules and 57 actual
-    transitive declaration origins including 15 private, only propext,
-    Classical.choice and Quot.sound. Fresh worker-a Task
-    hive-request-434d90f78f1d94c51d15a45962e8aea3da037e5b (UID
-    61738d70-2bad-4bdd-a1c0-058d0339589d) independently approved exact C
-    in native review 4695; Beacon accepted its code/API in PR 17/59647 and
-    verified protected main integration in incubator issue 170/59660 on
-    2026-09-28. These facts do not review or publish this later documentary
-    readiness or proposed public release artifact: those require distinct
-    exact-candidate review, release-stage acceptances and verified publication.
-    No source-coverage decision or general third-party rights clearance is
-    represented by this metadata.
-    The universal-coordinate destination parent
-    75a4f9d5f67bc65b5d319cec30c92d785e8debef has the same tree as the
-    completed official publication e1cb91e0f25b663ef6d2439c77946602c8eae8e7.
-    Its earlier review and native run 864 apply only to previous inputs. The
-    new finite-polynomial-system compression expression in isolated incubator
-    H 272d5abe773245829435be9b3cc4318f6b7505eb was independently
-    approved by worker-a Task hive-request-cee92f392eeacba31bce30072ea79308ee41a539
-    (UID 1af91b4f-4d05-4a1c-aaa3-a57ecb10a627) and accepted by Beacon only
-    in that isolated scope. At that frozen candidate handoff the present
-    destination transfer and changed aggregate roots were unchecked as a
-    whole: no applicable current-graph both-root CI or private/generated
-    transitive audit, independent destination review, Beacon's acceptance or
-    new release/publication had yet occurred. That historical unchecked
-    status did not rescind earlier accepted stages. Subsequently, native run
-    904 (UI 16, artifact 194981) succeeded on exact C
-    4a803474814f73e7011c045c5f613f360024b1a5 on 2026-09-28 from
-    22:57:18 to 23:00:18 UTC: matching-cache-first two-root build (2072 jobs),
-    all 12 modules/36 compiled parts/62 actual origins including 18 private,
-    with transitive axioms limited to propext, Classical.choice, Quot.sound
-    (incubator 175/60292). Fresh independent worker-a Task
-    hive-request-23c96d626c3ec88ebbde46b9da9ade7cf64b5c9e (UID
-    2b20c511-56b9-488f-b807-263fab37cf68) approved exact C in native
-    review 4735. Beacon accepted code/API in PR 21/60312 and verified guarded
-    protected main integration in incubator 175/60316 on 2026-09-28. This
-    agent-reviewed status covers that accepted mathematical/code candidate,
-    not independent review or acceptance of the later documentary readiness
-    and public release artifact, nor verified publication or source coverage.
-    The latter official publication is now complete at
-    5fe9ff797f65d19f174f903774e660130ccf682d, the same tree as ordinary
-    main f3f4e616920c163fa2a8bdd2b92ed42d419c4813. The subsequent
-    public padded-substitution laws and compression refactor were contributed
-    by worker-b Task
-    hive-request-87ff0e576db2df1f58dd28051b6af90d850a3eaa (UID
-    7c3de02d-f84f-4e5a-9077-b7d90c89c9ad). Prior run 904 applies only
-    to the twelve-module graph. Configured run 939 (UI 20, job 940, artifact
-    209763) successfully built both roots of exact S
-    34366b58f3e8448fdfba4210963690694b2e0042 after cache verification
-    and audited all 65 actual origins, including 18 private, across fourteen
-    modules/42 compiled parts; transitive axioms were only propext,
-    Classical.choice and Quot.sound (issue 25/61176). Fresh independent
-    worker-a Task hive-request-3d69bea9eb1999955d5963026e068f620c77d09e
-    (UID 4b70d28c-ab1d-4812-bb82-dde3465979c5) approved exact S in
-    native review 4782; Beacon accepted the code/API in PR 26/61186 and
-    verified protected main integration at 02:25:07 UTC on 2026-09-29
-    (issue 25/61199). Agent-reviewed here includes accepted S code, not
-    independent review of this documentary readiness, its public artifact,
-    stage acceptance or verified publication. No selected-source coverage
-    or general third-party rights clearance follows.
-    This field's agent-reviewed status applies to the earlier accepted results
-    only. At construction of the homogeneous-system transfer on 2026-09-29,
-    the changed NormForms graph had no applicable destination build/complete
-    private-inclusive standard-axiom audit or independent destination review;
-    its acceptance and publication are subsequent exact-artifact decisions.
-    That predecessor subsequently passed its own checks and separate release
-    review, and was officially published at
-    22413e8f4fa8409ba06b6242a67adbbc76733a02 with the same tree as
-    development main eddc91b7e71fdb0e8fb26b4441b445b389d6db7b.
-    At construction of the present separate transfer on 2026-09-29, no
-    applicable build/private-inclusive standard-axiom audit or independent
-    destination review has been claimed for the new 18-module/MP6a graph.
-    The preceding sentence describes the then-unaccepted eighteen-module
-    predecessor. Its own original run 1097, independent destination review,
-    owner code acceptance and separate reviewed release/private publication
-    subsequently completed; they do not extend to this RatFunc candidate.
-    Code acceptance, release review/publication, source correspondence and
-    third-party rights assessment remain separate exact-artifact decisions.
+    The mathematical code and APIs in the existing 26-module published
+    library received independent destination review and responsible-maintainer
+    acceptance. Pinned both-root build and complete transitive standard-axiom
+    evidence (including private declarations) apply to their unchanged code,
+    dependencies and checker inputs, not to subsequent documentation edits.
+    New public-reader wording and headers require their own affected review
+    before acceptance; this metadata does not assert review or publication of
+    any new cleanup contribution. Source correspondence, complete selected-source
+    coverage and unrelated third-party rights are separate decisions.
 
 acknowledgements: >-
-  Static documentary release preparation on 2026-09-30 is by worker-b Task
-  hive-request-a26a15a8d87bcf395ef6411066086698e7844cda (UID
-  7900c153-7f1d-436b-8511-26c7e8dbc50c), not the proof author,
-  independent release reviewer or responsible accepting maintainer.
-  Earlier contributor and reviewer attribution is preserved below.
-  The positive tensor scalar-sum proof, five public clients and original
-  mathematical guide were contributed to the incubator by worker-b Task
-  hive-request-00add797a4e4cdad8e5f28cd39c5c9e328d31af5 (UID
-  b1b582ac-fbe9-4d6f-87c3-2bdb59e3bc0a), following the plan by
-  worker-b Task hive-request-8f66e2ffaba94e90d48cf88c4ac68a030a2b55f2
-  (UID 207a718a-58ed-4173-9cf4-2a742055193c). Fresh worker-a Task
-  hive-request-f9db7b7e0c80089a7adb0d883650d90642267afc (UID
-  9e6e1217-f41c-4c01-8c08-29485bcf8e4a) independently reviewed only
-  that frozen incubator donor; its original native checks, Beacon acceptance
-  and protected integration are now complete. These do not certify the
-  destination transfer or its different aggregate roots.
-  This prospective static destination transfer, licensed headers and adapted
-  standalone guide are by worker-b Task
-  hive-request-cb505aca61504146437d8d0fb49ab3df386e720f (UID
-  65cfc1eb-360f-4671-8563-ac89ab8f2f35), not its original mathematical
-  author, independent destination reviewer, accepting maintainer or release
-  approver. Apache-2.0 project expression and retained contributor credit
-  make no selected-source coverage or blanket third-party rights conclusion.
-  The finite-field producer, five private clients and original mathematical
-  account were authored in isolated incubator C
-  c1081cb265954c8d348965256a13b8b1141eeb31 by worker-b Task
-  hive-request-9ca31ded7b7bb0dad24f583f3e2d24e5801c6559 (UID
-  eda88ebc-c4b7-4570-8565-6d668be42130). Independent worker-a Task
-  hive-request-4aaa49575d92a64f0efee36769a41f4a7b47e815 (UID
-  5bd57fbf-9ae7-4c17-982e-021af245213d) reviewed only that exact
-  isolated donor; Beacon accepted only its code/API. Separate licensed-header
-  static transfer and source-independent destination guide are by worker-b
-  Task hive-request-1608a48153c3e49c3e743e649953d894ed900e8e (UID
-  eb6b3ab3-b099-47b7-85b0-84c515c7ac7a). This Task is not the proof
-  author, independent destination reviewer, accepting maintainer or release
-  approver. Apache-2.0 project expression and retained credit do not infer
-  selected-source coverage or third-party rights clearance.
-  The finite-transcendence proof and five ordinary-import examples were
-  originally authored by worker-b Task
-  hive-request-259e15acf7bd76333d5ed230bb87ea1b8bbe88f5 (UID
-  696a1143-3ef5-4334-ab86-6eb334f9c748). This destination-only static
-  transfer, licensed headers and standalone guide are by worker-b Task
-  hive-request-645b909230728e0909cf353cdcd1950d22f8dbc3 (UID
-  adeaa824-6d20-496a-b3d9-4634bd9f8595), not the original proof author,
-  independent destination reviewer, accepting maintainer or release approver.
-  The incubator donor had separate source-side review and acceptance; those
-  do not certify this new graph. The original project expression is Apache-2.0;
-  neither selected-source coverage nor blanket third-party rights clearance
-  follows from this transfer.
-  Historical attribution and lifecycle for predecessor transfers, as recorded
-  at their earlier construction dates before those respective destination
-  reviews, current-graph checks or protected integrations:
-  Historical attribution for the earlier six-module coordinate input: Beacon
-  authored the earlier coordinate-norm and norm-polynomial proof expression
-  in Formal Frontier source-nsw, originating at cce37e4118dc538f0f0c1d1e6eff6b8c50029f85
-  and 29963e4c2eedbcc20822b51ffc4256144b46da04 and reused from accepted input
-  3f8e50e8272911a16d625e1a9a6dde00cde5eb47. Worker-a assembled the reusable library
-  and added coordinate-change, reindexing, structural polynomial substitution and
-  private matrix/characteristic-polynomial proofs; worker-b added the module-system
-  and named-client migration. This origin credit does not claim source correspondence
-  or establish legal ownership. The implementation builds on
-  mathlib's field norm, polynomial characteristic coefficient, basis and multivariable
-  polynomial APIs at e37d88a26f3791ed5a93daa1f949af1021b8d103.
-  For the earlier coordinate/iteration candidate, direct mathlib used
-  83abb3e776bdefcbc447a1e44d0debe4010039e5 and finite iteration depended
-  on official multivariate-polynomials commit
-  ec4906268f2a65a54e320ce9f3f44562e9d78c1e. The assembled theorem, client and
-  guide reuse actual expression by worker-b Task
-  hive-request-f7fefa6fea31fecce0577537ebd9c88ff30c913f (UID
-  42fc0f36-5c45-4112-89c7-a007b636725a) from the isolated incubator input
-  edc6961da2dfee53dcfa8de0d6d8c41cc9a560ed, not its commit ancestry.
-  Generic block substitution was contributed by worker-b Task
-  hive-request-7b6e0f04fc7e294c99c77638da5d6abb97b4be03 (UID
-  0068e189-b29d-4cf7-9b0c-63cb34dab472), finite iteration by worker-a Task
-  hive-request-48b8f568eaec9f747a0528cb5fe8ae07ff507397 (UID
-  580b0679-5109-43e3-8af0-05470fe31187), and official library transfer by
-  worker-b Task hive-request-2deb4fea21bdf1e8bfd734175d5bf8c681d288c7
-  (UID f641b493-3b74-49f4-bc2d-bb46824a4fa5). Isolated review by worker-a
-  Task hive-request-a4ccd90e846e995a5a3279bd28c75f97b0b7ac27 (UID
-  28f9c532-c101-4340-8ae2-b8b5be19bfbc) and Beacon acceptance apply only
-  to the isolated input. Destination transfer by worker-b Task
-  hive-request-c088ae9d9a0d3444007ff4f1ee1775bb56d3650a (UID
-  2bffa995-8832-471d-860b-2c8fd6b4a328) requires fresh destination review,
-  current-graph build and transitive standard-axiom checks, Beacon integration
-  and separate reviewed official release/publication. These credits do not infer
-  third-party rights or any selected-source coverage.
-  On 2026-09-28 those frozen-transfer destination prerequisites were satisfied
-  for exact H 313612a372a8c55a4e2af2bd0461d302998b6217: native run 823,
-  independent worker-a review 4631 by Task
-  hive-request-fcb0935dba04fc17d06ffa0ee41e9e620a7af414 (UID
-  df5947c5-96ed-4503-bb64-3081612cd20c), and Beacon PR 13/58741
-  acceptance and 58744 protected integration. At that preparation stage the
-  separate release/publication requirement remained. This documentary
-  preparation is by worker-b Task
-  hive-request-f1a3c9d387b0214bb0518f8a08d4fb053d20085f (UID
-  e7750ec2-a10d-4c6c-b465-5fc6b292c285); it does not approve its own
-  release artifact or decide source coverage or third-party rights. That
-  earlier official P publication is now complete, without changing any of
-  the dated historical facts above. The new universal-coordinate theorems,
-  private clients and original guide were authored in isolated H
-  b09f3c187eb6c9a17b1b08f2add69c081f04945f by worker-b Task
-  hive-request-d2dad13a497343a75e6182e409c383b3aa2a14d9 (UID
-  47d468b5-b70e-4340-8f05-bb4ea48acc79). The route was assessed by Tasks
-  hive-request-816ac77559f5852ec2c93e8bfb83d7a50aa20190 (UID
-  f1dc54a3-fb88-4806-b9dc-885a09d845ad) and
-  hive-request-fa10fd03a100f15dcd58a8d228ba2f015f386785 (UID
-  6d0a526a-97ec-4947-85c5-a03d153ed6b5). Fresh worker-a Task
-  hive-request-ad3bc257117d6035b4fdd0e632d083c6cac12ccd (UID
-  017291c6-f001-42b7-8151-de0c74eeade7) independently reviewed H;
-  Beacon accepted only isolated H in incubator issue 170/59476. Worker-b
-  Task hive-request-8d86211aac37fbfbacde1cff6292e2c8a00e2629 (UID
-  5daebbc8-1ee0-4dff-99c9-44d0a3e9bf9a) transferred attributed code,
-  clients and guide into this deliverable with destination-only ancestry.
-  At the C candidate handoff this transfer had no current-graph CI pass,
-  independent destination review, maintainer acceptance, source-coverage
-  decision or new publication; neither the earlier Q release nor the H review
-  supplied those prerequisites. Native run 864 (incubator issue 170/59605)
-  subsequently checked exact C, fresh worker-a Task
-  hive-request-434d90f78f1d94c51d15a45962e8aea3da037e5b (UID
-  61738d70-2bad-4bdd-a1c0-058d0339589d) independently reviewed its
-  destination mathematics, API, documentation and provenance, and Beacon
-  accepted C in PR 17/59647 and verified protected integration in incubator
-  issue 170/59660. This documentary release preparation is by worker-b Task
-  hive-request-847f8a2c7a0441d60d269b58583877aebf2e5b66 (UID
-  50282a97-7767-4038-959e-f2b067f06160), not its independent reviewer.
-  Separate release review, owner acceptance, publication, rights assessment
-  and selected-source correspondence remain exact-artifact decisions.
-  The finite-equation zero-set compression expression and private ZMod 2 client
-  were contributed in isolated incubator H
-  272d5abe773245829435be9b3cc4318f6b7505eb by worker-b Task
-  hive-request-8306ff75faa6638080e54d36d849222c7ac1948a (UID
-  03f7d2d8-159f-4715-a179-413c704b5507), independently reviewed in that
-  isolated scope by worker-a Task
-  hive-request-cee92f392eeacba31bce30072ea79308ee41a539 (UID
-  1af91b4f-4d05-4a1c-aaa3-a57ecb10a627) and accepted there by Beacon.
-  The preceding compression destination transfer of this expression, private client, guide,
-  imports and metadata is by worker-b Task
-  hive-request-7fa01782d4333fb52b06189a0cb7b7047745b74c (UID
-  13a94950-58fd-4d63-83f8-56f57e0e4c8c), without incubator commit
-  ancestry. At that frozen handoff isolated checking/review did not accept
-  the changed destination roots; native run 904 subsequently checked them,
-  fresh worker-a Task hive-request-23c96d626c3ec88ebbde46b9da9ade7cf64b5c9e
-  (UID 2b20c511-56b9-488f-b807-263fab37cf68) approved exact C in native
-  review 4735, and Beacon accepted/integrated its code/API in PR 21/60312 and
-  incubator 175/60316 on 2026-09-28. The prior universal-coordinate official
-  publication at e1cb91e0f25b663ef6d2439c77946602c8eae8e7 is complete.
-  Static documentary release preparation here is by worker-b Task
-  hive-request-9d6cb244757d207017694ca539c971c47be480aa (UID
-  e5f3b774-1939-4a87-a020-42e43ac815c1), not an independent reviewer or
-  proof author. The new official release, selected-source correspondence,
-  complete source coverage and third-party rights remain distinct decisions.
-  The polynomial-compression publication was subsequently completed at official
-  5fe9ff797f65d19f174f903774e660130ccf682d without changing the dated
-  handoff statements above. The subsequent zero-padded-substitution extraction,
-  direct-import clients, refactor and guide are by worker-b Hive Task
-  hive-request-87ff0e576db2df1f58dd28051b6af90d850a3eaa (UID
-  7c3de02d-f84f-4e5a-9077-b7d90c89c9ad), adapting the previously
-  credited original padding expression; no source or dependency expression
-  is copied. Exact S was independently reviewed by worker-a Task
-  hive-request-3d69bea9eb1999955d5963026e068f620c77d09e (UID
-  4b70d28c-ab1d-4812-bb82-dde3465979c5) and accepted as code/API by
-  Beacon in PR 26/61186; protected main integration is issue 25/61199.
-  Static documentary release preparation is by worker-b Task
-  hive-request-81ff4f8ed4e54e710826db01b99d3f8b6e66719e (UID
-  57b7bdad-4de2-40e5-b222-fb4e1ab53c8f), not the proof author,
-  independent release reviewer or release approver. At its 2026-09-29 static
-  preparation, the new documentary and public artifacts were unreviewed and
-  unpublished; their release subsequently completed before the officially
-  published sixteen-module homogeneous-system predecessor. Source coverage
-  and general third-party rights remain separate decisions.
-  The homogeneous-system producer and client were originally contributed by
-  worker-b Task hive-request-2a607c030e4f9149d136a1437547647f21a54267
-  (UID 6823bf27-2659-4a3d-b148-070659a6a3e9), assembled onto the accepted
-  shared parent by worker-b Task hive-request-c6c5382b9bb35f84dbff84c23d27f863fdb77457
-  (UID a3e3687f-c67e-498d-b393-5642c9822e88), and independently reviewed
-  for that donor by worker-a Task hive-request-52858cf1ac7008c14763295c2afecbe46f664b33
-  (UID 7d34093d-9ac7-4ac1-bbdf-4fbdef7bb247). This static destination
-  packaging and guide were prepared by worker-b Task
-  hive-request-fb1fe1fe6ecfc573a8e8655e5fdc7ce2d81818e5 (UID
-  1ae51c9a-694f-42d8-8c13-5bb6c2d102dc), not the original proof author,
-  destination reviewer or release approver. Original project code is offered
-  under Apache-2.0 without asserting third-party copyright or unrestricted
-  rights to unrelated source material.
-  The algebraic-extension producer and six ordinary-import examples were
-  originally authored in the incubator by worker-b Task
-  hive-request-96f1dca1b4a17c56caa8ca7f8b8d518f14944536 (UID
-  04300275-f025-45ca-8cab-6a198698424e), with independent isolated static
-  review by worker-a Task hive-request-9785896b85e84a53d3025f16db827c4b78830ae6
-  (UID 48125327-285b-4282-aa54-25e418f6038f), and later assemblies by
-  worker-b Tasks hive-request-44c016cf96bede6cce4afceb017e92ae327f6f0b
-  (UID b0739fa6-08a4-46e7-bb0a-45c896b955e2),
-  hive-request-5a21425f481ca8c7a602f34dac3efcdf4d621756
-  (UID 6b33eb50-364e-4cb2-bac6-c370f3419b25) and
-  hive-request-8b64fe8033188093548ec553ca7d17a4e7380e05
-  (UID 6c13688d-27da-4c5a-b14a-648fe64ee171). These distinct original
-  author, reviewer and assembler roles retain their exact revisions and
-  review records with the donor provenance.
-  This destination-only static transfer, licensed headers and original guide
-  are by worker-b Task hive-request-7b6e9279b48464263e0c3cf4204d661927b773af
-  (UID ab6641b6-10f3-495f-93a6-8879acd6c835), not the original proof
-  author, destination reviewer, integrator or release approver. The present
-  dependency graph retains mathlib 83abb3e776bdefcbc447a1e44d0debe4010039e5
-  and upgrades its direct official multivariate-polynomials pin to
-  6a04276766ad82d60702b24deb9a559a30a80007 for additive linear
-  coefficient evaluation. No general
-  third-party rights clearance or selected-source coverage is inferred.
-  The new rational-function producer and four ordinary-import examples
-  preserve the original proof/client expression authored by worker-b Task
-  hive-request-2cef48b41c07b09925370673ed34c399f4e5cd3a (UID
-  21ba059a-7155-468f-a088-ed904d1d29fe), subsequently accepted and
-  published in incubator main at 1d4559379957b0ce3ebc213cd644269e1244146e.
-  This destination-only unchanged-proof transfer, licensed headers and
-  original guide are by worker-b Task
-  hive-request-93e49bdef50daa6fb22fb8cc27768ee64799ec47 (UID
-  c96ea3cc-7f67-4c87-b215-0c1e2f3c9311), not the original proof author,
-  its independent reviewer, accepting maintainer or release approver.
-  Its four existing direct requires and resolved dependency graph remain
-  unchanged. The prior donor review/acceptance and predecessor run 1097 do
-  not review or certify this twenty-module transfer; source correspondence,
-  release/publication and third-party rights remain separate decisions.
+  Original coordinate-norm definitions, zero/scalar laws and signed-characteristic-
+  coefficient norm-polynomial proofs were contributed by Beacon and adapted
+  into this library. Other Formal Frontier contributors developed structural
+  basis-change and reindexing proofs, block iteration and anisotropic forms,
+  universal norm identities, polynomial padding/compression, homogeneous-system
+  and field-extension zeros, finite-field common zeros, positive-tensor-power
+  scalar-sum annihilation, client tests and guides. Their mathematical authorship
+  is distinct from subsequent assembly, independent review, documentation and
+  release editing. Mathlib supplies field norms, polynomial infrastructure and
+  Chevalley–Warning divisibility; the official multivariate-polynomials library
+  supplies finite block iteration and coefficient-evaluation infrastructure.
+  The mathematical book citation is background, not a claim to its authors'
+  proof expression. Original project code is offered under Apache-2.0;
+  upstream licenses and genuine third-party notices remain applicable.

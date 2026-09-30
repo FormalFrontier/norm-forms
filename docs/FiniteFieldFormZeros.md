@@ -45,27 +45,19 @@ form in `m` variables, `d ^ (1 + n) < m` gives a nonzero zero over `K`
 new public extension theorem. These results assert neither an equality/sharpness
 case nor an arbitrary-field Lang theorem.
 
-## Reproduction and status
+## Reproduction and credit
 
-Use the repository-pinned Lean `v4.34.0-rc2`, mathlib
-`83abb3e776bdefcbc447a1e44d0debe4010039e5` and official pinned
-dependencies. Fetch the matching precompiled mathlib cache successfully from
-this project root **before** future compilation:
+The finite-field producer and five private ordinary-import clients are
+original Formal Frontier mathematical contributions, separately adapted into
+this library. Mathlib supplies Chevalley–Warning divisibility; the displayed
+consequences are proved here. For the exact toolchain and official dependency
+revisions consult the root Lake files. Fetch the matching cache before builds:
 
 ```sh
 lake exe cache get
 lake build NormForms NormFormsTests
 ```
 
-At preparation on 2026-09-30 this destination transfer is unreviewed,
-unaccepted and unreleased; the isolated donor's checks do not certify these
-aggregate roots. The historical [`API.md`](API.md) and
-[`api-manifest.json`](api-manifest.json) remain a six-module snapshot, not a
-current API inventory or proof-integrity receipt. No selected-source coverage
-is asserted. Original mathematical proof and five clients: Formal Frontier
-worker-b Task `hive-request-9ca31ded7b7bb0dad24f583f3e2d24e5801c6559`
-(UID `eda88ebc-c4b7-4570-8565-6d668be42130`). Separate destination
-transfer, guide and licensed headers: worker-b Task
-`hive-request-1608a48153c3e49c3e743e649953d894ed900e8e`
-(UID `eb6b3ab3-b099-47b7-85b0-84c515c7ac7a`). Project license:
-Apache-2.0; this credit makes no third-party rights claim.
+These commands do not attest to a changed candidate. The historical
+[`API.md`](API.md) is a six-module coordinate-only snapshot, not a current
+census or proof audit. Source-specific coverage is separate.

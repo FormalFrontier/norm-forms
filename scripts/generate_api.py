@@ -1,17 +1,12 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
 # Authors: Formal Frontier Agents
-"""Version-bound public/native doc-gen4 reference for coordinate norm forms.
+"""Version-bound native doc-gen4 reference for coordinate norm forms.
 
-Adapted by worker-b Hive Task hive-request-5c7bd446c48d132f4495f7d4938f573615d879bc
-(UID df7a8fff-69fa-45c0-8013-325ac009ffbb) from the accepted
-finite-group-tate-cohomology generator 61577f7cf2e02715f621a724aa692921ab6bbad9,
-itself adapted from polynomial-root-stability 95ac896f81a3190b2634a4246a3e924d2a267a61
-and Anchor's ideal-completion recipe f0c8c34386109116e4912fb425a8ad15d9dc42a4.
-These fixed native records document analyzed input, not proof or release certification.
-The lint-repair re-binding is by worker-b Task
-hive-request-6ad3c27b74cd1653d514075bbba1c3a93d649ce1
-(UID e99a00fc-dbd5-4e6f-b6d6-cbfab82da92f).
+Adapted from Formal Frontier's finite-group Tate cohomology generator,
+following its polynomial-root-stability predecessor and Anchor's
+ideal-completion recipe. The fixed records document analyzed input,
+not proof or release certification.
 """
 
 if not __debug__:

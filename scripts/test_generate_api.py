@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
 # Authors: Formal Frontier Agents
-"""Corruption/replay checks over retained actual native records, not Lean substitutes.
+"""Corruption checks over retained native coordinate records, not Lean substitutes.
 
-Adapted by worker-b Hive Task hive-request-5c7bd446c48d132f4495f7d4938f573615d879bc
-(UID df7a8fff-69fa-45c0-8013-325ac009ffbb) from the accepted
-finite-group-tate-cohomology tests 61577f7cf2e02715f621a724aa692921ab6bbad9,
-after polynomial-root-stability 95ac896f81a3190b2634a4246a3e924d2a267a61.
+Adapted from Formal Frontier's finite-group Tate cohomology tests,
+following the polynomial-root-stability predecessor.
 """
 
 import argparse

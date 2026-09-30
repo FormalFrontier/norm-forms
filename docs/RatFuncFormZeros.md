@@ -62,7 +62,7 @@ the coefficient polynomials gives a zero of the cleared form, and the
 common denominator is nonzero, recovering a zero of `f`.
 
 The denominator clearing and coefficient-parameter lemmas are private
-implementation details. The sole new public theorem is
+implementation details. The public theorem is
 `MvPolynomial.exists_nonzero_zero_ratFunc_of_single_form_bound`; its public
 premise is supplied by the caller, not proved here. In particular this
 result does not assert simultaneous zeros over `RatFunc k` or a converse or
