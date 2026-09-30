@@ -3,7 +3,8 @@
 `NormForms` is a source-independent Lean library for universal coordinate norms
 under commutative base change, coordinate norm forms of field extensions,
 unbounded attained-degree anisotropic homogeneous forms, finite polynomial
-zero-set compression over non-algebraically-closed fields, and nontrivial
+zero-set compression over non-algebraically-closed fields, finite-field
+polynomial-system common-zero theorems, and nontrivial
 common zeros of equal-degree homogeneous systems under a direct
 all-positive-degree single-form bound. The same bound also yields nontrivial
 zeros of homogeneous forms over arbitrary algebraic field extensions and,
@@ -12,6 +13,31 @@ fields; a finite-transcendence-degree extension receives the corresponding
 degree-shifted bound. It depends directly on mathlib and
 exact official `multivariate-polynomials`, `algebraic-groups` and
 `sequence-growth` releases.
+
+## Preparation boundary — 2026-09-30
+
+This candidate adds finite-field polynomial-system common zeros by native
+Chevalley–Warning: a second zero from a known point under a strict sum of
+actual total degrees, nonzero zeros for positive varying-label homogeneous
+families, and the single-form case. The [ninth standalone mathematical
+guide](docs/FiniteFieldFormZeros.md) and [five private ordinary-import
+clients](NormFormsTests/FiniteFieldFormZeros.lean) describe the new producer
+`NormForms.FiniteFieldFormZeros`. This transfer has **twenty-four Lean modules**
+(ten producer leaves, twelve test leaves, two roots). The preceding
+twenty-two-module main `24f0a1aec483b8231b243a91b2a9467756a20d0f`
+is accepted and its same-tree official private release
+`786cb6b14aee3e78fce5cdcf0d1a85d1621fcaad` is reviewed and published.
+This new destination is **unreviewed, unaccepted and unreleased**. Its
+registered graph needs its own applicable checks and independent review;
+isolated donor checks do not certify it. The six-module generated API snapshot
+in [`docs/API.md`](docs/API.md) and [`docs/api-manifest.json`](docs/api-manifest.json)
+is explicitly historical and remains unchanged. No selected-source coverage
+or general third-party rights conclusion follows from this preparation.
+
+The following historical accounts retain their dated 2026-09-29 preparation
+boundaries, earlier counts and then-pending labels. The twenty-two-module
+predecessor has since been accepted and published; those labels are not
+present blockers or reviews of this new twenty-four-module candidate.
 
 At preparation on 2026-09-29, the finite-transcendence contribution adds
 `NormForms.FiniteTranscendenceFormZeros`, its ordinary client and the
@@ -167,6 +193,24 @@ For any field `K` with `¬ IsAlgClosed K`, the library also provides:
   [standalone guide](docs/PolynomialCommonZeroCompression.md) and
   [ordinary-import clients](NormFormsTests/CommonZeroCompression.lean).
 
+For a finite field `K` and finite types of variables and equations, the library
+derives common-zero existence results from mathlib's Chevalley–Warning
+divisibility theorem:
+
+- **Finite-field common zeros under strict degree bounds.**
+  `MvPolynomial.exists_ne_common_zero_of_sum_totalDegree_lt` gives a second
+  common zero distinct from a specified one when the sum of the equations'
+  **actual total degrees** is strictly below the number of variables; no
+  homogeneity is required. For **positive, possibly varying homogeneous degree
+  labels** whose sum is strictly below that count,
+  `MvPolynomial.exists_nonzero_common_zero_of_sum_degrees_lt` gives a nonzero
+  common zero, using the origin as the known point;
+  `MvPolynomial.exists_nonzero_zero_of_isHomogeneous_of_degree_lt` is its
+  single-form specialization. Zero and repeated forms and an empty equation
+  family are permitted. Import `NormForms.FiniteFieldFormZeros` or `NormForms`;
+  see the [standalone guide](docs/FiniteFieldFormZeros.md) and
+  [private ordinary-import clients](NormFormsTests/FiniteFieldFormZeros.lean).
+
 For an arbitrary field `K`, given a direct single-form nontrivial-zero premise
 uniform in **all positive degrees**, the library additionally provides:
 
@@ -275,8 +319,24 @@ coefficient, extension-field and basis-index universes are visible in the
 `import NormForms.CommonZeroCompression`,
 `import NormForms.AlgebraicExtensionFormZeros` or
 `import NormForms.RatFuncFormZeros` or
-`import NormForms.FiniteTranscendenceFormZeros`;
+`import NormForms.FiniteTranscendenceFormZeros` or
+`import NormForms.FiniteFieldFormZeros`;
 the reexport root is `NormForms.lean`.
+For `[Field K] [Fintype K]` and finite variable and equation index types,
+`NormForms.FiniteFieldFormZeros` exposes
+`MvPolynomial.exists_ne_common_zero_of_sum_totalDegree_lt` for a given common
+point and a strict sum of actual total degrees without homogeneity, plus
+`MvPolynomial.exists_nonzero_common_zero_of_sum_degrees_lt` for positive,
+possibly different homogeneous degree labels with a strict sum bound and
+`MvPolynomial.exists_nonzero_zero_of_isHomogeneous_of_degree_lt` for one form.
+The labels bound actual degrees; zero forms, repeated forms and the empty
+family are allowed. No public `CharP`, `DecidableEq` or field-size premise is
+needed. Mathlib supplies Chevalley–Warning divisibility; this library derives
+these convenient common-zero APIs. See the
+[finite-field guide](docs/FiniteFieldFormZeros.md). The
+[five private ordinary-import clients](NormFormsTests/FiniteFieldFormZeros.lean)
+include the finite-base-field trdeg-`n` bound `d ^ (1 + n) < m` without a
+user-supplied single-form premise; this is **not** a new public extension theorem.
 The finite-transcendence theorem has no additional public tower helpers:
 the field tower and equivalence transports are private. It combines the
 existing algebraic-extension and rational-function single-form APIs without

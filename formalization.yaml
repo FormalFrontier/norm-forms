@@ -2,7 +2,7 @@ version: "v0.4"
 
 project:
   name: "Norm Forms"
-  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees, general zero-padded polynomial substitution laws over commutative semirings, finite polynomial-system K-point zero-set compression over any non-algebraically-closed field, conditional nontrivial common zeros of equal-degree homogeneous systems over arbitrary fields, and transfer of a direct all-positive-degree single-form zero bound to arbitrary algebraic field extensions, to rational-function fields at the strict one-higher-exponent bound, and to finite-transcendence-degree extensions at the strict degree-shifted bound."
+  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees, general zero-padded polynomial substitution laws over commutative semirings, finite polynomial-system K-point zero-set compression over any non-algebraically-closed field, conditional nontrivial common zeros of equal-degree homogeneous systems over arbitrary fields, and transfer of a direct all-positive-degree single-form zero bound to arbitrary algebraic field extensions, to rational-function fields at the strict one-higher-exponent bound, and to finite-transcendence-degree extensions at the strict degree-shifted bound; finite-field common zeros of polynomial systems from strict actual-total-degree sums at a known point, with positive varying-label homogeneous and single-form consequences."
   authors:
     - "Formal Frontier Agents"
   responsible_maintainers:
@@ -39,6 +39,10 @@ sources:
     type: "folklore"
     relationship: "independently-proves"
     note: "For arbitrary fields k and K with Algebra k K and trdeg k K = n, a uniform all-positive-degree single-form bound a ^ r < t over k, positive d and strict d ^ (r + n) < m yield a nonzero K-point zero of each homogeneous-label-d form, including zero forms and an infinite algebraic remainder. Original project proof expression is transferred without asserting finite generation, simultaneous zeros, selected-source coverage or blanket third-party rights clearance."
+  - title: "Finite-field polynomial-system common zeros from Chevalley–Warning"
+    type: "folklore"
+    relationship: "independently-proves"
+    note: "Over a finite field, native Chevalley–Warning divisibility yields a second common zero from a known point when the strict sum of actual total degrees is below the variable count, without homogeneity. Positive possibly varying homogeneous labels bound actual degrees and give the origin as known zero, yielding nonzero common and single-form zeros, including zero or repeated forms and the empty family. A private client reuses the published finite-transcendence theorem at exponent 1, not a new public extension theorem. No selected-source coverage or blanket third-party rights clearance is asserted."
   - title: "Cohomology of Number Fields"
     authors:
       - "Jürgen Neukirch"
@@ -58,6 +62,19 @@ automation:
 review:
   status: "agent-reviewed"
   notes: >-
+    Preparation boundary, 2026-09-30: agent-reviewed applies only to the
+    preceding twenty-two-module accepted NormForms main
+    24f0a1aec483b8231b243a91b2a9467756a20d0f, whose same-tree official
+    private release 786cb6b14aee3e78fce5cdcf0d1a85d1621fcaad was
+    separately reviewed and published. This twenty-four-module finite-field
+    destination transfer is unreviewed, unaccepted and unreleased; it needs
+    applicable both-root build and complete actual private/generated-inclusive
+    transitive standard-three axiom audit, independent destination review,
+    responsible-maintainer acceptance and a separate official release.
+    Accepted isolated donor checks and review do not certify these destination
+    roots or registered dependency union. All following older preparation
+    boundaries, pending labels and counts retain their dated historical scope,
+    not a present blocker for the accepted twenty-two-module predecessor.
     Preparation boundary, 2026-09-29: agent-reviewed applies to earlier
     independently accepted destination code and API only. The accepted
     twenty-module NormForms main 67a2402fd60456f510bea901a59a724865a93538
@@ -209,6 +226,20 @@ review:
     third-party rights assessment remain separate exact-artifact decisions.
 
 acknowledgements: >-
+  The finite-field producer, five private clients and original mathematical
+  account were authored in isolated incubator C
+  c1081cb265954c8d348965256a13b8b1141eeb31 by worker-b Task
+  hive-request-9ca31ded7b7bb0dad24f583f3e2d24e5801c6559 (UID
+  eda88ebc-c4b7-4570-8565-6d668be42130). Independent worker-a Task
+  hive-request-4aaa49575d92a64f0efee36769a41f4a7b47e815 (UID
+  5bd57fbf-9ae7-4c17-982e-021af245213d) reviewed only that exact
+  isolated donor; Beacon accepted only its code/API. Separate licensed-header
+  static transfer and source-independent destination guide are by worker-b
+  Task hive-request-1608a48153c3e49c3e743e649953d894ed900e8e (UID
+  eb6b3ab3-b099-47b7-85b0-84c515c7ac7a). This Task is not the proof
+  author, independent destination reviewer, accepting maintainer or release
+  approver. Apache-2.0 project expression and retained credit do not infer
+  selected-source coverage or third-party rights clearance.
   The finite-transcendence proof and five ordinary-import examples were
   originally authored by worker-b Task
   hive-request-259e15acf7bd76333d5ed230bb87ea1b8bbe88f5 (UID

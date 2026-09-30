@@ -1,5 +1,26 @@
 # Mathematical guide and historical native reference
 
+## Preparation boundary — 2026-09-30
+
+The [finite-field form-zero guide](FiniteFieldFormZeros.md) is the **ninth
+standalone mathematical guide**. Its direct
+`NormForms.FiniteFieldFormZeros` producer and
+`NormFormsTests.FiniteFieldFormZeros` private ordinary-import clients bring
+this candidate to **twenty-four Lean modules** (ten producer leaves, twelve
+test leaves, two aggregate roots). Its strict actual-degree and positive
+varying-label bounds, plus the private finite-base-field extension client,
+are explained in that guide. The preceding twenty-two-module main
+`24f0a1aec483b8231b243a91b2a9467756a20d0f` is accepted and the
+same-tree official private release `786cb6b14aee3e78fce5cdcf0d1a85d1621fcaad`
+is reviewed and published. This new transfer remains unreviewed, unaccepted
+and unreleased; donor checks do not certify its registered roots. The existing
+[`API.md`](API.md) and [`api-manifest.json`](api-manifest.json) remain the
+byte-identical historical **six-module** snapshot, not a current audit.
+
+All following 2026-09-29 accounts, old counts, receipts and then-pending
+labels retain their dated scope. They do not undo the predecessor's later
+acceptance/publication or certify the new twenty-four-module destination.
+
 At preparation on 2026-09-29, the
 [finite-transcendence-form guide](FiniteTranscendenceFormZeros.md) becomes
 the **eighth standalone mathematical guide**, with direct
