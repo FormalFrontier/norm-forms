@@ -14,6 +14,7 @@ public import NormForms.AlgebraicExtensionFormZeros
 public import NormForms.RatFuncFormZeros
 public import NormForms.FiniteTranscendenceFormZeros
 public import NormForms.FiniteFieldFormZeros
+public import NormForms.TensorScalarSumAnnihilation
 
 /-! Coordinate norm forms, universal base-change norms, unbounded attained-degree anisotropic
 forms, finite polynomial-equation compression at coefficient-field points, and
@@ -21,6 +22,8 @@ equal-degree homogeneous-system common zeros under a single-form bound, includin
 nontrivial homogeneous-form zeros after arbitrary algebraic field extension and
 over rational-function fields at the one-higher-exponent bound, and over
 finite-transcendence-degree extensions at the degree-shifted bound;
-finite-field common zeros follow from strict degree-sum bounds. -/
+finite-field common zeros follow from strict degree-sum bounds; positive tensor powers
+admit surjective scalar sums annihilating finite families of arbitrary tensors under
+a strict finite-target dimension bound. -/
 
 set_option warningAsError true

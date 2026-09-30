@@ -1,5 +1,48 @@
 # Mathematical guide and historical native reference
 
+## Integrated tensor code and pending release — 2026-09-30
+
+The [tensor scalar-sum guide](TensorScalarShrinking.md) describes the
+**twenty-six-module** code integrated in `main` at
+`822416081cd75ebec2ba6f678f2afa61efb67b6a` on 2026-09-30
+03:08:17 UTC: eleven producer leaves, thirteen test leaves and two roots.
+The five tensor clients are **public** ordinary-import theorems. The exact
+destination has independent mathematical/API/provenance review, Beacon's
+code acceptance and a successful original both-root native run 1257 with
+complete private-inclusive transitive standard-three-axiom coverage. This
+documentary release candidate and its separate public snapshot were still
+unreviewed, unaccepted as releases and unpublished at preparation; the
+accepted twenty-four-module predecessor alone has a reviewed, privately
+published official release `e41278ba08ea5c8b41cea90595f0f07db441e9a5`.
+Neither code integration nor preparation establishes source coverage or
+blanket third-party rights. [`API.md`](API.md) and
+[`api-manifest.json`](api-manifest.json) are unchanged **six-module**
+historical generated files, not the current 26-module API or proof audit.
+Earlier pending labels below describe their dated preparations only, not
+this integrated code or acceptance of the new release artifacts.
+
+## Historical destination candidate boundary — 2026-09-30
+
+The [tensor scalar-sum guide](TensorScalarShrinking.md) is the **tenth
+standalone mathematical guide**. Direct producer
+`NormForms.TensorScalarSumAnnihilation` and the five **public** named clients
+in `NormFormsTests.TensorScalarSumAnnihilation` bring this destination candidate
+to **twenty-six Lean modules** (eleven producer leaves, thirteen test leaves
+and two aggregate roots). The native tensor map annihilates arbitrary selected
+tensors under a strict positive-exponent, finite-target dimension bound;
+surjectivity concerns the scalar sum, not its tensor map. The accepted
+twenty-four-module main `81a7e04b6304c6598b3f75288c98945b77cbceb6`
+has same-tree reviewed, privately published official release
+`e41278ba08ea5c8b41cea90595f0f07db441e9a5`. This branch is
+**unreviewed, unaccepted and unreleased**; its donor's independent review,
+original registered native checks, Beacon acceptance and protected integration
+are complete. Neither donor
+nor predecessor checks certify these changed roots. [`API.md`](API.md) and
+[`api-manifest.json`](api-manifest.json) remain the historical **six-module**
+snapshot, not a current API or proof-integrity audit. Earlier stage accounts,
+old counts and then-pending labels below are historical, not present blockers
+for the accepted twenty-four-module predecessor.
+
 ## Preparation boundary — 2026-09-30
 
 The [finite-field form-zero guide](FiniteFieldFormZeros.md) is the **ninth

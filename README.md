@@ -4,7 +4,8 @@
 under commutative base change, coordinate norm forms of field extensions,
 unbounded attained-degree anisotropic homogeneous forms, finite polynomial
 zero-set compression over non-algebraically-closed fields, finite-field
-polynomial-system common-zero theorems, and nontrivial
+polynomial-system common-zero theorems, positive tensor-power scalar-sum
+annihilation for arbitrary finite families of tensors, and nontrivial
 common zeros of equal-degree homogeneous systems under a direct
 all-positive-degree single-form bound. The same bound also yields nontrivial
 zeros of homogeneous forms over arbitrary algebraic field extensions and,
@@ -13,6 +14,60 @@ fields; a finite-transcendence-degree extension receives the corresponding
 degree-shifted bound. It depends directly on mathlib and
 exact official `multivariate-polynomials`, `algebraic-groups` and
 `sequence-growth` releases.
+
+## Integrated code and release preparation — 2026-09-30
+
+The **twenty-six-module** tensor scalar-sum contribution is integrated in
+protected `main` at `822416081cd75ebec2ba6f678f2afa61efb67b6a` (tree
+`7123fc0c5db711e05ee4c463445876e314e4336d`) as of 03:08:17 UTC.
+Its exact destination received independent mathematical/API/provenance review
+and Beacon's code acceptance. The original destination native run 1257
+successfully checked both roots, all 26 modules (78 compiled parts), 160
+declaration origins including 94 private origins, and complete transitive
+axiom dependencies restricted to `propext`, `Classical.choice` and `Quot.sound`.
+These checks apply to the unchanged Lean, root, dependency and checker inputs
+of this documentary candidate; they do not validate its revised prose or
+metadata. The five tensor clients are **public** ordinary-import results.
+
+At this documentary preparation the new release candidate and its separate
+public-lineage snapshot have **not** received independent release review,
+responsible-maintainer release acceptance or official publication. The
+preceding reviewed, privately published official release remains
+`e41278ba08ea5c8b41cea90595f0f07db441e9a5` (24 modules).
+Publication and any later source correspondence are separate decisions;
+neither general third-party rights clearance nor selected-source coverage is
+asserted here. The six-module generated [`docs/API.md`](docs/API.md) and
+[`docs/api-manifest.json`](docs/api-manifest.json) remain historical, not a
+current proof-integrity or API census. The dated preparation accounts that
+follow record their **earlier** pending statuses; they do not override this
+integrated-code status or pre-approve the new release artifacts.
+
+## Historical destination candidate boundary — 2026-09-30
+
+The preceding **twenty-four-module** `NormForms` main
+`81a7e04b6304c6598b3f75288c98945b77cbceb6` is accepted, and its
+same-tree official release `e41278ba08ea5c8b41cea90595f0f07db441e9a5`
+is reviewed and privately published. This **twenty-six-module** branch adds
+`NormForms.TensorScalarSumAnnihilation`, five **public** named ordinary-import
+clients in `NormFormsTests.TensorScalarSumAnnihilation`, and the
+[tenth standalone mathematical guide](docs/TensorScalarShrinking.md): eleven
+producer leaves, thirteen test leaves and two roots. For positive `s`, a finite
+field `K`, finite parameter and tensor-family index types, and a
+finite-dimensional tensor **target** `W`, it gives a nonzero coefficient vector
+whose scalar sum is surjective and whose native tensor map annihilates every
+prescribed tensor when `s * card τ * finrank K W < card ι`.
+
+This destination transfer is **unreviewed, unaccepted and unreleased**.
+Its incubator donor completed independent review, the original registered
+both-root/private-inclusive standard-axiom checks, and Beacon's acceptance
+and protected integration on 2026-09-30. Neither donor proofs nor preceding
+destination checks certify the new aggregate roots. The six-module generated
+[`docs/API.md`](docs/API.md) and
+[`docs/api-manifest.json`](docs/api-manifest.json) remain a historical snapshot.
+This preparation makes no selected-source coverage or blanket third-party
+rights claim. The historical boundaries below retain their own dated scopes;
+the twenty-four-module predecessor is **now** accepted and published, so its
+then-pending labels are not current blockers.
 
 ## Preparation boundary — 2026-09-30
 
@@ -211,6 +266,24 @@ divisibility theorem:
   see the [standalone guide](docs/FiniteFieldFormZeros.md) and
   [private ordinary-import clients](NormFormsTests/FiniteFieldFormZeros.lean).
 
+For finite `K`, finite parameter type `ι` and finite tensor-family index
+type `τ`, the integrated destination tensor-power leaf adds:
+
+- **Surjective scalar sums annihilating prescribed tensors.** A nonzero
+  `a : ι → K` makes `TensorPower.scalarSum (M := M) a` surjective.
+  Given `0 < s`, arbitrary tensors
+  `z : τ → (TensorPower K s (ι → M)) ⊗[K] N`, only a finite-dimensional
+  **target** `W = (TensorPower K s M) ⊗[K] N`, and the strict bound
+  `s * Fintype.card τ * Module.finrank K W < Fintype.card ι`,
+  `TensorPower.exists_nonzero_scalarSumTensor_annihilates` chooses one
+  such `a` whose native tensor map kills every `z j`. The source tensor
+  space need not be finite-dimensional, and no surjectivity of the tensor
+  map is claimed. The coordinate-polynomial proof uses homogeneous **label**
+  `s`, not an equality with actual total degree. Import
+  `NormForms.TensorScalarSumAnnihilation` or `NormForms`; see the
+  [guide](docs/TensorScalarShrinking.md) and
+  [five public named clients](NormFormsTests/TensorScalarSumAnnihilation.lean).
+
 For an arbitrary field `K`, given a direct single-form nontrivial-zero premise
 uniform in **all positive degrees**, the library additionally provides:
 
@@ -320,7 +393,8 @@ coefficient, extension-field and basis-index universes are visible in the
 `import NormForms.AlgebraicExtensionFormZeros` or
 `import NormForms.RatFuncFormZeros` or
 `import NormForms.FiniteTranscendenceFormZeros` or
-`import NormForms.FiniteFieldFormZeros`;
+`import NormForms.FiniteFieldFormZeros` or
+`import NormForms.TensorScalarSumAnnihilation`;
 the reexport root is `NormForms.lean`.
 For `[Field K] [Fintype K]` and finite variable and equation index types,
 `NormForms.FiniteFieldFormZeros` exposes
@@ -337,6 +411,15 @@ these convenient common-zero APIs. See the
 [five private ordinary-import clients](NormFormsTests/FiniteFieldFormZeros.lean)
 include the finite-base-field trdeg-`n` bound `d ^ (1 + n) < m` without a
 user-supplied single-form premise; this is **not** a new public extension theorem.
+`NormForms.TensorScalarSumAnnihilation` exposes `TensorPower.scalarSum`,
+`TensorPower.scalarSum_surjective_of_ne_zero`, `TensorPower.scalarSumTensor`
+and `TensorPower.exists_nonzero_scalarSumTensor_annihilates` for arbitrary
+prescribed source tensors with only a finite-dimensional target and the strict
+positive-exponent bound. The five **public** checked-use clients cover the
+native map, finite factors, empty families, rank-zero targets and a zero
+second tensor factor; see the [tensor guide](docs/TensorScalarShrinking.md).
+The result does not include `s = 0`, equivariance, direct-sum/eventual-rank
+shrinking, or a source-correspondence conclusion.
 The finite-transcendence theorem has no additional public tower helpers:
 the field tower and equivalence transports are private. It combines the
 existing algebraic-extension and rational-function single-form APIs without

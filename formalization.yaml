@@ -2,7 +2,7 @@ version: "v0.4"
 
 project:
   name: "Norm Forms"
-  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees, general zero-padded polynomial substitution laws over commutative semirings, finite polynomial-system K-point zero-set compression over any non-algebraically-closed field, conditional nontrivial common zeros of equal-degree homogeneous systems over arbitrary fields, and transfer of a direct all-positive-degree single-form zero bound to arbitrary algebraic field extensions, to rational-function fields at the strict one-higher-exponent bound, and to finite-transcendence-degree extensions at the strict degree-shifted bound; finite-field common zeros of polynomial systems from strict actual-total-degree sums at a known point, with positive varying-label homogeneous and single-form consequences."
+  description: "Finite-free universal-coordinate norms under arbitrary commutative base change; coordinate field norm forms with exact evaluation, degree, reindexing, and structural basis-change laws; anisotropic homogeneous forms with unbounded attained degrees, general zero-padded polynomial substitution laws over commutative semirings, finite polynomial-system K-point zero-set compression over any non-algebraically-closed field, conditional nontrivial common zeros of equal-degree homogeneous systems over arbitrary fields, and transfer of a direct all-positive-degree single-form zero bound to arbitrary algebraic field extensions, to rational-function fields at the strict one-higher-exponent bound, and to finite-transcendence-degree extensions at the strict degree-shifted bound; finite-field common zeros of polynomial systems from strict actual-total-degree sums at a known point, with positive varying-label homogeneous and single-form consequences. Finite-field positive tensor-power scalar sums annihilating arbitrary finite tensor families under a strict finite-target rank bound."
   authors:
     - "Formal Frontier Agents"
   responsible_maintainers:
@@ -43,6 +43,10 @@ sources:
     type: "folklore"
     relationship: "independently-proves"
     note: "Over a finite field, native Chevalley–Warning divisibility yields a second common zero from a known point when the strict sum of actual total degrees is below the variable count, without homogeneity. Positive possibly varying homogeneous labels bound actual degrees and give the origin as known zero, yielding nonzero common and single-form zeros, including zero or repeated forms and the empty family. A private client reuses the published finite-transcendence theorem at exponent 1, not a new public extension theorem. No selected-source coverage or blanket third-party rights clearance is asserted."
+  - title: "Finite-field scalar sums annihilating positive tensor powers"
+    type: "folklore"
+    relationship: "independently-proves"
+    note: "Current code/release status at 2026-09-30 03:36 UTC: The NormForms H2 tensor destination code was independently reviewed, accepted by Beacon and integrated into protected main at 03:08:17 UTC. The C2 documentary release successor and separate public-lineage U2 remain unreviewed and unaccepted as releases and unpublished at this preparation; no selected-source coverage or blanket third-party rights decision follows. Historical H2-preparation note from 2026-09-30 before H2 code acceptance and integration, retained verbatim: For finite field K, finite parameter and selected-tensor indices, positive s and finite-dimensional tensor target W, a strict s * card(selected tensors) * finrank K W < card(parameters) bound yields one nonzero scalar-sum coefficient vector: the ordinary scalar sum is surjective, and its actual induced tensor map annihilates every prescribed tensor, not merely pure tensors. Source tensor dimensions are unrestricted. Coordinate polynomial evaluations have homogeneous label s, not necessarily actual total degree s. Five public ordinary-import clients cover the native map, finite factors, empty families, abstract zero-rank targets and a zero second factor. No s = 0, tensor-map surjectivity, equivariance, direct-sum/eventual-rank or selected-source coverage claim follows. The incubator donor has completed independent review, original registered native checks and Beacon acceptance/protected integration. This destination transfer remains unreviewed, unaccepted and unreleased, requiring its own exact review and computation."
   - title: "Cohomology of Number Fields"
     authors:
       - "Jürgen Neukirch"
@@ -62,6 +66,58 @@ automation:
 review:
   status: "agent-reviewed"
   notes: >-
+    Metadata repair at 2026-09-30 03:36 UTC by formalization-worker-b Hive
+    Task hive-request-c31bc11e62f21e22d9480832555c316491a9336e (UID
+    346c7e1e-5188-4c08-bc9e-9773ab7064c9): the H2 tensor destination code
+    was independently reviewed, accepted by Beacon and integrated on protected
+    main at 03:08:17 UTC. The earlier C ef5d29e3646bf65779c71df383ec9238e5d51723
+    and public U 94b8cdfdf2d8da9a360326b8ec3d746ba254e67c received three
+    independent REQUEST_CHANGES verdicts on release metadata (PR49/50/51), not
+    release approval. Their C2/U2 successors remain unreviewed and unaccepted
+    as releases and unpublished at this preparation; no selected-source
+    formalization or blanket third-party rights clearance is asserted. All
+    following prior C preparation notes are preserved verbatim as historical
+    text, not current H2 code or successor release status.
+
+    Integrated-code boundary, 2026-09-30: agent-reviewed now includes
+    the exact twenty-six-module destination main
+    822416081cd75ebec2ba6f678f2afa61efb67b6a (tree
+    7123fc0c5db711e05ee4c463445876e314e4336d), independently reviewed
+    for mathematical meaning, API and provenance at exact report
+    2ad9d2c5db258277e7e0eeed0fc6323cba46a991, followed by Beacon's
+    code acceptance and protected integration at 03:08:17 UTC. Original
+    destination native run 1257 successfully checked both roots, 26 modules,
+    78 compiled parts and all 160 declaration origins including 94 private
+    origins under only propext, Classical.choice and Quot.sound. Its
+    computation remains applicable to unchanged Lean, root, dependency and
+    checker inputs, not to revised documentary or metadata meaning. At
+    this preparation the new documentary release candidate and its separate
+    public-lineage snapshot have not been independently release-reviewed,
+    accepted as releases or published. The source row's prospective and
+    pending-transfer words, and all following prior candidate boundaries,
+    retain their earlier dated meanings; they are not current code status.
+    The preceding twenty-four-module official release
+    e41278ba08ea5c8b41cea90595f0f07db441e9a5 remains independently
+    reviewed and privately published. Release decisions, source coverage
+    and blanket third-party rights clearance are not inferred here.
+    Historical preparation record follows:
+    Destination candidate boundary, 2026-09-30: agent-reviewed applies only
+    to accepted twenty-four-module main
+    81a7e04b6304c6598b3f75288c98945b77cbceb6 and the earlier reviewed
+    results, with same-tree official release
+    e41278ba08ea5c8b41cea90595f0f07db441e9a5 separately reviewed
+    and privately published. This twenty-six-module scalar-sum branch is
+    unreviewed, unaccepted and unreleased. Its exact incubator donor completed
+    independent review, full original native registered checks, Beacon's
+    acceptance and protected integration. Destination
+    both-root build, complete private/generated-inclusive transitive
+    standard-three axiom audit, independent destination review,
+    responsible-maintainer acceptance and separate official release are
+    still required. Changed inputs require renewed applicability; donor review and
+    predecessor checks do not certify this destination graph. Earlier
+    then-pending labels retain their historical scope and are not current
+    blockers to the accepted twenty-four-module predecessor. This metadata
+    makes no source-coverage or blanket third-party rights claim.
     Preparation boundary, 2026-09-30: agent-reviewed applies only to the
     preceding twenty-two-module accepted NormForms main
     24f0a1aec483b8231b243a91b2a9467756a20d0f, whose same-tree official
@@ -226,6 +282,29 @@ review:
     third-party rights assessment remain separate exact-artifact decisions.
 
 acknowledgements: >-
+  Static documentary release preparation on 2026-09-30 is by worker-b Task
+  hive-request-a26a15a8d87bcf395ef6411066086698e7844cda (UID
+  7900c153-7f1d-436b-8511-26c7e8dbc50c), not the proof author,
+  independent release reviewer or responsible accepting maintainer.
+  Earlier contributor and reviewer attribution is preserved below.
+  The positive tensor scalar-sum proof, five public clients and original
+  mathematical guide were contributed to the incubator by worker-b Task
+  hive-request-00add797a4e4cdad8e5f28cd39c5c9e328d31af5 (UID
+  b1b582ac-fbe9-4d6f-87c3-2bdb59e3bc0a), following the plan by
+  worker-b Task hive-request-8f66e2ffaba94e90d48cf88c4ac68a030a2b55f2
+  (UID 207a718a-58ed-4173-9cf4-2a742055193c). Fresh worker-a Task
+  hive-request-f9db7b7e0c80089a7adb0d883650d90642267afc (UID
+  9e6e1217-f41c-4c01-8c08-29485bcf8e4a) independently reviewed only
+  that frozen incubator donor; its original native checks, Beacon acceptance
+  and protected integration are now complete. These do not certify the
+  destination transfer or its different aggregate roots.
+  This prospective static destination transfer, licensed headers and adapted
+  standalone guide are by worker-b Task
+  hive-request-cb505aca61504146437d8d0fb49ab3df386e720f (UID
+  65cfc1eb-360f-4671-8563-ac89ab8f2f35), not its original mathematical
+  author, independent destination reviewer, accepting maintainer or release
+  approver. Apache-2.0 project expression and retained contributor credit
+  make no selected-source coverage or blanket third-party rights conclusion.
   The finite-field producer, five private clients and original mathematical
   account were authored in isolated incubator C
   c1081cb265954c8d348965256a13b8b1141eeb31 by worker-b Task
