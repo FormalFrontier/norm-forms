@@ -103,6 +103,32 @@ thirteen checked-use/test leaves and two aggregate roots.
   [five public checked-use clients](NormFormsTests/TensorScalarSumAnnihilation.lean)
   and the [tensor guide](docs/TensorScalarShrinking.md).
 
+## Using the library
+
+Add this dependency to your project's `lakefile.toml`:
+
+```toml
+[[require]]
+name = "norm-forms"
+git = "https://github.com/FormalFrontier/norm-forms.git"
+rev = "main"
+```
+
+Run `lake update` after adding or deliberately changing the dependency, and keep
+its resolved `lake-manifest.json` with your project. Use a Lean toolchain and
+mathlib revision compatible with this library's checked-in pins. For a
+reproducible dependency, replace `"main"` with a full published commit hash, such
+as `"c7724170d47f9ede86e8c318fc6e5311ab8d7192"`, then resolve and retain the manifest.
+The moving branch name by itself does not fix a dependency version.
+
+Import the complete library with:
+
+```lean
+import NormForms
+```
+
+The smaller imports and mathematical guides are listed below.
+
 ## Use and navigation
 
 `NormForms.lean` reexports every production leaf. For a smaller import use,
@@ -126,6 +152,8 @@ the official `multivariate-polynomials` dependency supplies block iteration
 and coefficient-evaluation infrastructure. The library's theorems, rather
 than these dependencies' results, are described above.
 
+### Building this repository
+
 Use the repository-pinned Lean toolchain and exact revisions in
 `lakefile.toml` and `lake-manifest.json`. Fetch the matching mathlib cache
 **successfully before** building:
@@ -137,26 +165,7 @@ lake build NormForms NormFormsTests
 ```
 
 The production root is `NormForms` and the client/test root is
-`NormFormsTests`. The commands are reproduction instructions, not proof or
-release evidence for a changed candidate.
-
-## Historical build and resource observations
-
-An earlier **single-coordinate** checkout on 2026-09-26 reported 2.3 seconds
-to compile `NormForms.Coordinate` **after** fetching its matching precompiled
-mathlib cache. The old `.lake` directory occupied approximately 7.7 GiB after
-cache extraction. The toolchain installation and cache/tool work overlapped;
-the cache fetch was not separately timed. These are historical observations,
-not a benchmark or resource minimum for this 26-module library, its full build
-and axiom audit, or a build of mathlib from source.
-
-That runner had a 15 GiB cgroup memory limit and four-CPU quota, neither a
-minimum requirement nor a memory estimate. A sampled cgroup-current reading
-of 13,565,493,248 bytes during overlapping cache/tool work included other
-processes and reclaimable page cache; it is **not** a peak or a child's RSS.
-`LEAN_NUM_THREADS=2` limits Lean runtime threads, not whole-job process
-concurrency or memory. Fetch the matching cache before building and monitor
-local capacity when reproducing larger workloads.
+`NormFormsTests`.
 
 ## Attribution and scope
 
@@ -168,9 +177,8 @@ anisotropic forms, polynomial padding and compression, common-zero and
 field-extension results, tensor theorem, client tests and mathematical guides.
 These roles include distinct original authors, later assemblers, independent
 reviewers and release editors; assembly or documentation work is not
-mathematical authorship or independent review. Formalization was AI-assisted
-using Codex CLI/Hive Tasks and independently reviewed as recorded in project
-history. The project code is offered under [Apache-2.0](LICENSE); retain
+mathematical authorship or independent review. Formalization was AI-assisted.
+The project code is offered under [Apache-2.0](LICENSE); retain
 applicable upstream licenses and contributor notices. The work draws on
 classical norm-form mathematics; Neukirch, Schmidt and Wingberg,
 *Cohomology of Number Fields*, Chapter VI, is background, not a reproduced

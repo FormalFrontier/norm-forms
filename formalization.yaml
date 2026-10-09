@@ -72,15 +72,12 @@ automation:
 review:
   status: "agent-reviewed"
   notes: >-
-    The mathematical code and APIs in the existing 26-module published
-    library received independent destination review and responsible-maintainer
-    acceptance. Pinned both-root build and complete transitive standard-axiom
-    evidence (including private declarations) apply to their unchanged code,
-    dependencies and checker inputs, not to subsequent documentation edits.
-    New public-reader wording and headers require their own affected review
-    before acceptance; this metadata does not assert review or publication of
-    any new cleanup contribution. Source correspondence, complete selected-source
-    coverage and unrelated third-party rights are separate decisions.
+    The coordinate and universal norm results, polynomial-system common-zero
+    theorems, field-extension transfer and positive-tensor-power annihilation
+    results have been independently reviewed. Their material hypotheses and
+    limitations are described in the README and mathematical guides. This status
+    does not claim complete coverage of a selected source or settle unrelated
+    third-party rights.
 
 acknowledgements: >-
   Original coordinate-norm definitions, zero/scalar laws and signed-characteristic-
