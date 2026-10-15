@@ -5,6 +5,7 @@ Authors: Formal Frontier Agents
 module
 
 public import NormForms.Coordinate
+public import NormForms.SpectralNorm
 public import NormForms.CoordinateNormIteration
 public import NormForms.PaddedSubstitution
 public import NormForms.CommonZeroCompression
@@ -16,7 +17,8 @@ public import NormForms.FiniteTranscendenceFormZeros
 public import NormForms.FiniteFieldFormZeros
 public import NormForms.TensorScalarSumAnnihilation
 
-/-! Coordinate norm forms, universal base-change norms, unbounded attained-degree anisotropic
+/-! Field-norm/spectral-norm comparison over complete ultrametric fields,
+coordinate norm forms, universal base-change norms, unbounded attained-degree anisotropic
 forms, finite polynomial-equation compression at coefficient-field points, and
 equal-degree homogeneous-system common zeros under a single-form bound, including
 nontrivial homogeneous-form zeros after arbitrary algebraic field extension and

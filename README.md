@@ -1,16 +1,26 @@
 # Norm Forms
 
-`NormForms` is a Lean library of coordinate norms, polynomial forms and
-common-zero theorems. Its results include universal norms over commutative base
-change, anisotropic norm forms, compression of finite polynomial systems at
-coefficient-field points, conditional nontrivial zeros of homogeneous systems,
-field-extension transfer, finite-field common zeros and scalar sums annihilating
-positive tensor powers. Import `NormForms` for the full library or one of the
-individual modules linked below. The library contains eleven production leaves,
-thirteen checked-use/test leaves and two aggregate roots.
+`NormForms` is a Lean library of field and coordinate norms, polynomial forms
+and common-zero theorems. Its results include field-norm/spectral-norm comparison,
+universal norms over commutative base change, anisotropic norm forms, compression
+of finite polynomial systems at coefficient-field points, conditional nontrivial
+zeros of homogeneous systems, field-extension transfer, finite-field common zeros
+and scalar sums annihilating positive tensor powers. Import `NormForms` for the
+full library or one of the individual modules linked below. The library contains
+twelve production leaves, fourteen checked-use/test leaves and two aggregate roots.
 
 ## Headline results
 
+- **Field norms and spectral norms.** For a finite field extension `L / K`
+  of a complete ultrametric normed field,
+  `Algebra.norm_norm_eq_spectralNorm_pow_finrank` proves
+  `‖Algebra.norm K x‖ = spectralNorm K L x ^ Module.finrank K L`.
+  The base norm may be trivial, the extension may be inseparable, and no norm
+  or topology on `L` is assumed. This is the exactly extending absolute-value
+  formula with exponent `1/[L:K]`, not the discrete normalized-valuation
+  formula with exponent `1/f`; it does not assert discreteness or `ef=[L:K]`.
+  See [`NormForms.SpectralNorm`](NormForms/SpectralNorm.lean) and the
+  [ramified quadratic 5-adic example](NormFormsTests/SpectralNorm.lean).
 - **Universal coordinate norms.** For a finite-free `R`-algebra `B` (which need
   not be commutative), a commutative ring `R`, a commutative `R`-algebra `A` and
   a finite basis `b`, `Algebra.norm_coordinates_baseChange b x` identifies the
@@ -133,13 +143,13 @@ The smaller imports and mathematical guides are listed below.
 
 `NormForms.lean` reexports every production leaf. For a smaller import use,
 for example, `import NormForms.Coordinate`,
-`import NormForms.CommonZeroCompression`,
+`import NormForms.SpectralNorm`, `import NormForms.CommonZeroCompression`,
 `import NormForms.FiniteFieldFormZeros` or
 `import NormForms.TensorScalarSumAnnihilation`. The
 [`docs/README.md`](docs/README.md) indexes all ten mathematical guides and
 ordinary-import clients. [`docs/API.md`](docs/API.md) and the matching
 [`docs/api-manifest.json`](docs/api-manifest.json) are a **historical six-module
-coordinate-only snapshot**, not a census of the present 26-module library;
+coordinate-only snapshot**, not a census of the present 28-module library;
 consult the linked source modules and guides for later declarations.
 The [historical reproduction and source-only limits](docs/README.md#historical-snapshot-reproduction-and-limitations)
 identify the exact older inputs and separate native data needed to check that snapshot.
@@ -147,7 +157,8 @@ identify the exact older inputs and separate native data needed to check that sn
 These definitions are generally noncomputable; the library does not provide
 an executable norm algorithm, every-degree anisotropic forms, reduced norms,
 `C_i` theory or cohomological computations. Mathlib provides the underlying
-field norm, characteristic polynomial and Chevalley–Warning divisibility;
+field norm, minimal-polynomial spectral norm, characteristic polynomial and
+Chevalley–Warning divisibility;
 the official `multivariate-polynomials` dependency supplies block iteration
 and coefficient-evaluation infrastructure. The library's theorems, rather
 than these dependencies' results, are described above.
@@ -177,9 +188,13 @@ anisotropic forms, polynomial padding and compression, common-zero and
 field-extension results, tensor theorem, client tests and mathematical guides.
 These roles include distinct original authors, later assemblers, independent
 reviewers and release editors; assembly or documentation work is not
-mathematical authorship or independent review. Formalization was AI-assisted.
-The project code is offered under [Apache-2.0](LICENSE); retain
-applicable upstream licenses and contributor notices. The work draws on
+mathematical authorship or independent review. The field-norm/spectral-norm
+comparison draws on Fesenko and Vostokov, *Local Fields and Their Extensions*,
+Chapter II, §2, and Mathlib's spectral-norm formalization by María Inés de
+Frutos-Fernández following Bosch, Güntzer and Remmert, *Non-Archimedean Analysis*,
+§§3.1–3.2; it also reuses Mathlib's algebraic norm, simple-extension power basis
+and tower-degree APIs. Formalization was AI-assisted. The project code is offered
+under [Apache-2.0](LICENSE); retain applicable upstream licenses and contributor notices. The work draws on
 classical norm-form mathematics; Neukirch, Schmidt and Wingberg,
 *Cohomology of Number Fields*, Chapter VI, is background, not a reproduced
 formal source or a claim of complete source formalization. Source-specific

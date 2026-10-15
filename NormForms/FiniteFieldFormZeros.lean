@@ -18,13 +18,12 @@ at the origin, even when some of the forms are zero.
 
 set_option warningAsError true
 set_option linter.style.haveILetI false
-set_option maxHeartbeats 200000
 
 public section
 
 namespace MvPolynomial
 
-variable {K σ ι : Type*} [Field K] [Fintype K] [Fintype σ] [Fintype ι]
+variable {K σ ι : Type*} [Field K] [Finite K] [Fintype σ] [Fintype ι]
 
 /-- A common zero is not unique when the sum of the actual total degrees is
 strictly smaller than the number of variables. The equations need not be
@@ -35,6 +34,7 @@ theorem exists_ne_common_zero_of_sum_totalDegree_lt
     (x₀ : σ → K) (hx₀ : ∀ i, eval x₀ (f i) = 0) :
     ∃ x : σ → K, x ≠ x₀ ∧ ∀ i, eval x (f i) = 0 := by
   classical
+  let := Fintype.ofFinite K
   obtain ⟨p, hp⟩ := CharP.exists K
   letI : CharP K p := hp
   have hchar : p ∣

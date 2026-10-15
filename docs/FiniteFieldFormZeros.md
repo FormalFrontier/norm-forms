@@ -1,9 +1,10 @@
 # Common zeros of forms over finite fields
 
 Import `NormForms.FiniteFieldFormZeros` (or `NormForms`) for three results in
-the `MvPolynomial` namespace. Let `K` be a field with `[Fintype K]`, and let
-`σ` and `ι` be finite types of variable and equation indices. There is no
-public `CharP`, `DecidableEq`, field-size inequality, or nonzero-form premise.
+the `MvPolynomial` namespace. Let `K` be a field with `[Finite K]`, and let
+`σ` and `ι` have `Fintype` structures for the variable counts and equation sums.
+There is no public enumeration of `K`, `CharP`, `DecidableEq`, field-size
+inequality, or nonzero-form premise.
 
 ## Results
 

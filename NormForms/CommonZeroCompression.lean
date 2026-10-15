@@ -36,13 +36,15 @@ private theorem anisotropic_padding (hK : ¬ IsAlgClosed K) :
 
 public section
 
+omit [Fintype ι] in
 /-- A finite system of polynomial equations over a non-algebraically-closed field
 has the same coefficient-field solutions as one polynomial equation. -/
-theorem exists_common_zero_polynomial (hK : ¬ IsAlgClosed K)
+theorem exists_common_zero_polynomial [Finite ι] (hK : ¬ IsAlgClosed K)
     (f : ι → MvPolynomial σ K) :
     ∃ g : MvPolynomial σ K,
       ∀ x : σ → K, eval x g = 0 ↔ ∀ i, eval x (f i) = 0 := by
   classical
+  let := Fintype.ofFinite ι
   obtain ⟨m, form, inclusion, _, _, hzero⟩ := anisotropic_padding (ι := ι) hK
   exact ⟨aeval (Function.extend inclusion f (fun _ => 0)) form,
     fun x => eval_aeval_pad_eq_zero_iff inclusion f form hzero x⟩

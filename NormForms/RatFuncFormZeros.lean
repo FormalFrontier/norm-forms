@@ -203,7 +203,8 @@ private theorem interchange_degree_le (m s d : ℕ)
       (exponent.prod fun i e => (parameterPolynomial (k := k) m s i) ^ e).natDegree ≤
         s * exponent.degree := by
     calc
-      _ ≤ ∑ i ∈ exponent.support, ((parameterPolynomial (k := k) m s i) ^ exponent i).natDegree := by
+      _ ≤ ∑ i ∈ exponent.support,
+          ((parameterPolynomial (k := k) m s i) ^ exponent i).natDegree := by
         simpa only [Finsupp.prod] using
           (Polynomial.natDegree_prod_le (s := exponent.support)
             (f := fun i : Fin m => (parameterPolynomial (k := k) m s i) ^ exponent i))

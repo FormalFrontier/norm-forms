@@ -1,13 +1,14 @@
 # Mathematical guides
 
-The production root [`NormForms`](../NormForms.lean) reexports eleven leaves;
-[`NormFormsTests`](../NormFormsTests.lean) imports thirteen checked-use leaves.
+The production root [`NormForms`](../NormForms.lean) reexports twelve leaves;
+[`NormFormsTests`](../NormFormsTests.lean) imports fourteen checked-use leaves.
 The [main README](../README.md#headline-results) introduces the results and
 their hypotheses. These guides explain the mathematics and the corresponding
 Lean declarations in more detail:
 
 | Topic | Guide | Producer and ordinary-import clients |
 | --- | --- | --- |
+| Field norms and spectral norms | [Norm comparison](../NormForms/SpectralNorm.lean) | [`NormForms.SpectralNorm`](../NormForms/SpectralNorm.lean), [ramified quadratic example](../NormFormsTests/SpectralNorm.lean) |
 | Field coordinate norms and basis changes | [Native coordinate signatures](API.md) | [`NormForms.Coordinate`](../NormForms/Coordinate.lean), [clients](../NormFormsTests/Coordinate.lean) and [direct API](../NormFormsTests/DirectAPI.lean) |
 | Universal norms and base change | [Universal-coordinate norm](UniversalCoordinateNorm.md) | [`NormForms.UniversalCoordinates`](../NormForms/UniversalCoordinates.lean), [clients](../NormFormsTests/UniversalCoordinates.lean) |
 | Unbounded anisotropic degrees | [Iterated coordinate norms](CoordinateNormIteration.md) | [`NormForms.CoordinateNormIteration`](../NormForms/CoordinateNormIteration.lean), [client](../NormFormsTests/CoordinateNormIteration.lean) |
@@ -23,7 +24,7 @@ Lean declarations in more detail:
 [`API.md`](API.md) and [`api-manifest.json`](api-manifest.json) are a generated
 **historical six-module coordinate-only snapshot** from an earlier Lean/mathlib
 pin. Their 18 production entries and 11 client entries are not a census of
-this 26-module library, and the snapshot is not a proof, axiom or release
+this 28-module library, and the snapshot is not a proof, axiom or release
 certificate. Later APIs are documented by the guides and producer modules.
 The generated `API.md` matches the manifest's `api_sha256`; its 29 displayed
 source anchors still identify the documented source docstrings.
@@ -35,14 +36,13 @@ six Lean sources and three toolchain/Lake inputs by SHA-256. All **nine** exact
 files appear in the earlier public-release history at commit
 `c4e1f302a4f4e9aa5cb84584ada022b9eb1ba73b`, an ancestor of the current
 official release. Its generated API, manifest and adapter scripts are also
-present. A reader with access to the official GitHub mirror can check out
-that exact commit in a **separate** checkout; the mirror remains private until
-the project authorizes public access. An equivalent source-only archive must
-contain byte-identical files. The manifest's analyzed revision
+present. That exact commit can be checked out from the public GitHub mirror
+in a **separate** checkout. An equivalent source-only archive must contain
+byte-identical files. The manifest's analyzed revision
 `54accffeba182bea1f6969c2f6d67a96a43dc6f7` and tree
 `c7dbbf39c7acf315ada65f18f84f0ed276c73151` identify the original
 development input, **not** an official GitHub-fetchable commit. Neither the
-current 26-module roots nor their newer mathlib and deliverable pins satisfy
+current 28-module roots nor their newer mathlib and deliverable pins satisfy
 the frozen generator's input hashes.
 
 From that historical checkout or exact source-only archive, compare the nine

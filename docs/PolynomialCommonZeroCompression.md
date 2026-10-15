@@ -2,7 +2,7 @@
 
 Import `NormForms.CommonZeroCompression` (or the aggregate `NormForms`) to
 compress a finite family of multivariate polynomial equations over a field `K`
-with `¬ IsAlgClosed K` into one equation. For `[Fintype ι]`, any variable type
+with `¬ IsAlgClosed K` into one equation. For `[Finite ι]`, any variable type
 `σ`, and `f : ι → MvPolynomial σ K`, the theorem
 `MvPolynomial.exists_common_zero_polynomial` returns `g` with
 
@@ -11,7 +11,7 @@ with `¬ IsAlgClosed K` into one equation. For `[Fintype ι]`, any variable type
   ∀ i, MvPolynomial.eval x (f i) = 0
 ```
 
-For `hf : ∀ i, (f i).IsHomogeneous d`, use
+With `[Fintype ι]` and `hf : ∀ i, (f i).IsHomogeneous d`, use
 `MvPolynomial.exists_homogeneous_common_zero_polynomial`. It also supplies an
 `m` strictly greater than `Fintype.card ι` and proves `g.IsHomogeneous (d * m)`.
 No positive-degree, nonempty-family, nonzero-polynomial, finite-variable,

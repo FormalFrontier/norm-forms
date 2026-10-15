@@ -3,7 +3,8 @@ version: "v0.4"
 project:
   name: "Norm Forms"
   description: >-
-    Coordinate norms over finite field extensions and universal finite-free
+    Field-norm/spectral-norm comparison over complete ultrametric fields;
+    coordinate norms over finite field extensions and universal finite-free
     norms under commutative base change; unbounded attained-degree anisotropic
     forms; polynomial padding and finite-system K-point zero-set compression;
     conditional homogeneous-system zeros and single-form zeros over algebraic,
@@ -17,6 +18,23 @@ project:
   license: "Apache-2.0"
 
 sources:
+  - title: "Local Fields and Their Extensions"
+    authors:
+      - "Ivan Fesenko"
+      - "Sergei Vostokov"
+    type: "book"
+    location: "Second edition, Chapter II, §2"
+    relationship: "formalizes"
+    note: "The exactly extending absolute-value field-norm formula over complete ultrametric fields, including trivial base norms and inseparable extensions. This is the 1/[L:K] relation underlying the normalized 1/f valuation formula, not discreteness, ef=[L:K], or complete section coverage."
+  - title: "Non-Archimedean Analysis"
+    authors:
+      - "Siegfried Bosch"
+      - "Ulrich Güntzer"
+      - "Reinhold Remmert"
+    type: "book"
+    location: "Sections 3.1–3.2"
+    relationship: "background"
+    note: "Mathlib's minimal-polynomial spectral-norm formalization by María Inés de Frutos-Fernández supplies the complete nontrivially normed ultrametric coefficient formula."
   - title: "Finite-basis field norm and coordinate norm-form constructions"
     type: "folklore"
     relationship: "independently-proves"
@@ -89,8 +107,13 @@ acknowledgements: >-
   scalar-sum annihilation, client tests and guides. Their mathematical authorship
   is distinct from subsequent assembly, independent review, documentation and
   release editing. Mathlib supplies field norms, polynomial infrastructure and
-  Chevalley–Warning divisibility; the official multivariate-polynomials library
+  Chevalley–Warning divisibility. The spectral-norm comparison uses Mathlib's
+  formalization by María Inés de Frutos-Fernández following Bosch, Güntzer and
+  Remmert, together with algebraic norm, simple-extension power-basis and tower-
+  degree APIs. It follows the exactly extending absolute-value formula discussed
+  by Fesenko and Vostokov, not the full discrete normalized-valuation theorem;
+  the official multivariate-polynomials library
   supplies finite block iteration and coefficient-evaluation infrastructure.
-  The mathematical book citation is background, not a claim to its authors'
-  proof expression. Original project code is offered under Apache-2.0;
+  The Cohomology of Number Fields citation is background, not a claim to its
+  authors' proof expression. Original project code is offered under Apache-2.0;
   upstream licenses and genuine third-party notices remain applicable.

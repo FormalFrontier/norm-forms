@@ -7,6 +7,8 @@ module
 import NormForms.CoordinateNormIteration
 import Mathlib.Algebra.Field.ZMod
 
+-- These import clients deliberately add no public declarations.
+set_option linter.privateModule false
 set_option warningAsError true
 set_option linter.style.haveILetI false
 

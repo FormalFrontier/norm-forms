@@ -126,7 +126,7 @@ private theorem scalarSumCoordinatePolynomial_eval (s : ℕ)
 and a strict dimension bound admit a single surjective scalar sum whose induced
 tensor map annihilates any prescribed finite family of tensors. No finiteness
 assumption on either factor or the source tensor space is needed. -/
-theorem exists_nonzero_scalarSumTensor_annihilates [Fintype K] {τ : Type*} [Fintype τ]
+theorem exists_nonzero_scalarSumTensor_annihilates [Finite K] {τ : Type*} [Fintype τ]
     (s : ℕ) [FiniteDimensional K ((TensorPower K s M) ⊗[K] N)]
     (hs : 0 < s) (z : τ → (TensorPower K s (ι → M)) ⊗[K] N)
     (h : s * Fintype.card τ * Module.finrank K ((TensorPower K s M) ⊗[K] N) <

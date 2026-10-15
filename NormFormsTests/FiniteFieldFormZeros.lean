@@ -7,13 +7,15 @@ module
 import NormForms.FiniteFieldFormZeros
 import NormForms.FiniteTranscendenceFormZeros
 
+-- These import clients deliberately add no public declarations.
+set_option linter.privateModule false
 set_option warningAsError true
 
 namespace FiniteFieldFormZerosClient
 
 open MvPolynomial
 
-variable {k : Type*} [Field k] [Fintype k]
+variable {k : Type*} [Field k] [Finite k]
 
 private theorem twoFormsDifferentLabels (m : ℕ) (hsize : 3 < m)
     (f : Fin 2 → MvPolynomial (Fin m) k)

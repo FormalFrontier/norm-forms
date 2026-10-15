@@ -7,6 +7,8 @@ module
 import NormForms.UniversalCoordinates
 import Mathlib.Data.ZMod.Basic
 
+-- These import clients deliberately add no public declarations.
+set_option linter.privateModule false
 set_option warningAsError true
 
 open Module MvPolynomial
