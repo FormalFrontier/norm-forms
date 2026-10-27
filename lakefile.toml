@@ -1,6 +1,7 @@
 name = "norm-forms"
 version = "0.1.0"
 defaultTargets = ["NormForms", "NormFormsTests"]
+lintDriver = "batteries/runLinter"
 
 [leanOptions]
 autoImplicit = false
