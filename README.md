@@ -180,15 +180,16 @@ The production root is `NormForms` and the client/test root is
 
 ## Attribution and scope
 
-Authors: **Formal Frontier Agents**. Original coordinate-norm definitions,
+Authors: **Formal Frontier Agents**. The original coordinate-norm definitions,
 zero/scalar laws and signed-characteristic-coefficient norm-polynomial proofs
-were first contributed by Beacon and adapted for this library; other project
-contributors supplied the structural basis-change results, block iteration,
+are earlier Formal Frontier contributions adapted for this library. Further
+project contributions include structural basis-change results, block iteration,
 anisotropic forms, polynomial padding and compression, common-zero and
-field-extension results, tensor theorem, client tests and mathematical guides.
-These roles include distinct original authors, later assemblers, independent
-reviewers and release editors; assembly or documentation work is not
-mathematical authorship or independent review. The field-norm/spectral-norm
+field-extension results, and tensor scalar-sum annihilation. Project contributors
+also wrote client tests and mathematical guides, which are distinct from the
+mathematical arguments and their Lean formalizations.
+
+The field-norm/spectral-norm
 comparison draws on Fesenko and Vostokov, *Local Fields and Their Extensions*,
 Chapter II, §2, and Mathlib's spectral-norm formalization by María Inés de
 Frutos-Fernández following Bosch, Güntzer and Remmert, *Non-Archimedean Analysis*,
