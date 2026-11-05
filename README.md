@@ -2,12 +2,12 @@
 
 `NormForms` is a Lean library of field and coordinate norms, polynomial forms
 and common-zero theorems. Its results include field-norm/spectral-norm comparison,
-universal norms over commutative base change, anisotropic norm forms, compression
+universal norms over commutative base change, norms modulo extended ideals,
+anisotropic norm forms, compression
 of finite polynomial systems at coefficient-field points, conditional nontrivial
 zeros of homogeneous systems, field-extension transfer, finite-field common zeros
 and scalar sums annihilating positive tensor powers. Import `NormForms` for the
-full library or one of the individual modules linked below. The library contains
-twelve production leaves, fourteen checked-use/test leaves and two aggregate roots.
+full library or one of the individual modules linked below.
 
 ## Headline results
 
@@ -31,6 +31,11 @@ twelve production leaves, fourteen checked-use/test leaves and two aggregate roo
   trivial coefficient algebras. See
   [`NormForms.UniversalCoordinates`](NormForms/UniversalCoordinates.lean) and
   the [universal-coordinate guide](docs/UniversalCoordinateNorm.md).
+- **Norm congruences.** For commutative rings `R` and `S` with a finite free
+  `R`-algebra structure on `S`, `Algebra.norm_sub_norm_mem_ideal` states that
+  `x - y ∈ I.map (algebraMap R S)` implies `Algebra.norm R x - Algebra.norm R y ∈ I`.
+  The ideal is arbitrary, and neither ring needs to be a domain or local.
+  See [`NormForms.IdealCongruence`](NormForms/IdealCongruence.lean).
 - **Norm forms and basis changes.** For a finite field extension `L / K` with
   finite `K`-basis `b` indexed by `ι`, `NormForms.coordinateNormPolynomial b`
   evaluates to the field norm, is homogeneous of **actual total degree**
@@ -149,7 +154,7 @@ for example, `import NormForms.Coordinate`,
 [`docs/README.md`](docs/README.md) indexes all ten mathematical guides and
 ordinary-import clients. [`docs/API.md`](docs/API.md) and the matching
 [`docs/api-manifest.json`](docs/api-manifest.json) are a **historical six-module
-coordinate-only snapshot**, not a census of the present 28-module library;
+coordinate-only snapshot**, not a census of the library;
 consult the linked source modules and guides for later declarations.
 The [historical reproduction and source-only limits](docs/README.md#historical-snapshot-reproduction-and-limitations)
 identify the exact older inputs and separate native data needed to check that snapshot.

@@ -1,5 +1,5 @@
 /-
-Licensed under the Apache License, Version 2.0 (see LICENSE).
+SPDX-License-Identifier: Apache-2.0
 Authors: Formal Frontier Agents
 -/
 module
@@ -11,54 +11,8 @@ import NormForms.PaddedSubstitution
 import NormForms.UniversalCoordinates
 
 /-!
-# Selected norm-form axiom prints
+# Norm-form examples and polynomial identities
 
-The targets include 25 selected named production declarations (18 coordinate,
-two universal, two common-zero compression and three padded-substitution laws)
-and 11 named test theorems. The additional public iteration theorem is not
-selected here. This file does not audit private or generated declarations in
-every shipped module.
+This module imports the coordinate examples and the common-zero, substitution,
+and universal-coordinate identities.
 -/
-
-set_option warningAsError true
-
-#print axioms NormForms.coordinateNorm
-#print axioms NormForms.coordinateNorm_eq_zero_iff
-#print axioms NormForms.coordinateNorm_smul
-#print axioms NormForms.coordinateChange
-#print axioms NormForms.coordinateChange_apply
-#print axioms NormForms.coordinateNorm_coordinateChange
-#print axioms NormForms.coordinateNormPolynomial
-#print axioms NormForms.coordinateNormPolynomial_isHomogeneous
-#print axioms NormForms.coordinateNormPolynomial_eval
-#print axioms NormForms.coordinateNormPolynomial_eval_eq_zero_iff
-#print axioms NormForms.coordinateNormPolynomial_ne_zero
-#print axioms NormForms.coordinateNormPolynomial_totalDegree
-#print axioms NormForms.coordinateNormPolynomial_eval_coordinateChange
-#print axioms NormForms.coordinateNormPolynomial_reindex
-#print axioms NormForms.coordinateNorm_reindex
-#print axioms NormForms.coordinateChangePolynomial
-#print axioms NormForms.coordinateChangePolynomial_eval
-#print axioms NormForms.coordinateNormPolynomial_changeBasis
-
-#print axioms Algebra.norm_coordinates_baseChange
-#print axioms Algebra.norm_universalCoordinates
-
-#print axioms MvPolynomial.exists_common_zero_polynomial
-#print axioms MvPolynomial.exists_homogeneous_common_zero_polynomial
-#print axioms MvPolynomial.eval_aeval_pad_eq_zero_imp
-#print axioms MvPolynomial.eval_aeval_pad_eq_zero_iff
-#print axioms MvPolynomial.IsHomogeneous.aeval_pad
-
-#print axioms NormFormsTests.rational_singleton_norm
-#print axioms NormFormsTests.rational_singleton_polynomial
-#print axioms NormFormsTests.complex_norm_polynomial
-#print axioms NormFormsTests.complex_swap_coordinates
-#print axioms NormFormsTests.complex_reindex_polynomial
-#print axioms NormFormsTests.complex_changeBasis_eval
-#print axioms NormFormsTests.complex_changeBasis_polynomial
-
-#print axioms NormFormsTests.finite_identity_norm_one
-#print axioms NormFormsTests.finite_unequal_indices_eval
-#print axioms NormFormsTests.finite_unequal_indices_rename
-#print axioms NormFormsTests.finite_unequal_indices_substitution

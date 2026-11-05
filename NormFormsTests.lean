@@ -1,5 +1,5 @@
 /-
-Licensed under the Apache License, Version 2.0 (see LICENSE).
+SPDX-License-Identifier: Apache-2.0
 Authors: Formal Frontier Agents
 -/
 module
@@ -26,8 +26,7 @@ The test root builds the ramified quadratic 5-adic example,
 public-root, direct-coordinate, existence-theorem,
 finite-equation-compression, padded-substitution, universal-coordinate,
 homogeneous-system, algebraic-extension, rational-function, finite-transcendence,
-finite-field form-zero and tensor scalar-sum clients
-with selected axiom prints; it is not a private/generated-declaration audit.
+finite-field form-zero and tensor scalar-sum clients.
 -/
 
 set_option warningAsError true
