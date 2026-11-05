@@ -5,12 +5,23 @@ and common-zero theorems. Its results include field-norm/spectral-norm compariso
 universal norms over commutative base change, norms modulo extended ideals,
 anisotropic norm forms, compression
 of finite polynomial systems at coefficient-field points, conditional nontrivial
-zeros of homogeneous systems, field-extension transfer, finite-field common zeros
-and scalar sums annihilating positive tensor powers. Import `NormForms` for the
-full library or one of the individual modules linked below.
+zeros of homogeneous systems, field-extension transfer, finite-field common zeros,
+scalar sums annihilating positive tensor powers, and first-order norm–trace
+congruences. Import `NormForms` for the full library or one of the individual
+modules linked below.
 
 ## Headline results
 
+- **First-order norm–trace congruence.** For commutative rings `R`, `S`, an
+  `R`-algebra `S`, any ideal `I` of `R` and `x ∈ I.map (algebraMap R S)`,
+  `Algebra.norm_one_add_sub_one_sub_trace_mem_ideal_sq` proves
+  `Algebra.norm R (1 + x) - 1 - Algebra.trace R S x ∈ I ^ 2`.
+  On finite-free algebras this is the usual first-order norm formula,
+  including rank zero, characteristic two and nonreduced base rings.
+  No finite/free hypotheses are required: if there is no finite basis,
+  Mathlib's norm is constantly one and its trace is zero. This convention
+  is not a new arithmetic norm theory for nonfree or infinite algebras.
+  See [`NormForms.TraceCongruence`](NormForms/TraceCongruence.lean).
 - **Field norms and spectral norms.** For a finite field extension `L / K`
   of a complete ultrametric normed field,
   `Algebra.norm_norm_eq_spectralNorm_pow_finrank` proves
@@ -196,7 +207,12 @@ mathematical arguments and their Lean formalizations.
 
 The field-norm/spectral-norm
 comparison draws on Fesenko and Vostokov, *Local Fields and Their Extensions*,
-Chapter II, §2, and Mathlib's spectral-norm formalization by María Inés de
+Chapter II, §2. Their unramified norm–trace theory also motivates the
+first-order ideal-square congruence, whose proof reuses Mathlib's norm/trace
+formalization by Anne Baanen, characteristic-polynomial coefficient theory by
+Aaron Anderson, Jalex Stark and Slava Naprienko, characteristic-polynomial
+evaluation by Kim Morrison, and polynomial evaluation and ideal APIs.
+The spectral-norm comparison uses Mathlib's formalization by María Inés de
 Frutos-Fernández following Bosch, Güntzer and Remmert, *Non-Archimedean Analysis*,
 §§3.1–3.2; it also reuses Mathlib's algebraic norm, simple-extension power basis
 and tower-degree APIs. Formalization was AI-assisted. The project code is offered
